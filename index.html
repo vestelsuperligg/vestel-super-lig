@@ -742,6 +742,28 @@ header nav a{padding:8px 13px;font-size:13px}
 #disiplin .discipline-empty small{display:block;margin-top:5px;color:#77716c}
 @media(max-width:650px){#disiplin .discipline-tabs{gap:0}#disiplin .discipline-tab{padding:9px 4px;font-size:11px}#disiplin .discipline-panel{padding:10px}#disiplin .discipline-item,#disiplin .discipline-team{grid-template-columns:38px minmax(0,1fr);gap:10px;padding:12px 4px}#disiplin .discipline-icon,#disiplin .discipline-team-mark{width:34px;height:34px}#disiplin .discipline-status,#disiplin .discipline-team>strong{grid-column:2;justify-self:start;margin-top:0}}
 
+
+/* Disiplin Merkezi: Stadyum Skorboardu */
+#disiplin>h2{color:#f7f8fb;font-weight:950;letter-spacing:-.03em}
+#disiplin .discipline-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:7px;background:#101820;border:1px solid #35424d;border-radius:7px}
+#disiplin .discipline-tab{min-height:44px;padding:9px 8px;background:#1b2832;border:1px solid #344450;border-radius:4px;color:#aebdc7;font-weight:900;letter-spacing:.025em}
+#disiplin .discipline-tab.active{background:#c52e43;border-color:#f05a69;color:#fff;box-shadow:0 0 15px #c52e4350,inset 0 -3px 0 #821d30}
+#disiplin .discipline-panel{margin-top:14px;padding:16px;background:linear-gradient(145deg,#111c25,#192630);border:1px solid #40515d;border-radius:7px;box-shadow:0 8px 24px #05090d99}
+#disiplin .discipline-list,#disiplin .discipline-team-list{display:grid;gap:8px;margin:0;padding:0;border:0}
+#disiplin .discipline-item,#disiplin .discipline-team{position:relative;display:grid;grid-template-columns:48px minmax(0,1fr) auto;align-items:center;gap:13px;margin:0;padding:12px 14px;background:linear-gradient(90deg,#202f39,#17242e);border:1px solid #3b4d59;border-left:4px solid #c52e43;border-radius:4px;box-shadow:inset 0 1px 0 #ffffff08,0 3px 9px #050a0e66}
+#disiplin .discipline-item:before,#disiplin .discipline-team:before{display:none}
+#disiplin .discipline-icon,#disiplin .discipline-team-mark{display:grid;place-items:center;width:42px;height:42px;background:#3a2630;border:1px solid #a53a4d;border-radius:4px;color:#fff;font-size:18px}
+#disiplin .discipline-player b,#disiplin .discipline-team b{display:block;color:#f4f7f9;font-size:14px;font-weight:950;letter-spacing:.025em;text-transform:uppercase}
+#disiplin .discipline-player span,#disiplin .discipline-team span,#disiplin .discipline-team small{display:block;margin-top:4px;color:#a8bac5;font-size:10px;font-weight:750;letter-spacing:.09em;text-transform:uppercase}
+#disiplin .discipline-status{padding:7px 10px;background:#14382d;border:1px solid #2e815b;border-radius:3px;color:#91e8b6;font-size:10px;font-weight:950;letter-spacing:.045em;white-space:nowrap}
+#disiplin .discipline-status i{display:inline-block;width:7px;height:7px;margin-right:6px;border-radius:1px;background:#45db91;box-shadow:0 0 8px #45db91a0}
+#disiplin .discipline-team>strong{padding:8px 11px;background:#57202d;border:1px solid #cf4056;border-radius:3px;color:#ff8b99;font-size:14px;font-weight:950;letter-spacing:.04em;white-space:nowrap}
+#disiplin .discipline-team-sanction{background:linear-gradient(90deg,#38242e,#202832);border-left:4px solid #f0445b}
+#disiplin .discipline-empty{padding:28px 18px;background:#1d2a34;border:1px dashed #52636e;border-radius:4px;text-align:center}
+#disiplin .discipline-empty b{display:block;margin-top:8px;color:#f4f7f9}
+#disiplin .discipline-empty small{display:block;margin-top:5px;color:#a8bac5}
+@media(max-width:650px){#disiplin .discipline-tabs{gap:4px;padding:5px}#disiplin .discipline-tab{padding:8px 3px;font-size:10px}#disiplin .discipline-panel{padding:9px}#disiplin .discipline-item,#disiplin .discipline-team{grid-template-columns:36px minmax(0,1fr);gap:9px;padding:11px 9px}#disiplin .discipline-icon,#disiplin .discipline-team-mark{width:33px;height:33px}#disiplin .discipline-status,#disiplin .discipline-team>strong{grid-column:2;justify-self:start;margin-top:1px}}
+
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#dna">Takımlar</a><a href="#yonetmelik">Lig Yönetmeliği</a><a href="#sezon">Sezon Enleri</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
