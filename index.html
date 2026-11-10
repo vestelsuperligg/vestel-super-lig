@@ -223,10 +223,54 @@ header nav a{padding:8px 13px;font-size:13px}
 #yonetmelik .reg-card b{color:#fff}
 @media(max-width:680px){#yonetmelik .reg-card{border-radius:15px}}
 
-</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#yonetmelik">Lig Yönetmeliği</a><a href="#sezon">Sezon Enleri</a><a href="#dna">Takımlar</a></nav><main class="wrap">
+
+/* Ziraat Türkiye Kupası eşleşme ağacı */
+#kupa{--cup-red:#b82027}
+#kupa>h2{color:#ffe9e9}
+#kupa .cup-legend{display:none}
+#kupa .cup-bracket{display:grid;grid-template-columns:1.05fr 1.05fr 1fr .9fr;gap:16px;align-items:center;padding:20px;border:1px solid #8d3038;border-radius:20px;background:radial-gradient(ellipse at 50% 0%,#492027 0%,#211a22 58%,#17151d 100%);box-shadow:0 14px 35px #0005}
+#kupa .cup-stage{display:flex;flex-direction:column;justify-content:space-around;gap:18px;min-width:0}
+#kupa .cup-stage h3{text-align:center;margin:0 0 4px;padding:10px 5px;border-radius:10px;background:linear-gradient(135deg,#d52b31,#8f151d);color:#fff;font-size:14px;letter-spacing:.06em}
+#kupa .cup-match{min-height:84px;display:flex;flex-direction:column;justify-content:center;gap:7px;padding:12px;border:1.5px solid #bd444b;border-radius:13px;background:linear-gradient(145deg,#fff8f5,#f0e4e2);color:#17151a;text-align:center;box-shadow:0 6px 15px #0003}
+#kupa .cup-match b{font-size:13px;font-weight:900;line-height:1.25}
+#kupa .cup-match i{height:1px;background:linear-gradient(90deg,transparent,#c33b42,transparent)}
+#kupa .cup-match small{font-size:9px;font-weight:900;letter-spacing:.08em;color:#a3232a}
+#kupa .cup-pending{background:linear-gradient(145deg,#34252b,#241d27);border-color:#86505a;color:#fff;min-height:96px}
+#kupa .cup-pending b{color:#f8e8e9}
+#kupa .cup-pending small{color:#ef9298}
+#kupa .cup-champion{text-align:center;padding:15px 8px;border:1px dashed #e4bd65;border-radius:12px;color:#f3d68c;font-weight:950;letter-spacing:.08em}
+@media(max-width:850px){#kupa .cup-bracket{grid-template-columns:repeat(2,minmax(0,1fr))}#kupa .cup-stage{gap:12px}}
+@media(max-width:520px){#kupa .cup-bracket{grid-template-columns:1fr;padding:13px}#kupa .cup-stage{gap:9px}#kupa .cup-stage h3{margin-top:8px}#kupa .cup-match{min-height:72px}}
+</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#yonetmelik">Lig Yönetmeliği</a><a href="#sezon">Sezon Enleri</a><a href="#dna">Takımlar</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
 <section id="fikstur"><h2>Fikstür</h2><div id="fixtures"></div></section>
+<section id="kupa"><h2>🏆 Ziraat Türkiye Kupası</h2><p class="season-subtitle">2026-2027 sezonu · Turnuva eşleşme ağacı</p>
+<div class="cup-legend"><span>1. Tur</span><span>2. Tur</span><span>Yarı Final</span><span>Final</span></div>
+<div class="cup-bracket">
+<div class="cup-stage"><h3>1. TUR</h3>
+<div class="cup-match"><b>45 Manisa FK</b><i></i><b>Erzurumspor</b></div>
+<div class="cup-match"><b>Bursaspor</b><i></i><b>Artukluspor</b></div>
+<div class="cup-match"><b>Karpuzlu FK</b><i></i><b>Elazığspor</b></div>
+<div class="cup-match"><b>Aydınspor 1966</b><i></i><b>Güzide Gebzespor</b></div>
+</div>
+<div class="cup-stage"><h3>2. TUR</h3>
+<div class="cup-match"><small>1. TUR GALİBİ</small><b>Mardin 1969</b></div>
+<div class="cup-match"><small>1. TUR GALİBİ</small><b>Kütahyaspor</b></div>
+<div class="cup-match"><small>1. TUR GALİBİ</small><b>Çine Madranspor</b></div>
+<div class="cup-match"><small>1. TUR GALİBİ</small><b>Germencikspor</b></div>
+</div>
+<div class="cup-stage cup-semis"><h3>YARI FİNAL</h3>
+<div class="cup-match cup-pending"><small>EŞLEŞME GALİBİ</small><b>2. Tur 1. Maç Galibi</b></div>
+<div class="cup-match cup-pending"><small>EŞLEŞME GALİBİ</small><b>2. Tur 2. Maç Galibi</b></div>
+<div class="cup-match cup-pending"><small>EŞLEŞME GALİBİ</small><b>2. Tur 3. Maç Galibi</b></div>
+<div class="cup-match cup-pending"><small>EŞLEŞME GALİBİ</small><b>2. Tur 4. Maç Galibi</b></div>
+</div>
+<div class="cup-stage cup-final"><h3>FİNAL</h3>
+<div class="cup-match cup-pending"><small>FİNALİST</small><b>Yarı Final 1. Galibi</b></div>
+<div class="cup-match cup-pending"><small>FİNALİST</small><b>Yarı Final 2. Galibi</b></div>
+<div class="cup-champion">🏆 ŞAMPİYON</div>
+</div></div></section>
 <section id="gol"><h2>Gol Krallığı</h2><div class="card pad" id="scorers"></div></section>
 <section id="sezon"><h2>🏆 Sezon Enleri</h2><p class="season-subtitle">2026-2027 Tolga Kalender Sezonu · Rekorlar ve istatistikler</p><div id="season-records" class="season-grid"></div></section><section id="dna"><h2>🧬 Takımlar</h2><p class="season-subtitle">12 takımın bu sezonki lig performansı ve takım karakteri</p><div id="team-dna" class="dna-grid"></div><p class="dna-footnote">Bu bölüm yalnızca 2026-2027 sezonunu esas alır. Geçmiş kupa ve başarı bilgileri profil kartlarından çıkarılmıştır. Tüm lig istatistikleri bu sitedeki kayıtlı maç sonuçlarından hesaplanır.</p></section>
 <section id="disiplin"><h2>⚖️ Disiplin Merkezi</h2><p class="season-subtitle">2026-2027 sezonu · Oyuncu, yönetici ve takım ceza kayıtları</p><div class="discipline-tabs"><button class="discipline-tab" type="button" onclick="showDisciplineTab('players',this)">⚽ Oyuncular</button><button class="discipline-tab" type="button" onclick="showDisciplineTab('managers',this)">🧑‍💼 Yöneticiler</button><button class="discipline-tab" type="button" onclick="showDisciplineTab('teams',this)">🛡️ Takımlar</button></div><div id="discipline-players" class="discipline-panel" hidden><div class="discipline-summary"><div class="discipline-total"><span>TOPLAM CEZA KAYDI</span><b>06</b><small>Listelenen oyuncu</small></div><div class="discipline-total"><span>TAMAMLANAN CEZA</span><b>06</b><small>Tüm kayıtlar kapandı</small></div><div class="discipline-total"><span>ETKİLENEN TAKIM</span><b>05</b><small>Farklı kulüp</small></div></div><div class="discipline-list"><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Davinson Sanchez</b><span>Germencikspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Fabio Cannavaro</b><span>Kütahyaspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Clarence Seedorf</b><span>Artukluspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Andrea Pirlo</b><span>Erzurumspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Mark van Bommel</b><span>Elazığspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Adrien Rabiot</b><span>Elazığspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article></div></div><div id="discipline-managers" class="discipline-panel" hidden><div class="discipline-empty"><span>🧑‍💼</span><b>Henüz yönetici cezası kaydı yok</b><small>Yönetici cezaları eklendiğinde burada listelenecek.</small></div></div><div id="discipline-teams" class="discipline-panel" hidden><div class="discipline-team-list"><article class="discipline-team discipline-team-sanction"><div class="discipline-team-mark">⚖️</div><div><b>Kütahyaspor</b><span>Cezalı oyuncu oynatma · Fabio Cannavaro</span><small>Takım cezası: -3 puan</small></div><strong>-3 PUAN</strong></article></div></div></section>
