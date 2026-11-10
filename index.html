@@ -1010,43 +1010,7 @@ const playerPhotos={"Andriy Shevchenko":"https://commons.wikimedia.org/wiki/Spec
 document.getElementById('scorers').innerHTML='<div class="top-three">'+sortedScorers.slice(0,3).map((p,i)=>'<article class="top-card"><span class="player-rank">0'+(i+1)+' · GOL KRALLIĞI</span><img class="player-photo" src="'+(playerPhotos[p[0]]||'')+'" alt="'+p[0]+'" onerror="this.style.display=\'none\'"><h3>'+p[0]+'</h3><small>'+p[1]+'</small><div class="top-goals">'+p[2]+' <span style="font-size:13px">GOL</span></div></article>').join('')+'</div><div class="scorer-list">'+sortedScorers.slice(3).map((p,i)=>'<div class="scorer"><b>'+(i+4)+'.</b><div>'+p[0]+'<small>'+p[1]+'</small></div><strong>'+p[2]+' gol</strong></div>').join('')+'</div>';
 const sections=[...document.querySelectorAll('main section')];function showSection(id){const target=sections.find(s=>s.id===id)||sections[0];sections.forEach(s=>s.classList.toggle('active',s===target));document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('selected',a.hash==='#'+target.id));}document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.getAttribute('href').slice(1);history.replaceState(null,'','#'+id);showSection(id);}));showSection(location.hash.slice(1)||'puan');
 
-/* İlk ziyaret için tek seferlik karşılama anonsu */
-(function(){
-  const welcomeKey='vestelSuperLigWelcomeHeard_v1';
-  if(localStorage.getItem(welcomeKey)==='1') return;
-  const sayWelcome=()=>{
-    if(!('speechSynthesis' in window)) return false;
-    const utterance=new SpeechSynthesisUtterance("Vestel Süper Lig'e hoş geldiniz hacılar!");
-    utterance.lang='tr-TR';
-    utterance.rate=0.88;
-    utterance.pitch=0.72;
-    utterance.volume=1;
-    const voices=speechSynthesis.getVoices();
-    const turkish=voices.filter(v=>v.lang&&v.lang.toLowerCase().startsWith('tr'));
-    const male=turkish.find(v=>/ erkek|male| erkek|cem|ahmet|tolga|yusuf/i.test(v.name))||turkish.find(v=>/tr-TR/i.test(v.lang))||turkish[0];
-    if(male) utterance.voice=male;
-    utterance.onstart=()=>localStorage.setItem(welcomeKey,'1');
-    utterance.onerror=()=>{localStorage.removeItem(welcomeKey);showWelcomeButton();};
-    speechSynthesis.cancel();
-    speechSynthesis.speak(utterance);
-    return true;
-  };
-  function showWelcomeButton(){
-    if(document.getElementById('welcome-audio-gate')) return;
-    const gate=document.createElement('div');
-    gate.id='welcome-audio-gate';
-    gate.innerHTML='<div class="welcome-audio-box"><div class="welcome-audio-mark">⚽</div><strong>VESTEL SÜPER LİG</strong><span>Stadyum anonsunu duymak için dokun hacım!</span><button type="button">🔊 HOŞ GELDİN ANONSU</button></div>';
-    document.body.appendChild(gate);
-    gate.querySelector('button').addEventListener('click',()=>{
-      if(sayWelcome()){localStorage.setItem(welcomeKey,'1');gate.remove();}
-    },{once:true});
-  }
-  const style=document.createElement('style');
-  style.textContent='#welcome-audio-gate{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:22px;background:#07111eee;backdrop-filter:blur(7px)}.welcome-audio-box{display:flex;flex-direction:column;align-items:center;gap:13px;width:min(390px,100%);padding:30px 22px;background:linear-gradient(145deg,#263b59,#101923);border:1px solid #d5ad65;border-radius:16px;color:#fff;text-align:center;box-shadow:0 18px 60px #0009}.welcome-audio-mark{font-size:42px}.welcome-audio-box strong{font-size:19px;letter-spacing:.08em}.welcome-audio-box span{color:#d4dce5;font-size:13px}.welcome-audio-box button{margin-top:8px;padding:13px 20px;border:0;border-radius:8px;background:linear-gradient(135deg,#e8b75f,#b77a2d);color:#17202b;font-weight:950;cursor:pointer}';
-  document.head.appendChild(style);
-  if(!sayWelcome()) showWelcomeButton();
-  else setTimeout(()=>{if(!localStorage.getItem(welcomeKey)) showWelcomeButton();},900);
-})();
+
 
 
 function showDisciplineTab(tab,button){document.querySelectorAll('.discipline-panel').forEach(panel=>panel.hidden=true);const target=document.getElementById('discipline-'+tab);if(target)target.hidden=false;document.querySelectorAll('.discipline-tab').forEach(item=>item.classList.remove('active'));if(button)button.classList.add('active')}
