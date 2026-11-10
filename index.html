@@ -181,7 +181,7 @@ const streakFor=(team,type)=>{let run=0,bestRun=0;playedMatches.filter(m=>m.h===
 const winStreak=best(teams,t=>streakFor(t,'win')),unbeatenStreak=best(teams,t=>streakFor(t,'unbeaten'));
 const cards=[
 ['⚽','EN GOLCÜ TAKIM',maxGoalsTeam.n,maxGoalsTeam.ag+' gol'],
-['🧤','EN AZ GOL YİYEN',minConcededTeam.n,minConcededTeam.yg+' gol yedi'],
+['🧤','EN AZ GOL YİYEN',minConcededTeam.n,minConcededTeam.yg+' gol'],
 ['🔥','EN FARKLI GALİBİYET',widestWin?widestWin.h+' '+widestWin.s[0]+' - '+widestWin.s[1]+' '+widestWin.a:'-',widestWin?'Fark: '+Math.abs(widestWin.s[0]-widestWin.s[1])+' gol':''],
 ['🎆','EN GOLLÜ MAÇ',highestScoring?highestScoring.h+' '+highestScoring.s[0]+' - '+highestScoring.s[1]+' '+highestScoring.a:'-',highestScoring?highestScoring.s[0]+highestScoring.s[1]+' gol':''],
 ['🏆','EN ÇOK GALİBİYET',maxWinsTeam.n,maxWinsTeam.g+' galibiyet'],
@@ -191,7 +191,7 @@ const cards=[
 ['🤝','BERABERLİK REKORTMENİ',maxDrawsTeam.n,maxDrawsTeam.b+' beraberlik'],
 ['🧤','EN ÇOK GOL YEMEDEN',cleanSheetTeam,cleanSheets[cleanSheetTeam]+' maç'],
 ['📅','EN GOLLÜ HAFTA',topWeek.week+'. Hafta',topWeek.goals+' gol'],
-['🔥','EN UZUN GALİBİYET SERİSİ',winStreak,streakFor(winStreak,'win')+' maç üst üste'],
+['🔥','EN UZUN GALİBİYET SERİSİ',winStreak,streakFor(winStreak,'win')+' maç'],
 ['🛡️','EN UZUN YENİLMEZLİK',unbeatenStreak,streakFor(unbeatenStreak,'unbeaten')+' maç']
 ];
 document.getElementById('season-records').innerHTML=cards.map(c=>'<article class="season-record"><div class="season-icon">'+c[0]+'</div><div class="season-label">'+c[1]+'</div><div class="season-value">'+c[2]+'</div><div class="season-detail">'+c[3]+'</div></article>').join('');
