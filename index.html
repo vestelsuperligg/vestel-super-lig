@@ -169,6 +169,9 @@ const playedMatches=matches.filter(m=>m.s&&!(m.h==='Güzide Gebzespor'&&m.s[0]==
 const seasonStats=stats();
 const venueStats=(venue)=>teams.map(name=>{const row={n:name,o:0,g:0,b:0,m:0,p:0,ag:0,yg:0};playedMatches.filter(m=>(venue==='home'?m.h:m.a)===name).forEach(m=>{const home=m.h===name,[x,y]=m.s,forTeam=home?x:y,against=home?y:x;row.o++;row.ag+=forTeam;row.yg+=against;if(forTeam>against){row.g++;row.p+=3}else if(forTeam<against){row.m++}else{row.b++;row.p++}});return row}).sort((a,b)=>b.p-a.p||(b.ag-b.yg)-(a.ag-a.yg)||b.ag-a.ag);
 const homeLeader=venueStats('home')[0],awayLeader=venueStats('away')[0];
+const winRateTeam=best(seasonStats,t=>t.o?t.g/t.o:0);
+const homeGoalsTeam=best(venueStats('home'),t=>t.ag);
+const awayGoalsTeam=best(venueStats('away'),t=>t.ag);
 const best=(arr,fn,high=true)=>arr.reduce((a,b)=>!a||((high?fn(b)>fn(a):fn(b)<fn(a)))?b:a,null);
 const maxGoalsTeam=best(seasonStats,t=>t.ag),minConcededTeam=best(seasonStats,t=>t.yg,false),minGoalsTeam=best(seasonStats,t=>t.ag,false),maxConcededTeam=best(seasonStats,t=>t.yg);
 const maxWinsTeam=best(seasonStats,t=>t.g),bestAverage=best(seasonStats,t=>t.ag-t.yg);
@@ -189,6 +192,9 @@ const cards=[
 ['🏆','EN ÇOK GALİBİYET',maxWinsTeam.n,maxWinsTeam.g+' galibiyet'],
 ['🏟️','İÇ SAHADA EN BAŞARILI',homeLeader.n,homeLeader.p+' puan · '+homeLeader.g+' galibiyet'],
 ['🚌','DEPLASMANDA EN BAŞARILI',awayLeader.n,awayLeader.p+' puan · '+awayLeader.g+' galibiyet'],
+['📊','EN YÜKSEK GALİBİYET YÜZDESİ',winRateTeam.n,'%'+(winRateTeam.o?(winRateTeam.g/winRateTeam.o*100).toFixed(1):'0')+' · '+winRateTeam.g+'/'+winRateTeam.o+' maç'],
+['🏟️','İÇ SAHADA EN ÇOK GOL ATAN',homeGoalsTeam.n,homeGoalsTeam.ag+' gol'],
+['🚌','DEPLASMANDA EN ÇOK GOL ATAN',awayGoalsTeam.n,awayGoalsTeam.ag+' gol'],
 ['📈','EN İYİ AVERAJ',bestAverage.n,(bestAverage.ag-bestAverage.yg>0?'+':'')+(bestAverage.ag-bestAverage.yg)+' averaj'],
 ['🥅','EN AZ GOL ATAN',minGoalsTeam.n,minGoalsTeam.ag+' gol'],
 ['🚨','EN ÇOK GOL YİYEN',maxConcededTeam.n,maxConcededTeam.yg+' gol yedi'],
