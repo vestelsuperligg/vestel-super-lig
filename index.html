@@ -468,6 +468,17 @@ header nav a{padding:8px 13px;font-size:13px}
 #gol .scorer-list .scorer>strong::first-letter{color:#20242a}
 @media(max-width:520px){#gol .scorer-list .scorer{grid-template-columns:38px minmax(0,1fr) auto;gap:10px;padding:14px 8px}#gol .scorer-list .scorer>b{font-size:21px}#gol .scorer-list .scorer>div{font-size:13px}#gol .scorer-list .scorer>strong{font-size:17px}}
 
+
+/* Gol Krallığı: Şampiyonlar Ligi, gece mavisi ve gümüş yayın grafiği. İlk üç fotoğraflı kart korunur. */
+#gol .scorer-list{gap:8px;margin-top:20px;border:0}
+#gol .scorer-list .scorer{grid-template-columns:48px minmax(0,1fr) auto;gap:14px;padding:14px 15px;background:linear-gradient(105deg,#14243c 0%,#1b2e4b 58%,#243b5b 100%);border:1px solid #354d6c;border-left:3px solid #91a8c4;border-radius:10px;box-shadow:0 6px 18px #050c1880;color:#f1f5fa;transition:background .16s ease,transform .16s ease}
+#gol .scorer-list .scorer:hover{background:linear-gradient(105deg,#1b304d 0%,#243b5b 100%);transform:translateY(-1px)}
+#gol .scorer-list .scorer>b{display:grid;place-items:center;width:34px;height:34px;background:#263c5a;border:1px solid #607895;border-radius:8px;color:#d5e0ed;font-family:inherit;font-size:14px;font-weight:950}
+#gol .scorer-list .scorer>div{min-width:0;color:#fff;font-size:14px;font-weight:850;letter-spacing:-.01em}
+#gol .scorer-list .scorer small{display:block;margin-top:4px;color:#b3c2d4;font-size:11px;font-weight:650}
+#gol .scorer-list .scorer>strong{padding:7px 10px;background:#dce5ef;border:1px solid #f0f4f8;border-radius:7px;color:#172b46;font-family:inherit;font-size:13px;font-weight:950;white-space:nowrap}
+@media(max-width:520px){#gol .scorer-list .scorer{grid-template-columns:36px minmax(0,1fr) auto;gap:9px;padding:12px 9px}#gol .scorer-list .scorer>b{width:30px;height:30px;font-size:12px}#gol .scorer-list .scorer>div{font-size:13px}#gol .scorer-list .scorer>strong{padding:6px 8px;font-size:12px}}
+
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#dna">Takımlar</a><a href="#yonetmelik">Lig Yönetmeliği</a><a href="#sezon">Sezon Enleri</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
