@@ -167,6 +167,8 @@ document.getElementById('fixtures').innerHTML=Array.from({length:22},(_,i)=>i+1)
 
 const playedMatches=matches.filter(m=>m.s&&!(m.h==='Güzide Gebzespor'&&m.s[0]===0&&m.s[1]===3)&&!(m.a==='Güzide Gebzespor'&&m.s[0]===3&&m.s[1]===0));
 const seasonStats=stats();
+const venueStats=(venue)=>teams.map(name=>{const row={n:name,o:0,g:0,b:0,m:0,p:0,ag:0,yg:0};playedMatches.filter(m=>(venue==='home'?m.h:m.a)===name).forEach(m=>{const home=m.h===name,[x,y]=m.s,forTeam=home?x:y,against=home?y:x;row.o++;row.ag+=forTeam;row.yg+=against;if(forTeam>against){row.g++;row.p+=3}else if(forTeam<against){row.m++}else{row.b++;row.p++}});return row}).sort((a,b)=>b.p-a.p||(b.ag-b.yg)-(a.ag-a.yg)||b.ag-a.ag);
+const homeLeader=venueStats('home')[0],awayLeader=venueStats('away')[0];
 const best=(arr,fn,high=true)=>arr.reduce((a,b)=>!a||((high?fn(b)>fn(a):fn(b)<fn(a)))?b:a,null);
 const maxGoalsTeam=best(seasonStats,t=>t.ag),minConcededTeam=best(seasonStats,t=>t.yg,false),minGoalsTeam=best(seasonStats,t=>t.ag,false),maxConcededTeam=best(seasonStats,t=>t.yg);
 const maxWinsTeam=best(seasonStats,t=>t.g),bestAverage=best(seasonStats,t=>t.ag-t.yg);
@@ -185,6 +187,8 @@ const cards=[
 ['🔥','EN FARKLI GALİBİYET',widestWin?widestWin.h+' '+widestWin.s[0]+' - '+widestWin.s[1]+' '+widestWin.a:'-',widestWin?'Fark: '+Math.abs(widestWin.s[0]-widestWin.s[1])+' gol':''],
 ['🎆','EN GOLLÜ MAÇ',highestScoring?highestScoring.h+' '+highestScoring.s[0]+' - '+highestScoring.s[1]+' '+highestScoring.a:'-',highestScoring?highestScoring.s[0]+highestScoring.s[1]+' gol':''],
 ['🏆','EN ÇOK GALİBİYET',maxWinsTeam.n,maxWinsTeam.g+' galibiyet'],
+['🏟️','İÇ SAHADA EN BAŞARILI',homeLeader.n,homeLeader.p+' puan · '+homeLeader.g+' galibiyet'],
+['🚌','DEPLASMANDA EN BAŞARILI',awayLeader.n,awayLeader.p+' puan · '+awayLeader.g+' galibiyet'],
 ['📈','EN İYİ AVERAJ',bestAverage.n,(bestAverage.ag-bestAverage.yg>0?'+':'')+(bestAverage.ag-bestAverage.yg)+' averaj'],
 ['🥅','EN AZ GOL ATAN',minGoalsTeam.n,minGoalsTeam.ag+' gol'],
 ['🚨','EN ÇOK GOL YİYEN',maxConcededTeam.n,maxConcededTeam.yg+' gol yedi'],
