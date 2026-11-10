@@ -837,6 +837,29 @@ header nav a{padding:8px 13px;font-size:13px}
 
 /* Disiplin panelindeki Ingilizce ust etiketi kaldir */
 #disiplin .discipline-panel:before{display:none;content:none}
+
+/* Disiplin Merkezi: Bordo & Sampanya */
+#disiplin>h2{color:#fff;font-weight:950;letter-spacing:-.025em}
+#disiplin .discipline-tabs{display:flex;gap:6px;padding:7px;background:#35151e;border:1px solid #78404a;border-radius:10px}
+#disiplin .discipline-tab{flex:1;min-height:44px;padding:9px 11px;background:#54212d;border:1px solid #77404a;border-radius:6px;color:#ead9d5;font-weight:850;transition:.16s ease}
+#disiplin .discipline-tab:hover{background:#682a38;color:#fff}
+#disiplin .discipline-tab.active{background:linear-gradient(135deg,#9b3447,#762033);border-color:#c18a78;color:#fff;box-shadow:0 3px 12px #210a1040,inset 0 -2px 0 #d4ad87}
+#disiplin .discipline-panel{margin-top:15px;padding:15px;background:linear-gradient(145deg,#f6f0e7,#eee5d9);border:1px solid #cbb9a8;border-top:3px solid #8b2b3d;border-radius:9px;box-shadow:0 8px 22px #08070a24}
+#disiplin .discipline-list,#disiplin .discipline-team-list{display:grid;gap:7px;margin:0;padding:0;border:0}
+#disiplin .discipline-item,#disiplin .discipline-team{position:relative;display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:13px;margin:0;padding:12px 13px;background:#fffdf9;border:1px solid #ded1c3;border-left:3px solid #873044;border-radius:6px;box-shadow:0 2px 6px #4d30200a}
+#disiplin .discipline-item:before,#disiplin .discipline-team:before{display:none}
+#disiplin .discipline-icon,#disiplin .discipline-team-mark{display:grid;place-items:center;width:36px;height:36px;background:#f2e5df;border:1px solid #d8bdb2;border-radius:6px;color:#81283b}
+#disiplin .discipline-player b,#disiplin .discipline-team b{display:block;color:#30272a;font-size:13px;font-weight:900}
+#disiplin .discipline-player span,#disiplin .discipline-team span,#disiplin .discipline-team small{display:block;margin-top:4px;color:#786c68;font-size:10px;font-weight:700}
+#disiplin .discipline-status{padding:6px 9px;background:#e5eee3;border:1px solid #c3d4bd;border-radius:5px;color:#35613d;font-size:10px;font-weight:850;white-space:nowrap}
+#disiplin .discipline-status i{display:inline-block;width:7px;height:7px;margin-right:6px;border-radius:50%;background:#4a9856}
+#disiplin .discipline-team>strong{padding:7px 10px;background:#f2e0df;border:1px solid #d7b2ae;border-radius:5px;color:#852b3d;font-size:13px;font-weight:950;white-space:nowrap}
+#disiplin .discipline-team-sanction{background:#fffaf5;border-left:3px solid #a33346}
+#disiplin .discipline-empty{padding:27px 18px;background:#fffdf9;border:1px dashed #cdbdaf;border-radius:6px;text-align:center}
+#disiplin .discipline-empty b{display:block;margin-top:8px;color:#30272a}
+#disiplin .discipline-empty small{display:block;margin-top:5px;color:#786c68}
+@media(max-width:650px){#disiplin .discipline-tabs{gap:4px;padding:5px}#disiplin .discipline-tab{padding:8px 4px;font-size:10px}#disiplin .discipline-panel{padding:9px}#disiplin .discipline-item,#disiplin .discipline-team{grid-template-columns:34px minmax(0,1fr);gap:9px;padding:11px 9px}#disiplin .discipline-icon,#disiplin .discipline-team-mark{width:31px;height:31px}#disiplin .discipline-status,#disiplin .discipline-team>strong{grid-column:2;justify-self:start;margin-top:0}}
+
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#dna">Takımlar</a><a href="#yonetmelik">Lig Yönetmeliği</a><a href="#sezon">Sezon Enleri</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
