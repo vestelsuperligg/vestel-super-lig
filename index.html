@@ -1,69 +1,19 @@
 <!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#091d38"><title>VESTEL SÜPER LİG | 2026-2027</title><style>
-:root{--n:#091d38;--r:#df263d;--bg:#f2f5f9;--ink:#17263c;--muted:#74839a;--line:#e4eaf1}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,Arial}header{background:linear-gradient(120deg,#091d38,#17365f);color:white;padding:28px max(18px,calc((100% - 1100px)/2)) 20px}header h1{margin:0;font-size:clamp(24px,5vw,38px);letter-spacing:.04em}header p{margin:5px 0 18px;color:#c9d5e5}nav{display:flex;gap:8px;flex-wrap:wrap}nav a{color:white;text-decoration:none;padding:9px 13px;border:1px solid #ffffff40;border-radius:9px;font-weight:650}nav a:hover,nav a.selected{background:#ffffff24;border-color:#ffffffaa}.wrap>section{display:block;scroll-margin-top:18px}.wrap{max-width:1100px;margin:22px auto;padding:0 14px}.card{background:white;border:1px solid var(--line);border-radius:16px;margin:16px 0;overflow:hidden;box-shadow:0 4px 16px #12294a0a}.head{background:var(--n);color:white;padding:14px 18px;font-weight:800;font-size:18px}.pad{padding:16px}h2{font-size:22px;margin:26px 0 10px;color:var(--n)}table{width:100%;border-collapse:collapse;font-size:14px}th{background:#f6f8fb;color:#65748a;text-align:center;font-size:11px;letter-spacing:.04em}td,th{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center}td:nth-child(2){text-align:left;font-weight:700}.pts{font-weight:900;color:var(--n)}.rank{color:var(--r);font-weight:900}.match{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:13px 4px;border-bottom:1px solid var(--line);text-align:center}.match:last-child{border:0}.club{font-weight:750}.score{background:#edf2f7;border-radius:10px;padding:7px 13px;font-size:20px;font-weight:900;white-space:nowrap}.info{font-size:12px;color:var(--muted);margin-top:3px}.scorer{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:1px solid var(--line)}.scorer b{color:var(--r);width:25px}.scorer small{display:block;color:var(--muted)}.scorer strong{margin-left:auto}.pill{background:#e7f6ec;color:#19713b;border-radius:20px;padding:4px 9px;font-weight:800}.week{margin:14px 0;border:1px solid var(--line);border-radius:13px;overflow:hidden}.weektitle{background:var(--n);color:white;padding:12px 16px;font-weight:800}.empty{color:var(--muted);padding:18px;text-align:center}footer{text-align:center;color:var(--muted);padding:30px} @media(max-width:520px){.match{gap:5px}.club{font-size:13px}.score{font-size:17px;padding:6px 9px}td,th{padding:8px 4px;font-size:12px}}
-
-/* Premium match-centre refresh */
-body{background:#071426;color:#eaf1fb;background-image:radial-gradient(ellipse at 15% 0%,#17365b 0,transparent 38%),linear-gradient(180deg,#071426,#0b1b30 48%,#071426)}
-header{position:relative;overflow:hidden;background:linear-gradient(115deg,#071426ee,#102c4dee),url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1800&q=85') center 42%/cover;padding-top:34px;padding-bottom:24px;border-bottom:1px solid #ffffff20}
-header:after{content:"";position:absolute;right:-55px;top:-120px;width:380px;height:380px;border:1px solid #ffffff16;border-radius:50%;box-shadow:0 0 0 34px #ffffff08,0 0 0 68px #ffffff05;pointer-events:none}
-header h1{font-size:clamp(30px,5vw,48px);font-weight:950;letter-spacing:.07em;text-shadow:0 4px 25px #0008}
-header p{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#d5e2f5}
-nav{position:relative;z-index:1;gap:9px}nav a{background:#ffffff0d;border-color:#ffffff30;border-radius:999px;padding:10px 17px;font-size:13px;backdrop-filter:blur(8px)}
-nav a:hover,nav a.selected{background:#df263d;border-color:#df263d;box-shadow:0 5px 20px #df263d44}
-.wrap{max-width:1160px;margin:26px auto 50px}
-.wrap>section{animation:fadeUp .35s ease both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-h2{color:#f5f8ff;font-size:25px;font-weight:900;letter-spacing:-.02em;margin:24px 0 14px}
-.card,.week{background:linear-gradient(145deg,#10243d,#0c1d32);border:1px solid #ffffff16;border-radius:18px;box-shadow:0 14px 38px #0003}
-.pad{padding:18px}
-table{color:#e7eef9}th{background:#ffffff0a;color:#93a8c3}td,th{border-bottom:1px solid #ffffff12;padding:12px 9px}td:nth-child(2){color:#fff}
-.pts{color:#fff}.rank{color:#ff5367}
-.match{border-bottom-color:#ffffff12;padding:15px 4px}.club{color:#e8eff9;font-size:14px}
-.score{background:#1c3553;color:#fff;border:1px solid #ffffff12;border-radius:11px;min-width:92px}
-.info{color:#8fa6c2}
-.week{overflow:hidden;margin:16px 0}.weektitle{background:linear-gradient(90deg,#17365b,#10243d);border-bottom:1px solid #ffffff14;letter-spacing:.04em}
-.scorer{border-bottom-color:#ffffff12;color:#f2f6fc}.scorer small{color:#91a7c2}.scorer strong{color:#fff}
-.pill{background:#123d32;color:#8cf0bc}
-footer{color:#8197b4}
-.hero-panel{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin:0 0 28px}
-.hero-main{position:relative;overflow:hidden;min-height:190px;border-radius:20px;padding:25px;background:linear-gradient(110deg,#102b4c,#10213a 75%);border:1px solid #ffffff20;box-shadow:0 16px 40px #0004}
-.hero-main:after{content:"⚽";position:absolute;right:25px;bottom:-45px;font-size:190px;opacity:.07;transform:rotate(-18deg)}
-.hero-kicker{font-size:11px;letter-spacing:.2em;color:#ff7180;font-weight:900;text-transform:uppercase}
-.hero-main h2{font-size:clamp(25px,4vw,38px);margin:9px 0 6px}.hero-main p{color:#a9bdd6;margin:0;max-width:390px}
-.hero-side{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.metric{border:1px solid #ffffff16;border-radius:17px;padding:18px;background:linear-gradient(145deg,#122b48,#0c1c30);display:flex;flex-direction:column;justify-content:center}
-.metric span{font-size:11px;color:#91a8c5;letter-spacing:.1em;text-transform:uppercase}.metric strong{font-size:30px;color:#fff;font-weight:950;margin-top:4px}
-.clubmark{width:27px;height:27px;object-fit:contain;vertical-align:middle;margin-right:8px;filter:drop-shadow(0 2px 4px #0006)}
-.clubmark-fallback{display:inline-flex;width:27px;height:27px;vertical-align:middle;align-items:center;justify-content:center;margin-right:8px;border-radius:50%;background:#203b5d;color:#dce8f8;border:1px solid #ffffff30;font-size:9px;font-weight:900}
-.top-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:18px}
-.top-card{position:relative;min-height:190px;overflow:hidden;border:1px solid #ffffff1c;border-radius:17px;background:linear-gradient(145deg,#1b3858,#0d1d32);padding:15px;display:flex;flex-direction:column;justify-content:flex-end}
-.top-card:nth-child(1){background:linear-gradient(145deg,#493b22,#1b2a3c);border-color:#d8b66c66}
-.top-card:nth-child(2){background:linear-gradient(145deg,#34465b,#12243a)}
-.top-card:nth-child(3){background:linear-gradient(145deg,#49352b,#17253a)}
-.player-photo{position:absolute;right:0;top:0;height:100%;width:58%;object-fit:cover;object-position:top center;opacity:.65;mask-image:linear-gradient(90deg,transparent 0%,#000 42%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 42%)}
-.player-rank{position:absolute;top:13px;left:14px;color:#f4d78e;font-weight:950;font-size:12px;letter-spacing:.12em}
-.top-card h3{position:relative;z-index:1;margin:0;font-size:17px;color:white}.top-card small{position:relative;z-index:1;color:#c0cde0}.top-goals{position:relative;z-index:1;font-size:27px;font-weight:950;color:white;margin-top:6px}
-.scorer-list{border:1px solid #ffffff16;border-radius:16px;padding:0 16px;background:#0c1d32}
-.scorer:last-child{border:0}
-@media(max-width:700px){.hero-panel{grid-template-columns:1fr}.hero-side{grid-template-columns:1fr 1fr}.top-three{grid-template-columns:1fr}.top-card{min-height:150px}.wrap{margin-top:18px}.match{gap:4px}.clubmark,.clubmark-fallback{width:22px;height:22px;margin-right:4px}}
-/* Section tabs: one view at a time */
-.wrap>section{display:block;animation:fadeUp .28s ease both}
-.js-ready .wrap>section{display:none}
-.js-ready .wrap>section.active{display:block}
-nav a.selected{background:#df263d;border-color:#df263d;box-shadow:0 5px 20px #df263d44}
-html{scroll-behavior:smooth}
-.team-cell{display:flex;align-items:center;gap:8px;white-space:nowrap}
-.clubmark-fallback{flex:0 0 28px;width:28px;height:28px;border-radius:9px;background:linear-gradient(145deg,#df263d,#81233d);font-size:9px}
-.weektitle{display:flex;align-items:center;justify-content:space-between}
-.weektitle:after{content:"MAÇLAR";font-size:10px;letter-spacing:.12em;color:#9db3cf}
-.match{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
-.match .club:first-child{text-align:right}.match .club:last-child{text-align:left}
-.top-card{min-height:220px}
-.top-card:nth-child(1):before{content:"🥇";position:absolute;right:12px;top:10px;font-size:28px;z-index:2}
-.top-card:nth-child(2):before{content:"🥈";position:absolute;right:12px;top:10px;font-size:28px;z-index:2}
-.top-card:nth-child(3):before{content:"🥉";position:absolute;right:12px;top:10px;font-size:28px;z-index:2}
-@media(max-width:600px){nav{display:grid;grid-template-columns:1fr 1fr}nav a{text-align:center}.match{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}.club{font-size:12px}.score{min-width:76px;font-size:16px}}
-</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p><nav><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a></nav></header><main class="wrap"><section id="puan"><div class="hero-panel"><div class="hero-main"><div class="hero-kicker">2026 / 2027 sezonu</div><h2>Lig heyecanı burada.</h2><p>Fikstür, puan tablosu, gol krallığı ve disiplin kayıtları. Her hafta, tek merkezde.</p></div><div class="hero-side"><div class="metric"><span>Takım</span><strong>12</strong></div><div class="metric"><span>Hafta</span><strong>22</strong></div><div class="metric"><span>Sezon</span><strong>26/27</strong></div><div class="metric"><span>Lig</span><strong>VSL</strong></div></div></div>
-<h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
+:root{--n:#091d38;--r:#df263d;--bg:#f2f5f9;--ink:#17263c;--muted:#74839a;--line:#e4eaf1}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,Arial}header{background:linear-gradient(120deg,#091d38,#17365f);color:white;padding:28px max(18px,calc((100% - 1100px)/2)) 20px}header h1{margin:0;font-size:clamp(24px,5vw,38px);letter-spacing:.04em}header p{margin:5px 0 18px;color:#c9d5e5}nav{display:flex;gap:8px;flex-wrap:wrap}nav a{color:white;text-decoration:none;padding:9px 13px;border:1px solid #ffffff40;border-radius:9px;font-weight:650}nav a:hover,nav a.selected{background:#ffffff24;border-color:#ffffffaa}.wrap>section{display:none}.wrap>section.active{display:block}.wrap{max-width:1100px;margin:22px auto;padding:0 14px}.card{background:white;border:1px solid var(--line);border-radius:16px;margin:16px 0;overflow:hidden;box-shadow:0 4px 16px #12294a0a}.head{background:var(--n);color:white;padding:14px 18px;font-weight:800;font-size:18px}.pad{padding:16px}h2{font-size:22px;margin:26px 0 10px;color:var(--n)}table{width:100%;border-collapse:collapse;font-size:14px}th{background:#f6f8fb;color:#65748a;text-align:center;font-size:11px;letter-spacing:.04em}td,th{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center}td:nth-child(2){text-align:left;font-weight:700}.pts{font-weight:900;color:var(--n)}.rank{color:var(--r);font-weight:900}.match{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:13px 4px;border-bottom:1px solid var(--line);text-align:center}.match:last-child{border:0}.club{font-weight:750}.score{background:#edf2f7;border-radius:10px;padding:7px 13px;font-size:20px;font-weight:900;white-space:nowrap}.info{font-size:12px;color:var(--muted);margin-top:3px}.scorer{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:1px solid var(--line)}.scorer b{color:var(--r);width:25px}.scorer small{display:block;color:var(--muted)}.scorer strong{margin-left:auto}.pill{background:#e7f6ec;color:#19713b;border-radius:20px;padding:4px 9px;font-weight:800}.week{margin:14px 0;border:1px solid var(--line);border-radius:13px;overflow:hidden}.weektitle{background:var(--n);color:white;padding:12px 16px;font-weight:800}.empty{color:var(--muted);padding:18px;text-align:center}footer{text-align:center;color:var(--muted);padding:30px} @media(max-width:520px){.match{gap:5px}.club{font-size:13px}.score{font-size:17px;padding:6px 9px}td,th{padding:8px 4px;font-size:12px}}
+body{background:radial-gradient(ellipse at 15% 0%,#183b61 0,transparent 38%),linear-gradient(180deg,#071321,#0b1d32 55%,#071321);color:#edf4ff;font-family:Inter,system-ui,Arial}
+header{padding:30px max(18px,calc((100% - 1160px)/2)) 24px;background:linear-gradient(115deg,#071426ee,#102c4dee),url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1800&q=85') center/cover;border-bottom:1px solid #ffffff24}
+header h1{font-size:clamp(30px,6vw,48px);font-weight:950;letter-spacing:.06em}header p{letter-spacing:.18em;font-size:12px}
+nav a{border-radius:999px;background:#ffffff12;padding:11px 17px;border-color:#ffffff30}nav a.selected,nav a:hover{background:#ed304b;border-color:#ed304b}
+.wrap{max-width:1160px;margin:26px auto 50px}h2{color:#f4f7ff;font-size:26px;font-weight:900}
+.card,.week{background:linear-gradient(145deg,#102640,#0a1b2e);border:1px solid #ffffff18;border-radius:18px;box-shadow:0 14px 36px #0004}
+.pad{padding:18px}table{color:#eaf1fb}th{background:#ffffff0b;color:#9bb0ca}td,th{border-bottom:1px solid #ffffff14;padding:12px 9px}
+.pts{color:#fff}.rank{color:#ff6478}.week{overflow:hidden}.weektitle{background:linear-gradient(90deg,#193b60,#10243b);padding:13px 17px}
+.match{padding:16px 5px;border-bottom:1px solid #ffffff14}.club{color:#f2f6fc}.score{background:#1b3858;color:white;border:1px solid #ffffff18;border-radius:12px;min-width:90px}
+.info,.scorer small{color:#9bb0ca}.scorer{border-bottom:1px solid #ffffff14;color:#f2f6fc}.scorer strong{color:#fff}.pill{background:#164334;color:#8cf0bc}
+.club-badge{display:inline-flex;align-items:center;justify-content:center;width:29px;height:29px;margin-right:8px;border-radius:9px;background:linear-gradient(145deg,#ed304b,#84283e);font-size:9px;font-weight:900;color:white;vertical-align:middle}
+.scorer:first-child b:after{content:' 🥇'}.scorer:nth-child(2) b:after{content:' 🥈'}.scorer:nth-child(3) b:after{content:' 🥉'}
+footer{color:#8ea4bf}@media(max-width:600px){nav{display:grid;grid-template-columns:1fr 1fr}nav a{text-align:center}.match{gap:5px}.club{font-size:12px}.score{min-width:72px;font-size:16px;padding:7px 8px}td,th{padding:9px 5px;font-size:11px}}</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p><nav><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a></nav></header><main class="wrap">
+<section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
 <section id="fikstur"><h2>Fikstür</h2><div id="fixtures"></div></section>
 <section id="gol"><h2>Gol Krallığı</h2><div class="card pad" id="scorers"></div></section>
@@ -79,25 +29,6 @@ document.getElementById('table').innerHTML='<div style="overflow:auto"><table><t
 function card(m){return '<div class="match"><div class="club">'+m.h+'</div><div><div class="score">'+(m.s?m.s.join(' - '):'OYNANMADI')+'</div><div class="info">'+m.w+'. HAFTA</div></div><div class="club">'+m.a+'</div></div>'}
 // Maç Sonuçları sekmesi kaldırıldı; sonuçlar fikstürde gösteriliyor.
 document.getElementById('fixtures').innerHTML=Array.from({length:22},(_,i)=>i+1).map(w=>'<div class="week"><div class="weektitle">'+w+'. HAFTA</div><div class="pad">'+matches.filter(m=>m.w===w).map(card).join('')+'</div></div>').join('');
-
-const playerPhotos={"Andriy Shevchenko":"https://commons.wikimedia.org/wiki/Special:FilePath/Andrij_Szewczenko.jpg","Gareth Bale":"https://commons.wikimedia.org/wiki/Special:FilePath/Gareth_Bale_2015_(1).jpg","Kylian Mbappé":"https://commons.wikimedia.org/wiki/Special:FilePath/Kylian_Mbapp%C3%A9_2018.jpg"};
-const clubLogos={"Bursaspor":"https://commons.wikimedia.org/wiki/Special:FilePath/Bursaspor-logo-png-transparent.png","Mardin 1969":"https://www.footylogos.com/dls/logo/mardin-1969-spor.png"};
-document.getElementById('table').innerHTML='<div style="overflow:auto"><table><thead><tr><th>#</th><th>TAKIM</th><th>O</th><th>G</th><th>B</th><th>M</th><th>AG</th><th>YG</th><th>AV</th><th>P</th></tr></thead><tbody>'+stats().map((t,i)=>'<tr><td class="rank">'+(i+1)+'</td><td>'+t.n+'</td><td>'+t.o+'</td><td>'+t.g+'</td><td>'+t.b+'</td><td>'+t.m+'</td><td>'+t.ag+'</td><td>'+t.yg+'</td><td>'+(t.ag-t.yg>0?'+':'')+(t.ag-t.yg)+'</td><td class="pts">'+t.p+'</td></tr>').join('')+'</tbody></table></div>';
-function card(m){return '<div class="match"><div class="club">'+m.h+'</div><div><div class="score">'+(m.s?m.s.join(' - '):'OYNANMADI')+'</div><div class="info">'+m.w+'. HAFTA</div></div><div class="club">'+m.a+'</div></div>'}
-document.getElementById('fixtures').innerHTML=Array.from({length:22},(_,i)=>i+1).map(w=>'<div class="week"><div class="weektitle">'+w+'. HAFTA</div><div class="pad">'+matches.filter(m=>m.w===w).map(card).join('')+'</div></div>').join('');
-const sortedScorers=scorers.slice().sort((a,b)=>b[2]-a[2]);
-document.getElementById('scorers').innerHTML='<div class="top-three">'+sortedScorers.slice(0,3).map((p,i)=>'<article class="top-card"><span class="player-rank">0'+(i+1)+' · GOL KRALLIĞI</span>'+(playerPhotos[p[0]]?'<img class="player-photo" src="'+playerPhotos[p[0]]+'" alt="'+p[0]+'" loading="lazy">':'')+'<h3>'+p[0]+'</h3><small>'+p[1]+'</small><div class="top-goals">'+p[2]+' <span style="font-size:13px;font-weight:700">GOL</span></div></article>').join('')+'</div><div class="scorer-list">'+sortedScorers.slice(3).map((p,i)=>'<div class="scorer"><b>'+(i+4)+'.</b><div>'+p[0]+'<small>'+p[1]+'</small></div><strong>'+p[2]+' gol</strong></div>').join('')+'</div>';
-
-const leagueSections=[...document.querySelectorAll('main.wrap>section')];
-function activateLeagueSection(id,scroll){
- const target=leagueSections.find(s=>s.id===id)||leagueSections.find(s=>s.id==='puan');
- leagueSections.forEach(s=>s.classList.toggle('active',s===target));
- document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('selected',a.getAttribute('href')==='#'+target.id));
- if(scroll&&target)window.scrollTo({top:Math.max(0,target.getBoundingClientRect().top+window.pageYOffset-12),behavior:'smooth'});
-}
-document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.getAttribute('href').slice(1);history.replaceState(null,'','#'+id);activateLeagueSection(id,false);window.scrollTo({top:0,behavior:'smooth'});}));
-window.addEventListener('hashchange',()=>activateLeagueSection(location.hash.slice(1),false));
-activateLeagueSection(location.hash.slice(1)||'puan',false);
-document.documentElement.classList.add('js-ready');
-
+document.getElementById('scorers').innerHTML=scorers.slice().sort((a,b)=>b[2]-a[2]).map((s,i)=>'<div class="scorer"><b>'+(i+1)+'.</b><div>'+s[0]+'<small>'+s[1]+'</small></div><strong>'+s[2]+' gol</strong></div>').join('');
+const sections=[...document.querySelectorAll('main section')];function showSection(id){const target=sections.find(s=>s.id===id)||sections[0];sections.forEach(s=>s.classList.toggle('active',s===target));document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('selected',a.hash==='#'+target.id));}document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.getAttribute('href').slice(1);history.replaceState(null,'','#'+id);showSection(id);}));showSection(location.hash.slice(1)||'puan');
 </script></body></html>
