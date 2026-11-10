@@ -62,6 +62,31 @@ header nav a{padding:8px 13px;font-size:13px}
 .form-dots{display:flex;justify-content:center;gap:4px;min-width:112px}
 .form-dot{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:6px;font-size:10px;font-weight:900;color:#fff}
 .form-G{background:#168653}.form-B{background:#b98727}.form-M{background:#c43b50}
+
+/* Fit the complete standings and form guide on narrow phone screens */
+@media(max-width:600px){
+ #puan .card.pad{padding:9px 7px}
+ #puan .card.pad>div{overflow:visible!important}
+ #puan table{width:100%;min-width:0!important;table-layout:fixed;border-collapse:collapse}
+ #puan th,#puan td{padding:8px 1px;font-size:9px;white-space:nowrap;text-align:center}
+ #puan th{font-size:8px;letter-spacing:0}
+ #puan th:nth-child(1),#puan td:nth-child(1){width:5%}
+ #puan th:nth-child(2),#puan td:nth-child(2){width:26%;text-align:left;padding-left:3px}
+ #puan th:nth-child(3),#puan td:nth-child(3),
+ #puan th:nth-child(4),#puan td:nth-child(4),
+ #puan th:nth-child(5),#puan td:nth-child(5),
+ #puan th:nth-child(6),#puan td:nth-child(6){width:5%}
+ #puan th:nth-child(7),#puan td:nth-child(7),
+ #puan th:nth-child(8),#puan td:nth-child(8),
+ #puan th:nth-child(9),#puan td:nth-child(9){width:6%}
+ #puan th:nth-child(10),#puan td:nth-child(10){width:6%}
+ #puan th:nth-child(11),#puan td:nth-child(11){width:22%}
+ #puan td:nth-child(2){font-size:8.7px;font-weight:700;overflow:visible;text-overflow:clip}
+ #puan .form-dots{min-width:0;width:100%;gap:2px;justify-content:center}
+ #puan .form-dot{width:12px;height:17px;min-width:0;border-radius:4px;font-size:8px}
+ #puan .rank{font-size:10px}
+ #puan .pts{font-size:10px}
+}
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
