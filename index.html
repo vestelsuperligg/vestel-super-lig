@@ -32,7 +32,28 @@ header nav a{padding:8px 13px;font-size:13px}
  #fixtures .score{font-size:15px;min-width:65px;padding:5px 6px}
  #fixtures .club{font-size:11px}
 }
-</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p><nav><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a></nav></header><main class="wrap">
+
+/* Sticky navigation bar, independent from the page header */
+.sticky-nav{position:sticky;top:0;z-index:999;width:100%;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:10px 14px;background:rgba(7,20,38,.97);border-bottom:1px solid #ffffff24;box-shadow:0 6px 18px #0005;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.sticky-nav a{padding:8px 16px;font-size:13px;border-radius:999px}
+#fixtures .week{margin:8px 0;border-radius:12px}
+#fixtures .weektitle{padding:8px 13px;font-size:13px;letter-spacing:.04em}
+#fixtures .week .pad{padding:5px 13px}
+#fixtures .match{padding:7px 2px;gap:7px;min-height:0}
+#fixtures .club{font-size:12px;line-height:1.25}
+#fixtures .score{min-width:68px;padding:4px 8px;font-size:16px;border-radius:9px;background:linear-gradient(135deg,#f2d27a,#c69a3c);color:#17243a;border:1px solid #ffe7a6;box-shadow:0 2px 8px #0003}
+#fixtures .info{font-size:10px;margin-top:2px}
+#fixtures .weektitle{background:linear-gradient(90deg,#9b762d,#6d5427);color:#fff4d5}
+@media(max-width:600px){
+ .sticky-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:7px 10px}
+ .sticky-nav a{text-align:center;padding:8px 5px;font-size:12px}
+ #fixtures .week{margin:7px 0}
+ #fixtures .week .pad{padding:4px 8px}
+ #fixtures .match{padding:6px 0;gap:3px}
+ #fixtures .club{font-size:10px}
+ #fixtures .score{min-width:59px;padding:4px 5px;font-size:14px}
+}
+</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p><nav><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
 <section id="fikstur"><h2>Fikstür</h2><div id="fixtures"></div></section>
