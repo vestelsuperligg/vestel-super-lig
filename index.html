@@ -479,6 +479,17 @@ header nav a{padding:8px 13px;font-size:13px}
 #gol .scorer-list .scorer>strong{padding:7px 10px;background:#dce5ef;border:1px solid #f0f4f8;border-radius:7px;color:#172b46;font-family:inherit;font-size:13px;font-weight:950;white-space:nowrap}
 @media(max-width:520px){#gol .scorer-list .scorer{grid-template-columns:36px minmax(0,1fr) auto;gap:9px;padding:12px 9px}#gol .scorer-list .scorer>b{width:30px;height:30px;font-size:12px}#gol .scorer-list .scorer>div{font-size:13px}#gol .scorer-list .scorer>strong{padding:6px 8px;font-size:12px}}
 
+
+/* Gol Krallığı: Minimal Premium, beyaz zemin ve tipografik sıralama. İlk üç fotoğraflı kart korunur. */
+#gol .scorer-list{display:grid;gap:0;margin-top:20px;border-top:1px solid #e5e7eb}
+#gol .scorer-list .scorer{display:grid;grid-template-columns:58px minmax(0,1fr) auto;align-items:center;gap:15px;padding:17px 12px;background:#fff;border:0;border-bottom:1px solid #e8eaee;border-radius:0;box-shadow:none;color:#202b38;transition:background .15s ease}
+#gol .scorer-list .scorer:hover{background:#f7f8fa;transform:none}
+#gol .scorer-list .scorer>b{display:block;width:auto;height:auto;padding:0;background:transparent;border:0;border-radius:0;color:#a3aab4;font-size:28px;line-height:1;font-weight:300;letter-spacing:-.06em;text-align:center}
+#gol .scorer-list .scorer>div{min-width:0;color:#202b38;font-size:15px;font-weight:800;letter-spacing:-.025em}
+#gol .scorer-list .scorer small{display:block;margin-top:4px;color:#89919d;font-size:11px;font-weight:600;letter-spacing:.01em}
+#gol .scorer-list .scorer>strong{padding:0;background:transparent;border:0;border-radius:0;color:#202b38;font-size:18px;font-weight:900;letter-spacing:-.04em;white-space:nowrap}
+@media(max-width:520px){#gol .scorer-list .scorer{grid-template-columns:40px minmax(0,1fr) auto;gap:10px;padding:15px 7px}#gol .scorer-list .scorer>b{font-size:23px}#gol .scorer-list .scorer>div{font-size:13px}#gol .scorer-list .scorer>strong{font-size:16px}}
+
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#dna">Takımlar</a><a href="#yonetmelik">Lig Yönetmeliği</a><a href="#sezon">Sezon Enleri</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
