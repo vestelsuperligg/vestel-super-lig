@@ -87,6 +87,17 @@ header nav a{padding:8px 13px;font-size:13px}
  #puan .rank{font-size:10px}
  #puan .pts{font-size:10px}
 }
+
+/* Slightly larger standings while preserving one-line teams and form */
+@media(max-width:600px){
+ #puan .card.pad{padding:10px 5px}
+ #puan th,#puan td{font-size:9.5px;padding:9px 1px}
+ #puan th{font-size:8.4px}
+ #puan th:nth-child(2),#puan td:nth-child(2){width:27%}
+ #puan td:nth-child(2){font-size:9.2px;white-space:nowrap}
+ #puan .form-dots{gap:2px}
+ #puan .form-dot{width:13px;height:18px;font-size:8.5px}
+}
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
