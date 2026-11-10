@@ -671,6 +671,28 @@ header nav a{padding:8px 13px;font-size:13px}
 #disiplin .discipline-empty small{color:#777075}
 @media(max-width:650px){#disiplin .discipline-tabs{gap:5px;padding:5px}#disiplin .discipline-tab{padding:8px 4px;font-size:11px}#disiplin .discipline-item,#disiplin .discipline-team{grid-template-columns:34px minmax(0,1fr);gap:9px;padding:11px 9px}#disiplin .discipline-icon,#disiplin .discipline-team-mark{width:32px;height:32px}#disiplin .discipline-status,#disiplin .discipline-team>strong{grid-column:2;justify-self:start;margin-top:2px}}
 
+
+/* Disiplin Merkezi: Ceza Kronolojisi, dikey olay akışı */
+#disiplin>h2{color:#fff;font-weight:950;letter-spacing:-.025em}
+#disiplin .discipline-tabs{display:flex;gap:7px;padding:6px;background:#211a20;border:1px solid #65303d;border-radius:10px}
+#disiplin .discipline-tab{flex:1;min-height:42px;border:1px solid transparent;border-radius:7px;background:transparent;color:#e6cbd1;font-weight:850}
+#disiplin .discipline-tab.active{background:#a51f38;border-color:#e34a60;color:#fff;box-shadow:0 4px 12px #8d193044}
+#disiplin .discipline-panel{margin-top:18px}
+#disiplin .discipline-list,#disiplin .discipline-team-list{display:grid;gap:0;margin-left:12px;padding-left:22px;border-left:2px solid #9e3448}
+#disiplin .discipline-item,#disiplin .discipline-team{position:relative;display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:13px;margin:0 0 13px;padding:13px 15px;background:linear-gradient(110deg,#29242b,#201d25);border:1px solid #51404a;border-radius:9px;box-shadow:0 6px 16px #05030866}
+#disiplin .discipline-item:before,#disiplin .discipline-team:before{content:"";position:absolute;left:-30px;top:50%;width:13px;height:13px;transform:translateY(-50%);border:3px solid #f0dfe2;border-radius:50%;background:#c72d47;box-shadow:0 0 0 3px #6f2638}
+#disiplin .discipline-player b,#disiplin .discipline-team b{display:block;color:#fff;font-size:14px;font-weight:900}
+#disiplin .discipline-player span,#disiplin .discipline-team span,#disiplin .discipline-team small{display:block;margin-top:3px;color:#c4b9c1;font-size:11px}
+#disiplin .discipline-icon,#disiplin .discipline-team-mark{display:grid;place-items:center;width:38px;height:38px;background:#512632;border:1px solid #9c3a50;border-radius:8px;color:#fff}
+#disiplin .discipline-status{padding:7px 10px;background:#123b2c;border:1px solid #287a53;border-radius:6px;color:#91edb8;font-size:11px;font-weight:800;white-space:nowrap}
+#disiplin .discipline-status i{display:inline-block;width:7px;height:7px;margin-right:6px;border-radius:50%;background:#39d889}
+#disiplin .discipline-team>strong{padding:8px 10px;background:#541d2b;border:1px solid #b12d48;border-radius:6px;color:#ff7588;font-size:15px;font-weight:950;white-space:nowrap}
+#disiplin .discipline-team-sanction{border-left:3px solid #ed354e;background:linear-gradient(110deg,#35212b,#211d26)}
+#disiplin .discipline-empty{padding:24px;background:#24212a;border:1px dashed #76515e;border-radius:9px;text-align:center}
+#disiplin .discipline-empty b{color:#fff}
+#disiplin .discipline-empty small{color:#c4b9c1}
+@media(max-width:650px){#disiplin .discipline-tabs{gap:4px;padding:5px}#disiplin .discipline-tab{padding:8px 4px;font-size:11px}#disiplin .discipline-list,#disiplin .discipline-team-list{margin-left:7px;padding-left:17px}#disiplin .discipline-item,#disiplin .discipline-team{grid-template-columns:34px minmax(0,1fr);gap:9px;margin-bottom:11px;padding:11px 9px}#disiplin .discipline-item:before,#disiplin .discipline-team:before{left:-24px;width:11px;height:11px}#disiplin .discipline-icon,#disiplin .discipline-team-mark{width:32px;height:32px}#disiplin .discipline-status,#disiplin .discipline-team>strong{grid-column:2;justify-self:start;margin-top:2px}}
+
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#dna">Takımlar</a><a href="#yonetmelik">Lig Yönetmeliği</a><a href="#sezon">Sezon Enleri</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
