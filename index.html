@@ -45,6 +45,22 @@ footer{color:#8197b4}
 .scorer-list{border:1px solid #ffffff16;border-radius:16px;padding:0 16px;background:#0c1d32}
 .scorer:last-child{border:0}
 @media(max-width:700px){.hero-panel{grid-template-columns:1fr}.hero-side{grid-template-columns:1fr 1fr}.top-three{grid-template-columns:1fr}.top-card{min-height:150px}.wrap{margin-top:18px}.match{gap:4px}.clubmark,.clubmark-fallback{width:22px;height:22px;margin-right:4px}}
+/* Section tabs: one view at a time */
+.wrap>section{display:none!important;animation:fadeUp .28s ease both}
+.wrap>section.active{display:block!important}
+nav a.selected{background:#df263d;border-color:#df263d;box-shadow:0 5px 20px #df263d44}
+html{scroll-behavior:smooth}
+.team-cell{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.clubmark-fallback{flex:0 0 28px;width:28px;height:28px;border-radius:9px;background:linear-gradient(145deg,#df263d,#81233d);font-size:9px}
+.weektitle{display:flex;align-items:center;justify-content:space-between}
+.weektitle:after{content:"MAÇLAR";font-size:10px;letter-spacing:.12em;color:#9db3cf}
+.match{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+.match .club:first-child{text-align:right}.match .club:last-child{text-align:left}
+.top-card{min-height:220px}
+.top-card:nth-child(1):before{content:"🥇";position:absolute;right:12px;top:10px;font-size:28px;z-index:2}
+.top-card:nth-child(2):before{content:"🥈";position:absolute;right:12px;top:10px;font-size:28px;z-index:2}
+.top-card:nth-child(3):before{content:"🥉";position:absolute;right:12px;top:10px;font-size:28px;z-index:2}
+@media(max-width:600px){nav{display:grid;grid-template-columns:1fr 1fr}nav a{text-align:center}.match{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}.club{font-size:12px}.score{min-width:76px;font-size:16px}}
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p><nav><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a></nav></header><main class="wrap"><section id="puan"><div class="hero-panel"><div class="hero-main"><div class="hero-kicker">2026 / 2027 sezonu</div><h2>Lig heyecanı burada.</h2><p>Fikstür, puan tablosu, gol krallığı ve disiplin kayıtları. Her hafta, tek merkezde.</p></div><div class="hero-side"><div class="metric"><span>Takım</span><strong>12</strong></div><div class="metric"><span>Hafta</span><strong>22</strong></div><div class="metric"><span>Sezon</span><strong>26/27</strong></div><div class="metric"><span>Lig</span><strong>VSL</strong></div></div></div>
 <h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
@@ -72,5 +88,15 @@ document.getElementById('fixtures').innerHTML=Array.from({length:22},(_,i)=>i+1)
 const sortedScorers=scorers.slice().sort((a,b)=>b[2]-a[2]);
 document.getElementById('scorers').innerHTML='<div class="top-three">'+sortedScorers.slice(0,3).map((p,i)=>'<article class="top-card"><span class="player-rank">0'+(i+1)+' · GOL KRALLIĞI</span>'+(playerPhotos[p[0]]?'<img class="player-photo" src="'+playerPhotos[p[0]]+'" alt="'+p[0]+'" loading="lazy">':'')+'<h3>'+p[0]+'</h3><small>'+p[1]+'</small><div class="top-goals">'+p[2]+' <span style="font-size:13px;font-weight:700">GOL</span></div></article>').join('')+'</div><div class="scorer-list">'+sortedScorers.slice(3).map((p,i)=>'<div class="scorer"><b>'+(i+4)+'.</b><div>'+p[0]+'<small>'+p[1]+'</small></div><strong>'+p[2]+' gol</strong></div>').join('')+'</div>';
 
-document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('nav a').forEach(x=>x.classList.toggle('selected',x===a));}));
+const leagueSections=[...document.querySelectorAll('main.wrap>section')];
+function activateLeagueSection(id,scroll){
+ const target=leagueSections.find(s=>s.id===id)||leagueSections.find(s=>s.id==='puan');
+ leagueSections.forEach(s=>s.classList.toggle('active',s===target));
+ document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('selected',a.getAttribute('href')==='#'+target.id));
+ if(scroll&&target)window.scrollTo({top:Math.max(0,target.getBoundingClientRect().top+window.pageYOffset-12),behavior:'smooth'});
+}
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.getAttribute('href').slice(1);history.replaceState(null,'','#'+id);activateLeagueSection(id,false);window.scrollTo({top:0,behavior:'smooth'});}));
+window.addEventListener('hashchange',()=>activateLeagueSection(location.hash.slice(1),false));
+activateLeagueSection(location.hash.slice(1)||'puan',false);
+
 </script></body></html>
