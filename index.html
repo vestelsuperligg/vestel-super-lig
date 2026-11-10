@@ -133,11 +133,22 @@ header nav a{padding:8px 13px;font-size:13px}
 .top-five .top-card-rank-5{background:linear-gradient(145deg,#35475b,#10243b)}
 @media(max-width:850px){.top-five{grid-template-columns:repeat(2,minmax(0,1fr))}.top-five .top-card{min-height:185px}}
 @media(max-width:430px){.top-five{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.top-five .top-card{min-height:175px;padding:11px}.top-five .top-card h3{font-size:14px}}
-.scorer-photo{width:42px;height:42px;object-fit:cover;object-position:top center;border-radius:50%;border:1px solid #ffffff44;flex:0 0 42px;margin:0 10px 0 8px}.scorer-list .scorer{display:flex;align-items:center;gap:5px}.scorer-list .scorer>div{flex:1;min-width:0}.top-three .top-card:nth-child(4){background:linear-gradient(145deg,#31516b,#10243b)}.top-three .top-card:nth-child(5){background:linear-gradient(145deg,#35475b,#10243b)}</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a></nav><main class="wrap">
+.scorer-photo{width:42px;height:42px;object-fit:cover;object-position:top center;border-radius:50%;border:1px solid #ffffff44;flex:0 0 42px;margin:0 10px 0 8px}.scorer-list .scorer{display:flex;align-items:center;gap:5px}.scorer-list .scorer>div{flex:1;min-width:0}.top-three .top-card:nth-child(4){background:linear-gradient(145deg,#31516b,#10243b)}.top-three .top-card:nth-child(5){background:linear-gradient(145deg,#35475b,#10243b)}
+.season-subtitle{color:#9bb0ca;margin:-4px 0 18px;font-size:13px;letter-spacing:.04em}
+.season-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.season-record{position:relative;overflow:hidden;min-height:170px;padding:18px;border:1px solid #ffffff20;border-radius:17px;background:linear-gradient(145deg,#173858,#0b1d32);box-shadow:0 10px 28px #0003}
+.season-icon{font-size:25px;margin-bottom:12px}
+.season-label{font-size:10px;font-weight:900;letter-spacing:.1em;color:#d9bb70}
+.season-value{font-size:19px;font-weight:900;color:#f4f7ff;margin-top:7px;line-height:1.25;overflow-wrap:anywhere}
+.season-detail{font-size:13px;color:#9bb0ca;margin-top:5px}
+@media(max-width:700px){.season-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.season-record{padding:13px;min-height:155px}.season-value{font-size:16px}.season-label{font-size:9px}}
+@media(max-width:360px){.season-grid{grid-template-columns:1fr}}
+</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#sezon">Sezon Enleri</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
 <section id="fikstur"><h2>Fikstür</h2><div id="fixtures"></div></section>
 <section id="gol"><h2>Gol Krallığı</h2><div class="card pad" id="scorers"></div></section>
+<section id="sezon"><h2>🏆 Sezon Enleri</h2><p class="season-subtitle">2026-2027 Tolga Kalender Sezonu · Rekorlar ve istatistikler</p><div id="season-records" class="season-grid"></div></section>
 <section id="disiplin"><h2>Disiplin Cezaları</h2><div class="card pad"><table><thead><tr><th>FUTBOLCU</th><th>CEZA DURUMU</th><th>TAKIM</th></tr></thead><tbody><tr><td>Davinson Sanchez</td><td><span class="pill">Bitti</span></td><td>Germencikspor</td></tr><tr><td>Cannavaro</td><td><span class="pill">Bitti</span></td><td>Kütahyaspor</td></tr><tr><td>Seedorf</td><td><span class="pill">Bitti</span></td><td>Artukluspor</td></tr><tr><td>Pirlo</td><td><span class="pill">Bitti</span></td><td>Erzurumspor</td></tr><tr><td>Mark van Bommel</td><td><span class="pill">Bitti</span></td><td>Elazığspor</td></tr><tr><td>Rabiot</td><td><span class="pill">Bitti</span></td><td>Elazığspor</td></tr></tbody></table></div></section></main><footer>VESTEL SÜPER LİG · 2026-2027</footer><script>
 const teams=["Erzurumspor","Mardin 1969","Kütahyaspor","45 Manisa FK","Çine Madranspor","Bursaspor","Artukluspor","Güzide Gebzespor","Germencikspor","Elazığspor","Aydınspor 1966","Karpuzlu FK"];
 const first=[[["Erzurumspor","Mardin 1969"],["Kütahyaspor","45 Manisa FK"],["Çine Madranspor","Bursaspor"],["Artukluspor","Güzide Gebzespor"],["Germencikspor","Elazığspor"],["Aydınspor 1966","Karpuzlu FK"]],[["Erzurumspor","45 Manisa FK"],["Mardin 1969","Bursaspor"],["Kütahyaspor","Güzide Gebzespor"],["Çine Madranspor","Elazığspor"],["Artukluspor","Karpuzlu FK"],["Germencikspor","Aydınspor 1966"]],[["Erzurumspor","Bursaspor"],["45 Manisa FK","Güzide Gebzespor"],["Mardin 1969","Elazığspor"],["Kütahyaspor","Karpuzlu FK"],["Çine Madranspor","Aydınspor 1966"],["Artukluspor","Germencikspor"]],[["Erzurumspor","Güzide Gebzespor"],["Bursaspor","Elazığspor"],["45 Manisa FK","Karpuzlu FK"],["Mardin 1969","Aydınspor 1966"],["Kütahyaspor","Germencikspor"],["Çine Madranspor","Artukluspor"]],[["Erzurumspor","Elazığspor"],["Güzide Gebzespor","Karpuzlu FK"],["Bursaspor","Aydınspor 1966"],["45 Manisa FK","Germencikspor"],["Mardin 1969","Artukluspor"],["Kütahyaspor","Çine Madranspor"]],[["Erzurumspor","Karpuzlu FK"],["Elazığspor","Aydınspor 1966"],["Güzide Gebzespor","Germencikspor"],["Bursaspor","Artukluspor"],["45 Manisa FK","Çine Madranspor"],["Mardin 1969","Kütahyaspor"]],[["Erzurumspor","Aydınspor 1966"],["Karpuzlu FK","Germencikspor"],["Elazığspor","Artukluspor"],["Güzide Gebzespor","Çine Madranspor"],["Bursaspor","Kütahyaspor"],["45 Manisa FK","Mardin 1969"]],[["Erzurumspor","Germencikspor"],["Aydınspor 1966","Artukluspor"],["Karpuzlu FK","Çine Madranspor"],["Elazığspor","Kütahyaspor"],["Güzide Gebzespor","Mardin 1969"],["Bursaspor","45 Manisa FK"]],[["Erzurumspor","Artukluspor"],["Germencikspor","Çine Madranspor"],["Aydınspor 1966","Kütahyaspor"],["Karpuzlu FK","Mardin 1969"],["Elazığspor","45 Manisa FK"],["Güzide Gebzespor","Bursaspor"]],[["Erzurumspor","Çine Madranspor"],["Artukluspor","Kütahyaspor"],["Germencikspor","Mardin 1969"],["Aydınspor 1966","45 Manisa FK"],["Karpuzlu FK","Bursaspor"],["Elazığspor","Güzide Gebzespor"]],[["Erzurumspor","Kütahyaspor"],["Çine Madranspor","Mardin 1969"],["Artukluspor","45 Manisa FK"],["Germencikspor","Bursaspor"],["Aydınspor 1966","Güzide Gebzespor"],["Karpuzlu FK","Elazığspor"]]];
@@ -153,6 +164,37 @@ document.getElementById('table').innerHTML='<div style="overflow:auto"><table><t
 function card(m){return '<div class="match"><div class="club">'+m.h+'</div><div><div class="score">'+(m.s?m.s.join(' - '):'OYNANMADI')+'</div></div><div class="club">'+m.a+'</div></div>'}
 // Maç Sonuçları sekmesi kaldırıldı; sonuçlar fikstürde gösteriliyor.
 document.getElementById('fixtures').innerHTML=Array.from({length:22},(_,i)=>i+1).map(w=>'<div class="week"><div class="weektitle">'+w+'. HAFTA</div><div class="pad">'+matches.filter(m=>m.w===w).map(card).join('')+'</div></div>').join('');
+
+const playedMatches=matches.filter(m=>m.s&&!(m.h==='Güzide Gebzespor'&&m.s[0]===0&&m.s[1]===3)&&!(m.a==='Güzide Gebzespor'&&m.s[0]===3&&m.s[1]===0));
+const seasonStats=stats();
+const best=(arr,fn,high=true)=>arr.reduce((a,b)=>!a||((high?fn(b)>fn(a):fn(b)<fn(a)))?b:a,null);
+const maxGoalsTeam=best(seasonStats,t=>t.ag),minConcededTeam=best(seasonStats,t=>t.yg,false),minGoalsTeam=best(seasonStats,t=>t.ag,false),maxConcededTeam=best(seasonStats,t=>t.yg);
+const maxWinsTeam=best(seasonStats,t=>t.g),bestAverage=best(seasonStats,t=>t.ag-t.yg);
+const maxDrawsTeam=best(seasonStats,t=>t.b);
+const widestWin=best(playedMatches.filter(m=>m.s[0]!==m.s[1]),m=>Math.abs(m.s[0]-m.s[1]));
+const highestScoring=best(playedMatches,m=>m.s[0]+m.s[1]);
+const cleanSheets=Object.fromEntries(teams.map(t=>[t,playedMatches.filter(m=>(m.h===t&&m.s[1]===0)||(m.a===t&&m.s[0]===0)).length]));
+const cleanSheetTeam=best(teams,t=>cleanSheets[t]);
+const weekGoals=Array.from({length:22},(_,i)=>({week:i+1,goals:playedMatches.filter(m=>m.w===i+1).reduce((n,m)=>n+m.s[0]+m.s[1],0)}));
+const topWeek=best(weekGoals,w=>w.goals);
+const streakFor=(team,type)=>{let run=0,bestRun=0;playedMatches.filter(m=>m.h===team||m.a===team).sort((a,b)=>a.w-b.w).forEach(m=>{const home=m.h===team,[x,y]=m.s,win=home?x>y:x<y,draw=x===y,ok=type==='win'?win:type==='unbeaten'?(win||draw):false;run=ok?run+1:0;bestRun=Math.max(bestRun,run)});return bestRun};
+const winStreak=best(teams,t=>streakFor(t,'win')),unbeatenStreak=best(teams,t=>streakFor(t,'unbeaten'));
+const cards=[
+['⚽','EN GOLCÜ TAKIM',maxGoalsTeam.n,maxGoalsTeam.ag+' gol'],
+['🧤','EN AZ GOL YİYEN',minConcededTeam.n,minConcededTeam.yg+' gol yedi'],
+['🔥','EN FARKLI GALİBİYET',widestWin?widestWin.h+' '+widestWin.s[0]+' - '+widestWin.s[1]+' '+widestWin.a:'-',widestWin?'Fark: '+Math.abs(widestWin.s[0]-widestWin.s[1])+' gol':''],
+['🎆','EN GOLLÜ MAÇ',highestScoring?highestScoring.h+' '+highestScoring.s[0]+' - '+highestScoring.s[1]+' '+highestScoring.a:'-',highestScoring?highestScoring.s[0]+highestScoring.s[1]+' gol':''],
+['🏆','EN ÇOK GALİBİYET',maxWinsTeam.n,maxWinsTeam.g+' galibiyet'],
+['📈','EN İYİ AVERAJ',bestAverage.n,(bestAverage.ag-bestAverage.yg>0?'+':'')+(bestAverage.ag-bestAverage.yg)+' averaj'],
+['🥅','EN AZ GOL ATAN',minGoalsTeam.n,minGoalsTeam.ag+' gol'],
+['🚨','EN ÇOK GOL YİYEN',maxConcededTeam.n,maxConcededTeam.yg+' gol yedi'],
+['🤝','BERABERLİK REKORTMENİ',maxDrawsTeam.n,maxDrawsTeam.b+' beraberlik'],
+['🧤','EN ÇOK GOL YEMEDEN',cleanSheetTeam,cleanSheets[cleanSheetTeam]+' maç'],
+['📅','EN GOLLÜ HAFTA',topWeek.week+'. Hafta',topWeek.goals+' gol'],
+['🔥','EN UZUN GALİBİYET SERİSİ',winStreak,streakFor(winStreak,'win')+' maç üst üste'],
+['🛡️','EN UZUN YENİLMEZLİK',unbeatenStreak,streakFor(unbeatenStreak,'unbeaten')+' maç']
+];
+document.getElementById('season-records').innerHTML=cards.map(c=>'<article class="season-record"><div class="season-icon">'+c[0]+'</div><div class="season-label">'+c[1]+'</div><div class="season-value">'+c[2]+'</div><div class="season-detail">'+c[3]+'</div></article>').join('');
 const sortedScorers=scorers.slice().sort((a,b)=>b[2]-a[2]);
 const playerPhotos={"Andriy Shevchenko":"https://commons.wikimedia.org/wiki/Special:FilePath/Andrij_Szewczenko.jpg","Gareth Bale":"https://commons.wikimedia.org/wiki/Special:FilePath/Gareth_Bale_-_Wales_-_2015_(1).jpg","Kylian Mbappé":"https://commons.wikimedia.org/wiki/Special:FilePath/Kylian_Mbappe_France_v_Senegal_16_June_2026-391_(cropped).jpg","Zlatan Ibrahimović":"https://commons.wikimedia.org/wiki/Special:FilePath/Zlatan_Ibrahimovi%C4%87_Real_Madrid-Milan.jpg","Filippo Inzaghi":"https://commons.wikimedia.org/wiki/Special:FilePath/1997_Filippo_Inzaghi_(cropped).jpg"};
 document.getElementById('scorers').innerHTML='<div class="top-three">'+sortedScorers.slice(0,5).map((p,i)=>'<article class="top-card"><span class="player-rank">0'+(i+1)+' · GOL KRALLIĞI</span><img class="player-photo" src="'+(playerPhotos[p[0]]||'')+'" alt="'+p[0]+'" onerror="this.style.display=\'none\'"><h3>'+p[0]+'</h3><small>'+p[1]+'</small><div class="top-goals">'+p[2]+' <span style="font-size:13px">GOL</span></div></article>').join('')+'</div><div class="scorer-list">'+sortedScorers.slice(5).map((p,i)=>'<div class="scorer"><b>'+(i+6)+'.</b><div>'+p[0]+'<small>'+p[1]+'</small></div><strong>'+p[2]+' gol</strong></div>').join('')+'</div>';
