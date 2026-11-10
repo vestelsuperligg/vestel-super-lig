@@ -122,6 +122,17 @@ header nav a{padding:8px 13px;font-size:13px}
  #puan .form-dots{gap:3px}
  #puan .form-dot{width:14px;height:20px;font-size:9px}
 }
+
+/* Expand the featured scorers from three to five */
+.top-five{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:18px}
+.top-five .top-card{min-height:205px;padding:12px}
+.top-five .top-card h3{font-size:15px;overflow-wrap:anywhere}
+.top-five .top-card small{font-size:11px}
+.top-five .top-goals{font-size:24px}
+.top-five .top-card-rank-4{background:linear-gradient(145deg,#31516b,#10243b)}
+.top-five .top-card-rank-5{background:linear-gradient(145deg,#35475b,#10243b)}
+@media(max-width:850px){.top-five{grid-template-columns:repeat(2,minmax(0,1fr))}.top-five .top-card{min-height:185px}}
+@media(max-width:430px){.top-five{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.top-five .top-card{min-height:175px;padding:11px}.top-five .top-card h3{font-size:14px}}
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
@@ -144,6 +155,6 @@ function card(m){return '<div class="match"><div class="club">'+m.h+'</div><div>
 document.getElementById('fixtures').innerHTML=Array.from({length:22},(_,i)=>i+1).map(w=>'<div class="week"><div class="weektitle">'+w+'. HAFTA</div><div class="pad">'+matches.filter(m=>m.w===w).map(card).join('')+'</div></div>').join('');
 const sortedScorers=scorers.slice().sort((a,b)=>b[2]-a[2]);
 const playerPhotos={"Andriy Shevchenko":"https://commons.wikimedia.org/wiki/Special:FilePath/Andrij_Szewczenko.jpg","Gareth Bale":"https://commons.wikimedia.org/wiki/Special:FilePath/Gareth_Bale_2015_(1).jpg","Kylian Mbappé":"https://commons.wikimedia.org/wiki/Special:FilePath/Kylian_Mbapp%C3%A9_2018.jpg"};
-document.getElementById('scorers').innerHTML='<div class="top-three">'+sortedScorers.slice(0,3).map((p,i)=>'<article class="top-card"><span class="player-rank">0'+(i+1)+' · GOL KRALLIĞI</span><img class="player-photo" src="'+(playerPhotos[p[0]]||'')+'" alt="'+p[0]+'" onerror="this.style.display=\'none\'"><h3>'+p[0]+'</h3><small>'+p[1]+'</small><div class="top-goals">'+p[2]+' <span style="font-size:13px">GOL</span></div></article>').join('')+'</div><div class="scorer-list">'+sortedScorers.slice(3).map((p,i)=>'<div class="scorer"><b>'+(i+4)+'.</b><div>'+p[0]+'<small>'+p[1]+'</small></div><strong>'+p[2]+' gol</strong></div>').join('')+'</div>';
+document.getElementById('scorers').innerHTML='<div class="top-five">'+sortedScorers.slice(0,5).map((p,i)=>'<article class="top-card top-card-rank-'+(i+1)+'"><span class="player-rank">0'+(i+1)+' · GOL KRALLIĞI</span><img class="player-photo" src="'+(playerPhotos[p[0]]||'')+'" alt="'+p[0]+'" onerror="this.style.display=\'none\'"><h3>'+p[0]+'</h3><small>'+p[1]+'</small><div class="top-goals">'+p[2]+' <span style="font-size:13px">GOL</span></div></article>').join('')+'</div><div class="scorer-list">'+sortedScorers.slice(5).map((p,i)=>'<div class="scorer"><b>'+(i+6)+'.</b><div>'+p[0]+'<small>'+p[1]+'</small></div><strong>'+p[2]+' gol</strong></div>').join('')+'</div>';
 const sections=[...document.querySelectorAll('main section')];function showSection(id){const target=sections.find(s=>s.id===id)||sections[0];sections.forEach(s=>s.classList.toggle('active',s===target));document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('selected',a.hash==='#'+target.id));}document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.getAttribute('href').slice(1);history.replaceState(null,'','#'+id);showSection(id);}));showSection(location.hash.slice(1)||'puan');
 </script></body></html>
