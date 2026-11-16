@@ -890,7 +890,22 @@ header nav a{padding:8px 13px;font-size:13px}
 #sezon .season-record:nth-child(3n+2) .season-label:after{background:linear-gradient(90deg,#e1e8ef,#8996a4)}
 #sezon .season-record:nth-child(3n) .season-label:after{background:linear-gradient(90deg,#e8b18c,#a75e3b)}
 
-</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#dna">Takımlar</a><a href="#yonetmelik">Lig Yönetmeliği</a><a href="#sezon">Sezon Enleri</a></nav><main class="wrap">
+
+/* Başkanın sezon sonu mesajı */
+#president-message-modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(3,12,27,.78);backdrop-filter:blur(7px)}
+#president-message-modal[hidden]{display:none}
+.president-message-card{position:relative;width:min(100%,520px);padding:30px 28px 24px;border:1px solid #b99554;border-radius:20px;background:linear-gradient(145deg,#102b4d,#091a31 72%);color:#f6f1e7;box-shadow:0 24px 80px #0008;text-align:center}
+.president-message-mark{width:48px;height:48px;margin:0 auto 12px;border:1px solid #c9a45e;border-radius:50%;display:grid;place-items:center;color:#e6c47d;font-size:23px}
+.president-message-kicker{margin:0 0 5px;color:#dfc17e;font-size:10px;font-weight:900;letter-spacing:.17em;text-transform:uppercase}
+.president-message-card h2{margin:0 0 18px;color:#fff;font-size:25px;letter-spacing:.02em}
+.president-message-card p{margin:0 0 13px;color:#dbe4ef;font-size:14px;line-height:1.75}
+.president-message-slogan{margin:18px 0 17px!important;color:#f0ce82!important;font-size:16px!important;font-weight:900;letter-spacing:.02em}
+.president-message-sign{padding-top:13px;border-top:1px solid #ffffff20;color:#fff;font-weight:800;font-size:14px}
+.president-message-sign small{display:block;margin-top:3px;color:#aebed0;font-size:11px;font-weight:600}
+.president-message-close{margin-top:20px;padding:11px 23px;border:0;border-radius:10px;background:linear-gradient(110deg,#e4c27a,#b68a42);color:#14243a;font-size:13px;font-weight:900;cursor:pointer}
+.president-message-close:hover{filter:brightness(1.08)}
+@media(max-width:520px){.president-message-card{padding:25px 20px 21px}.president-message-card h2{font-size:22px}.president-message-card p{font-size:13px}}
+</style></head><body><div id="president-message-modal" role="dialog" aria-modal="true" aria-labelledby="president-message-title"><div class="president-message-card"><div class="president-message-mark">⚖</div><p class="president-message-kicker">VESTEL SÜPER LİG · 2026-2027</p><h2 id="president-message-title">Başkanın Mesajı</h2><p><b>Değerli futbolseverler,</b></p><p>2026-2027 Tolga Kalender Sezonu'nda artık son 4 haftaya giriyoruz. Heyecan, mücadele ve rekabet tüm hızıyla devam ediyor.</p><p>Tüm takımlarımıza başarılar diliyor, sezonun sonuna kadar dostluk ve fair-play ruhunun korunmasını temenni ediyorum.</p><p class="president-message-slogan">Son düdüğe kadar mücadele!</p><div class="president-message-sign">Ahmet Çakır<small>Kulüpler Birliği Başkanı</small></div><button class="president-message-close" type="button" onclick="closePresidentMessage()">Siteye Devam Et</button></div></div><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#dna">Takımlar</a><a href="#yonetmelik">Lig Yönetmeliği</a><a href="#sezon">Sezon Enleri</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
 <section id="fikstur"><h2>Fikstür</h2><div id="fixtures"></div></section>
@@ -1014,5 +1029,6 @@ const sections=[...document.querySelectorAll('main section')];function showSecti
 
 
 function showDisciplineTab(tab,button){document.querySelectorAll('.discipline-panel').forEach(panel=>panel.hidden=true);const target=document.getElementById('discipline-'+tab);if(target)target.hidden=false;document.querySelectorAll('.discipline-tab').forEach(item=>item.classList.remove('active'));if(button)button.classList.add('active')}
+function closePresidentMessage(){const modal=document.getElementById('president-message-modal');if(modal)modal.hidden=true;try{sessionStorage.setItem('vestelPresidentMessageSeen','1')}catch(e){}}try{if(sessionStorage.getItem('vestelPresidentMessageSeen')==='1'){document.getElementById('president-message-modal').hidden=true}}catch(e){}document.addEventListener('keydown',e=>{if(e.key==='Escape')closePresidentMessage()});
 </script></body></html>
 <!-- GitHub Pages yeniden yayinlama tetikleyicisi -->
