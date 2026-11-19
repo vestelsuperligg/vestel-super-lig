@@ -892,7 +892,22 @@ header nav a{padding:8px 13px;font-size:13px}
 #sezon .season-record:nth-child(3n) .season-label:after{background:linear-gradient(90deg,#e8b18c,#a75e3b)}
 
 
-</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#dna">Takımlar</a><a href="#yonetmelik">Lig Yönetmeliği</a><a href="#sezon">Sezon Enleri</a></nav><main class="wrap">
+
+/* Media corner */
+#medya .media-lead{position:relative;overflow:hidden;margin:18px 0;padding:clamp(22px,4vw,38px);border:1px solid #49698c;border-radius:18px;background:linear-gradient(120deg,#132f4f,#0b1b30 70%);box-shadow:0 12px 34px #0004}
+#medya .media-lead:after{content:"📰";position:absolute;right:22px;top:16px;font-size:clamp(42px,8vw,76px);opacity:.12}
+#medya .media-lead-tag,#medya .media-label{color:#e7bd69;font-size:10px;font-weight:950;letter-spacing:.16em}
+#medya .media-lead h3{position:relative;z-index:1;max-width:760px;margin:12px 0;color:#fff;font-size:clamp(22px,4vw,32px);line-height:1.2}
+#medya .media-lead p{max-width:780px;color:#d5e1ef;line-height:1.75}
+#medya .media-disclaimer{display:inline-block;margin-top:7px;padding:7px 10px;border-radius:8px;background:#ffffff12;color:#ffd98d;font-size:11px;font-weight:750}
+#medya .media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#medya .media-card{padding:20px;border:1px solid #ffffff1c;border-radius:14px;background:linear-gradient(145deg,#142b45,#0d1c30);box-shadow:0 8px 22px #0002}
+#medya .media-card h3{margin:9px 0;color:#f4f7ff;font-size:17px;line-height:1.35}
+#medya .media-card p{margin:0;color:#b9c8da;font-size:13px;line-height:1.7}
+#medya .media-note{display:flex;gap:14px;align-items:flex-start;margin-top:16px;padding:15px 17px;border-left:3px solid #d9ad58;border-radius:8px;background:#ffffff0b;color:#c5d2e2;font-size:12px;line-height:1.65}
+#medya .media-note b{flex:none;color:#f0ca7d;letter-spacing:.08em}
+@media(max-width:650px){#medya .media-grid{grid-template-columns:1fr}#medya .media-card{padding:17px}#medya .media-lead{padding:22px 18px}}
+</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#dna">Takımlar</a><a href="#medya">Medya Köşesi</a><a href="#yonetmelik">Lig Yönetmeliği</a><a href="#sezon">Sezon Enleri</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
 <section id="fikstur"><h2>Fikstür</h2><div id="fixtures"></div></section>
@@ -924,6 +939,23 @@ header nav a{padding:8px 13px;font-size:13px}
 </div></div></section>
 <section id="gol"><h2>Gol Krallığı</h2><div class="card pad" id="scorers"></div></section>
 <section id="sezon"><h2>🏆 Sezon Enleri</h2><p class="season-subtitle">2026-2027 Tolga Kalender Sezonu · Rekorlar ve istatistikler</p><div id="season-records" class="season-grid"></div></section><section id="dna"><h2>🧬 Takımlar</h2><p class="season-subtitle">12 takımın bu sezonki lig performansı ve takım karakteri</p><div id="team-dna" class="dna-grid"></div><p class="dna-footnote">Bu bölüm yalnızca 2026-2027 sezonunu esas alır. Geçmiş kupa ve başarı bilgileri profil kartlarından çıkarılmıştır. Tüm lig istatistikleri bu sitedeki kayıtlı maç sonuçlarından hesaplanır.</p></section>
+<section id="medya">
+<h2>📰 Medya Köşesi</h2>
+<p class="season-subtitle">Vestel Süper Lig 2026-2027 · Gündem, iddialar ve kulüplerden açıklamalar</p>
+<div class="media-lead">
+ <div class="media-lead-tag">GÜNDEMİN SICAK BAŞLIĞI</div>
+ <h3>Şike iddiaları ve teşvik primi söylentileri futbol gündeminde</h3>
+ <p>Bazı karşılaşmaların sonuçlarına ve kulüpler arasındaki temaslara ilişkin ortaya atılan iddialar, lig kamuoyunda geniş yankı uyandırdı. İddiaların doğruluğu henüz kanıtlanmış değil.</p>
+ <span class="media-disclaimer">Bu başlıklar kurgu lig evrenindeki medya gündemidir. Kesinleşmiş bir karar veya kanıtlanmış suçlama değildir.</span>
+</div>
+<div class="media-grid">
+ <article class="media-card"><div class="media-label">İNCELEME DOSYASI</div><h3>Şike şüphesi taşıdığı öne sürülen maçlar mercek altında</h3><p>Bazı maçlarda yaşandığı iddia edilen sıra dışı gelişmelerin, ilgili kurullar tarafından değerlendirilmesi bekleniyor. İnceleme tamamlanmadan hiçbir kulüp hakkında hüküm verilmeyecek.</p></article>
+ <article class="media-card"><div class="media-label">TRANSFER DIŞI GÜNDEM</div><h3>Teşvik primi söylentileri kulisleri hareketlendirdi</h3><p>Bazı kulüplere maç sonuçlarını etkilemeye yönelik ödeme teklifleri yapıldığı ileri sürülüyor. İddiaları destekleyen doğrulanmış bir bulgu henüz kamuoyuyla paylaşılmadı.</p></article>
+ <article class="media-card"><div class="media-label">KULÜPLER BİRLİĞİ</div><h3>Tarafsız ve kapsamlı inceleme çağrısı</h3><p>Kulüpler Birliği çevreleri, sürecin belgeler ve somut bulgular üzerinden yürütülmesi, kulüplerin savunmalarının alınması gerektiğini vurguluyor.</p></article>
+ <article class="media-card"><div class="media-label">GELİŞMELER</div><h3>Resmî açıklamalar bekleniyor</h3><p>İncelemeye konu olduğu belirtilen kulüplerin açıklamaları ve kurullardan gelecek kararlar takip ediliyor. Yeni bilgiler doğrulandıkça bu köşede güncellenecek.</p></article>
+</div>
+<div class="media-note"><b>MEDYA NOTU</b><span>Masumiyet karinesi esastır. İddialar, söylentiler ve kesinleşmiş disiplin kararları birbirinden ayrı değerlendirilir.</span></div>
+
 <section id="disiplin"><h2>⚖️ Disiplin Merkezi</h2><p class="season-subtitle">2026-2027 sezonu · Oyuncu, yönetici ve takım ceza kayıtları</p><div class="discipline-tabs"><button class="discipline-tab" type="button" onclick="showDisciplineTab('players',this)">⚽ Oyuncular</button><button class="discipline-tab" type="button" onclick="showDisciplineTab('managers',this)">🧑‍💼 Yöneticiler</button><button class="discipline-tab" type="button" onclick="showDisciplineTab('teams',this)">🛡️ Takımlar</button></div><div id="discipline-players" class="discipline-panel" hidden><div class="discipline-list"><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Davinson Sanchez</b><span>Germencikspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Fabio Cannavaro</b><span>Mardin 1969</span></div><div class="discipline-status"><i></i> 2 maç ceza</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Clarence Seedorf</b><span>Artukluspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Andrea Pirlo</b><span>Erzurumspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Mark van Bommel</b><span>Elazığspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Adrien Rabiot</b><span>Elazığspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article></div></div><div id="discipline-managers" class="discipline-panel" hidden><div class="discipline-list"><article class="discipline-item"><div class="discipline-icon">⚖️</div><div class="discipline-player"><b>İbrahim Akçiçek</b><span>Bursaspor Başkanı · Kamuoyuna ve futbol camiasına yönelik açıklamalarında küfürlü ve sportmenliğe aykırı ifadeler kullanılması</span><small style="display:block;color:#e6a6b2;font-size:11px;font-weight:800;margin-top:6px">45 gün hak mahrumiyeti · 150.000 TL para cezası</small></div></article></div></div><div id="discipline-teams" class="discipline-panel" hidden><div class="discipline-team-list"><article class="discipline-team discipline-team-sanction"><div class="discipline-team-mark">⚖️</div><div><b>Kütahyaspor</b><span>Cezalı oyuncu oynatma · Fabio Cannavaro</span><small>Takım cezası: -3 puan</small></div><strong>-3 PUAN</strong></article></div></div></section>
 <section id="yonetmelik"><h2>📘 Lig Yönetmeliği</h2><p class="season-subtitle">Lig organizasyonu, kulüplerin yükümlülükleri ve müsabaka esasları</p>
 <div class="reg-grid">
