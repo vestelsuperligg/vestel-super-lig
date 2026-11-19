@@ -1184,7 +1184,54 @@ header nav a{padding:8px 13px;font-size:13px}
 .tv-disclaimer{margin:14px 0;padding:13px 15px;border-left:3px solid #e0b65e;border-radius:8px;background:#e0b65e12;color:#d9c99f;font-size:11px;line-height:1.7}
 @media(max-width:760px){.tv-feature{grid-template-columns:1fr}.tv-screen{min-height:285px}.tv-studio-art{min-height:230px}.tv-grid{grid-template-columns:1fr}.tv-masthead{align-items:flex-start;flex-direction:column}.tv-screen-copy strong{font-size:25px}}
 
-</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#hakem">VAR &amp; Hakem Merkezi</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#taraftar">Editör Köşesi</a><a href="#medya">Medya Köşesi</a><a href="#futboltv">Vestel Futbol TV</a><a href="#sezon">Sezon Enleri</a><a href="#yonetmelik">Lig Yönetmeliği</a></nav><main class="wrap">
+
+/* Vestel Lig Oyun Merkezi */
+#oyunlar .game-hero{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px;border:1px solid #d7b86b;border-radius:20px;background:radial-gradient(circle at 85% 20%,#41658b 0,transparent 35%),linear-gradient(120deg,#173b61,#0b1c31);box-shadow:0 16px 35px #0004}
+#oyunlar .game-kicker{font-size:10px;font-weight:950;letter-spacing:.16em;color:#f0d18a}
+#oyunlar .game-hero h3{font-size:clamp(22px,4vw,32px);line-height:1.12;color:#fff;margin:9px 0}
+#oyunlar .game-hero p{margin:0;color:#c4d4e8;font-size:13px}
+#oyunlar .game-trophy{font-size:66px;filter:drop-shadow(0 8px 10px #0006)}
+#oyunlar .game-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+#oyunlar .game-stats>div{padding:13px 15px;border:1px solid #ffffff1c;border-radius:13px;background:#ffffff0b}
+#oyunlar .game-stats small{display:block;color:#9fb5ce;font-size:9px;font-weight:900;letter-spacing:.09em}
+#oyunlar .game-stats b{display:block;color:#fff;font-size:24px;margin-top:3px}
+#oyunlar .game-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#oyunlar .game-tile{display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-height:190px;padding:17px;border:1px solid #ffffff20;border-radius:16px;background:linear-gradient(145deg,#173653,#0c2035);color:#fff;cursor:pointer;transition:transform .18s,border-color .18s,background .18s}
+#oyunlar .game-tile:hover{transform:translateY(-3px);border-color:#e2c274;background:linear-gradient(145deg,#20466b,#102840)}
+#oyunlar .game-tile>span{font-size:27px;margin-bottom:12px}
+#oyunlar .game-tile b{font-size:15px}
+#oyunlar .game-tile small{color:#a9bdd3;font-size:11px;line-height:1.45;margin-top:6px;flex:1}
+#oyunlar .game-tile em{font-style:normal;color:#f0ce7e;font-size:10px;font-weight:950;letter-spacing:.1em;margin-top:15px}
+#oyunlar .game-tile-feature{border-color:#caa653;background:linear-gradient(145deg,#4a3b20,#142943)}
+#oyunlar .game-play{margin-top:18px;padding:18px;border:1px solid #d5b76d;border-radius:18px;background:linear-gradient(145deg,#122e4a,#0a1b2e);box-shadow:0 15px 35px #0004}
+#oyunlar .game-play-top{display:flex;align-items:center;justify-content:space-between;color:#d8c17f;font-size:12px;font-weight:900}
+#oyunlar .game-back{border:0;background:#ffffff12;color:#dce8f6;padding:9px 12px;border-radius:9px;cursor:pointer;font-weight:800}
+#oyunlar .game-progress{height:7px;background:#ffffff16;border-radius:9px;overflow:hidden;margin:14px 0 22px}
+#oyunlar .game-progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,#e2bd64,#fff0b0);transition:width .2s}
+#oyunlar .question-kicker{color:#e4c579;font-size:10px;font-weight:950;letter-spacing:.13em}
+#oyunlar .question-title{font-size:clamp(20px,4vw,27px);line-height:1.25;color:#fff;margin:9px 0 16px}
+#oyunlar .question-hint{color:#a9bdd3;font-size:13px;margin:-7px 0 17px}
+#oyunlar .question-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+#oyunlar .question-option{border:1px solid #ffffff24;background:#ffffff0c;color:#f3f7fc;border-radius:11px;padding:13px;text-align:left;font-weight:750;cursor:pointer}
+#oyunlar .question-option:hover:not(:disabled){border-color:#e1c174;background:#ffffff16}
+#oyunlar .question-option:disabled{cursor:default;opacity:.8}
+#oyunlar .question-option.correct{background:#164b3a;border-color:#48b987;color:#b9f4d5;opacity:1}
+#oyunlar .question-option.wrong{background:#542936;border-color:#d65c70;color:#ffd1d7;opacity:1}
+#oyunlar .game-feedback{min-height:25px;margin-top:13px;font-weight:800;font-size:13px}
+#oyunlar .game-feedback.good{color:#8de0b4}#oyunlar .game-feedback.bad{color:#ff9ba8}
+#oyunlar .game-controls{display:flex;justify-content:flex-end;margin-top:12px}
+#oyunlar #game-next{border:0;border-radius:10px;padding:12px 18px;background:linear-gradient(135deg,#f0d48c,#c49b48);color:#17263b;font-weight:950;cursor:pointer}
+#oyunlar #game-next:disabled{opacity:.4;cursor:not-allowed}
+#oyunlar .game-result{margin-top:18px;padding:25px;text-align:center;border:1px solid #d5b76d;border-radius:18px;background:linear-gradient(145deg,#203d5b,#0d2035)}
+#oyunlar .game-result .result-medal{font-size:48px}
+#oyunlar .game-result h3{color:white;font-size:26px;margin:8px 0}
+#oyunlar .game-result p{color:#b8cbe0}
+#oyunlar .game-result button{border:0;border-radius:10px;padding:12px 18px;margin:5px;background:#e2c274;color:#15243a;font-weight:900;cursor:pointer}
+#oyunlar .game-note{color:#91a9c4;font-size:11px;line-height:1.6;margin-top:17px}
+@media(max-width:800px){#oyunlar .game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){#oyunlar .game-hero{padding:18px}#oyunlar .game-trophy{font-size:48px}#oyunlar .game-tile{min-height:175px;padding:13px}#oyunlar .question-options{grid-template-columns:1fr}#oyunlar .game-play{padding:13px}#oyunlar .game-stats>div{padding:11px 9px}#oyunlar .game-stats b{font-size:21px}}
+
+</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#hakem">VAR &amp; Hakem Merkezi</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#taraftar">Editör Köşesi</a><a href="#medya">Medya Köşesi</a><a href="#futboltv">Vestel Futbol TV</a><a href="#sezon">Sezon Enleri</a><a href="#oyunlar">🎮 Oyun Merkezi</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
 <section id="fikstur"><h2>Fikstür</h2><div id="fixtures"></div></section>
@@ -1248,14 +1295,30 @@ header nav a{padding:8px 13px;font-size:13px}
  <div class="media-footerline"><span>VESTEL SÜPER LİG</span><span>SAHA İÇİNDEN · HAFTALIK BÜLTEN</span></div>
 </section>
 <section id="disiplin"><h2>⚖️ Disiplin Merkezi</h2><p class="season-subtitle">2026-2027 sezonu · Oyuncu, yönetici ve takım ceza kayıtları</p><div class="discipline-tabs"><button class="discipline-tab" type="button" onclick="showDisciplineTab('players',this)">⚽ Oyuncular</button><button class="discipline-tab" type="button" onclick="showDisciplineTab('managers',this)">🧑‍💼 Yöneticiler</button><button class="discipline-tab" type="button" onclick="showDisciplineTab('teams',this)">🛡️ Takımlar</button></div><div id="discipline-players" class="discipline-panel" hidden><div class="discipline-list"><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Davinson Sanchez</b><span>Germencikspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Fabio Cannavaro</b><span>Mardin 1969</span></div><div class="discipline-status"><i></i> 2 maç ceza</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Clarence Seedorf</b><span>Artukluspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Andrea Pirlo</b><span>Erzurumspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Mark van Bommel</b><span>Elazığspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Adrien Rabiot</b><span>Elazığspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article></div></div><div id="discipline-managers" class="discipline-panel" hidden><div class="discipline-list"><article class="discipline-item"><div class="discipline-icon">⚖️</div><div class="discipline-player"><b>İbrahim Akçiçek</b><span>Bursaspor Başkanı · Kamuoyuna ve futbol camiasına yönelik açıklamalarında küfürlü ve sportmenliğe aykırı ifadeler kullanılması</span><small style="display:block;color:#e6a6b2;font-size:11px;font-weight:800;margin-top:6px">45 gün hak mahrumiyeti · 150.000 TL para cezası</small></div></article></div></div><div id="discipline-teams" class="discipline-panel" hidden><div class="discipline-team-list"><article class="discipline-team discipline-team-sanction"><div class="discipline-team-mark">⚖️</div><div><b>Kütahyaspor</b><span>Cezalı oyuncu oynatma · Fabio Cannavaro</span><small>Takım cezası: -3 puan</small></div><strong>-3 PUAN</strong></article></div></div></section>
-<section id="yonetmelik"><h2>📘 Lig Yönetmeliği</h2><p class="season-subtitle">Lig organizasyonu, kulüplerin yükümlülükleri ve müsabaka esasları</p>
-<div class="reg-grid">
-<article class="reg-card"><div class="reg-kicker">01 · YÖNETİM</div><h3>Birlik organları ve görevleri</h3><ul><li><b>Kulüpler Birliği Başkanı:</b> Ahmet Çakır. Birliğin en üst temsil ve karar makamıdır. Her yıl seçimli olağan genel kurulda üyelerin oylarıyla seçilir.</li><li><b>Denge ve Denetleme Kamarası Başkanı:</b> Şakircan Aksoy. Hakem atamaları, kart cezaları, maç iptali ve tekrarları ile yeni önerge süreçlerini yürütür. Birlik başkanına gensoru sunabilir.</li><li><b>İcra Kurulu Başkanı:</b> Cevdet Özcan. Fikstürün uygulanmasını, maçların oynanmasını ve günlük lig işleyişini koordine eder. Aksaklıkları Denge ve Denetleme Kamarasına sevk eder.</li><li>Denge ve Denetleme ile İcra Kurulu başkanları, Kulüpler Birliği Başkanı tarafından atanır. Görev süreleri başkanın görev süresiyle sınırlıdır; görevlerini aksatmaları hâlinde görevden alınabilirler.</li></ul></article>
-<article class="reg-card"><div class="reg-kicker">02 · MÜSABAKA</div><h3>Maçların oynanma esasları</h3><ul><li>Maçlar, İcra Kurulunun ilan ettiği fikstür ve takvim doğrultusunda oynanır.</li><li>Standart maç süresi <b>12 dakikadır.</b></li><li>Uzatma, sakatlık ve penaltı atışları kapalıdır. Maçlarda <b>6 durdurma</b> ve <b>6 oyuncu değişikliği</b> hakkı bulunur.</li><li>Maç, fikstürde ev sahibi görünen takımın kurduğu maç odasında oynanır.</li><li>Lig, ev sahipliği ve deplasman esasına dayalı iki devreden oluşur.</li><li>Sezonun son haftalarında Kulüpler Birliği Başkanı, karşılaşmaların aynı saatte başlatılmasına karar verebilir.</li></ul></article>
-<article class="reg-card"><div class="reg-kicker">03 · MAÇ TAKİBİ</div><h3>İletişim ve sonuç bildirimi</h3><ul><li>Ev sahibi takım, maçın oynanacağı zamanı belirlemek üzere rakip takımla iletişime geçmek ve maç davetini başlatmak zorundadır.</li><li>Oynanmayan veya sonucu <b>48 saat içinde</b> İcra Kuruluna bildirilmeyen maçlar Denge ve Denetleme Kamarası tarafından değerlendirilir.</li><li>Ev sahibi takım iletişim kurma yükümlülüğünü yerine getirmemişse, bu nedenle doğan gecikme veya oynanmama yaptırımından deplasman takımı sorumlu tutulmaz.</li><li>Maç sonuçları, belirlenen bildirim süresi içinde İcra Kuruluna iletilmelidir.</li></ul></article>
-<article class="reg-card"><div class="reg-kicker">04 · KADRO VE TRANSFER</div><h3>Esame listesi ve oyuncu uygunluğu</h3><ul><li>Kulüpler, belirlenen süre içinde esame listelerini Kulüpler Birliği Başkanlığına teslim eder.</li><li>Transfer dönemi resmen açılmadan, onaylı esame listesi ve transfer kuralları dışında kalan oyuncular oynatılamaz.</li><li>Uygunsuz oyuncu oynatılması hâlinde disiplin işlemini Denge ve Denetleme Kamarası yürütür.</li></ul></article>
-<article class="reg-card"><div class="reg-kicker">05 · YETKİ VE KARARLAR</div><h3>Lig organizasyonu ve nihai karar</h3><ul><li>Kulüpler Birliği Başkanlığı, birliğin en üst organıdır ve genel kurul süreçlerini yürütür.</li><li>Lig şampiyonunun tescili, küme düşme, play-off, Ziraat Türkiye Kupası ve diğer organizasyonların uygulanmasına ilişkin karar yetkisi Kulüpler Birliği Başkanına aittir.</li><li>Hakem, ceza, maç iptali ve tekrarına ilişkin konular Denge ve Denetleme Kamarasının görev alanındadır.</li><li>Günlük organizasyon ve müsabaka akışı İcra Kurulu tarafından yürütülür.</li></ul></article>
+<section id="oyunlar">
+<h2>🎮 Vestel Lig Oyun Merkezi</h2>
+<p class="season-subtitle">Lig yıldızlarını tanı, takımları keşfet, futbol hafızanı sına. Her oyunda yeni sorular ve puanlar seni bekliyor.</p>
+<div class="game-hero"><div><span class="game-kicker">VESTEL SÜPER LİG · OYUN ALANI</span><h3>Ne kadar iyi bir lig takipçisisin?</h3><p>Bir oyun seç, soruları cevapla ve kişisel rekorunu oluştur.</p></div><div class="game-trophy">🏆</div></div>
+<div class="game-stats"><div><small>TOPLAM PUANIN</small><b id="game-total-score">0</b></div><div><small>EN İYİ SERİN</small><b id="game-best-streak">0</b></div><div><small>OYNANAN TUR</small><b id="game-rounds">0</b></div></div>
+<div class="game-grid" id="game-menu">
+<button class="game-tile" data-game="player"><span>🕵️</span><b>Bu Futbolcu Kim?</b><small>Ülke, takım ve gol ipuçlarıyla yıldızı bul.</small><em>OYNA →</em></button>
+<button class="game-tile" data-game="club"><span>🛡️</span><b>Kulübü Tahmin Et</b><small>Oyuncular ve lig ipuçlarından kulübü tanı.</small><em>OYNA →</em></button>
+<button class="game-tile" data-game="riddle"><span>🧩</span><b>Futbol Bilmeceleri</b><small>Futbol aklını ve kelime dağarcığını sına.</small><em>OYNA →</em></button>
+<button class="game-tile" data-game="truth"><span>⚖️</span><b>Doğru mu, Yanlış mı?</b><small>Lig hakkındaki iddiaları değerlendir.</small><em>OYNA →</em></button>
+<button class="game-tile" data-game="missing"><span>✍️</span><b>Eksik Bilgiyi Tamamla</b><small>Oyuncu ve takım bilgilerindeki boşluğu doldur.</small><em>OYNA →</em></button>
+<button class="game-tile" data-game="match"><span>🔎</span><b>Gizemli Maç</b><small>Skor ve takımlardan karşılaşmayı bul.</small><em>OYNA →</em></button>
+<button class="game-tile" data-game="duel"><span>🥊</span><b>Kim Daha Fazla?</b><small>Gol sayısı karşılaştırmalarında doğru seçimi yap.</small><em>OYNA →</em></button>
+<button class="game-tile game-tile-feature" data-game="quick"><span>⚡</span><b>Hızlı Lig Testi</b><small>Karışık sorulardan oluşan beş soruluk meydan okuma.</small><em>MEYDAN OKU →</em></button>
 </div>
+<div class="game-play" id="game-play" hidden>
+<div class="game-play-top"><button type="button" class="game-back" id="game-back">← Oyunlara dön</button><span id="game-progress">1 / 5</span></div>
+<div class="game-progress"><i id="game-progress-bar"></i></div>
+<div id="game-question"></div>
+<div id="game-feedback" aria-live="polite"></div>
+<div class="game-controls"><button type="button" id="game-next" disabled>Sonraki soru →</button></div>
+</div>
+<div class="game-result" id="game-result" hidden></div>
+<p class="game-note">Oyun soruları sitedeki lig kadrosu, gol krallığı ve tamamlanmış maç kayıtlarından hazırlanır. Futbolcu ipuçlarında yaş yerine doğrulanabilir lig bilgileri kullanılır.</p>
 </section>
 <section id="futboltv" class="football-tv">
  <div class="tv-masthead"><div><span class="tv-kicker">VESTEL SÜPER LİG · ÖZEL YAYIN</span><h2>Vestel Futbol TV</h2><p>Futbolun gündemi, dosyalar ve stüdyo yorumları.</p></div><span class="tv-live">● ÖZEL DOSYA</span></div>
@@ -1505,5 +1568,86 @@ function playTvEpisode(){
 }
 function stopTvEpisode(){if('speechSynthesis' in window)window.speechSynthesis.cancel();const status=document.getElementById('tv-audio-status');if(status)status.textContent='Sesli yayın durduruldu.';}
 
-let presidentSpeech=null;</script><!-- Taraftar Köşesi yayına alma tetikleyicisi -->
+let presidentSpeech=null;
+
+/* Vestel Lig Oyun Merkezi: soru havuzu ve oyun akışı */
+(()=>{
+ const host=document.getElementById('oyunlar');if(!host)return;
+ const $=id=>document.getElementById(id);
+ const country={
+  'Alessandro Del Piero':'İtalya','Gabriel Batistuta':'Arjantin','Gareth Bale':'Galler','Pelé':'Brezilya',
+  'Andriy Shevchenko':'Ukrayna','Filippo Inzaghi':'İtalya','El Hadji Diouf':'Senegal','Zlatan Ibrahimović':'İsveç',
+  'Kylian Mbappé':'Fransa','Cristiano Ronaldo':'Portekiz','Lionel Messi':'Arjantin','Wayne Rooney':'İngiltere',
+  'Neymar':'Brezilya','Samuel Eto’o':'Kamerun','Ruud Gullit':'Hollanda','Arda Güler':'Türkiye',
+  'Jude Bellingham':'İngiltere','Kenan Yıldız':'Türkiye','Victor Osimhen':'Nijerya','Thomas Rosický':'Çekya'
+ };
+ const profiles=[];const seen=new Set();
+ scorers.forEach(([name,team,goals])=>{const key=name+'|'+team;if(!seen.has(key)&&country[name]){seen.add(key);profiles.push({name,team,goals,country:country[name]})}});
+ const unique=(arr)=>[...new Set(arr)];
+ const shuffle=arr=>arr.slice().sort(()=>Math.random()-.5);
+ const pick=arr=>arr[Math.floor(Math.random()*arr.length)];
+ const teamQuestions=teams.map(team=>{const p=profiles.find(x=>x.team===team);return p?{q:p.name+' hangi kulübün kadrosunda yer alıyor?',hint:'Oyuncu: '+p.name,answer:team,options:unique([team,...shuffle(teams.filter(t=>t!==team)).slice(0,3)])}:null}).filter(Boolean);
+ const playerQuestions=profiles.map(p=>({q:'Bu futbolcu kim?',hint:'Ülke: '+p.country+'  ·  Takım: '+p.team+'  ·  Gol: '+p.goals,answer:p.name,options:unique([p.name,...shuffle(profiles.filter(x=>x.name!==p.name)).slice(0,3).map(x=>x.name)])}));
+ const riddleQuestions=[
+  {q:'Bir maçta iki takımın da attığı gol sayısı eşitse sonuç nedir?',hint:'Futbolun en temel sonuçlarından biri.',answer:'Beraberlik',options:['Beraberlik','Hükmen galibiyet','Uzatma','Altın gol']},
+  {q:'Kalecinin ceza sahası içinde topu elle kontrol etmesini sağlayan özel alan hangisidir?',hint:'Adı üzerinde, kaleciye özel alan.',answer:'Ceza sahası',options:['Taç alanı','Ceza sahası','Santra noktası','Köşe yayı']},
+  {q:'Bir oyuncunun aynı maçta üç gol atmasına ne denir?',hint:'İngilizce futbol terimiyle de bilinir.',answer:'Hat-trick',options:['Asist','Hat-trick','Ofsayt','Pres']},
+  {q:'Maç başlamadan önce iki takımın karşılaştığı orta noktanın adı nedir?',hint:'Hakemin başlama vuruşunu yaptırdığı nokta.',answer:'Santra noktası',options:['Penaltı noktası','Köşe noktası','Santra noktası','Yay']},
+  {q:'Top oyun alanının yan çizgisini tamamen geçerse oyun hangi vuruşla başlar?',hint:'Elle kullanılır.',answer:'Taç atışı',options:['Kale vuruşu','Korner','Taç atışı','Serbest vuruş']},
+  {q:'Bir oyuncunun takım arkadaşına gol pası vermesine ne denir?',hint:'Golü atan değil, hazırlayan oyuncu.',answer:'Asist',options:['Asist','Pres','Markaj','Kontra']},
+  {q:'Hakemin video görüntülerini incelemesine yardımcı olan sistemin kısa adı nedir?',hint:'Ligimizde ayrı bir hakem merkezi de var.',answer:'VAR',options:['GPS','VAR','TFF','FIFA']},
+  {q:'Savunma oyuncularının rakip hücumunu durdurmak için topu uzaklaştırması hangi temel görevin parçasıdır?',hint:'Takımın kendi kalesini koruma işi.',answer:'Savunma',options:['Hücum','Savunma','Organizasyon','Rotasyon']}
+ ];
+ const matchQuestions=playedMatches.filter(m=>m.s).map(m=>({q:'Hangi karşılaşmada bu skor alındı: '+m.s[0]+' - '+m.s[1]+'?',hint:'Ev sahibi takımı ve rakibini seç.',answer:m.h+' - '+m.a,options:unique([m.h+' - '+m.a,...shuffle(playedMatches.filter(x=>x!==m)).slice(0,3).map(x=>x.h+' - '+x.a)])}));
+ const goalQuestions=profiles.map(p=>({q:p.name+' bu ligde kaç gol kaydetti?',hint:'Takım: '+p.team,answer:String(p.goals),options:unique([String(p.goals),...shuffle(profiles.filter(x=>x.goals!==p.goals)).slice(0,3).map(x=>String(x.goals))])}));
+ const truthQuestions=[
+  ...playedMatches.slice(0,Math.min(playedMatches.length,24)).map(m=>({q:m.h+' - '+m.a+' karşılaşması '+m.s[0]+' - '+m.s[1]+' bitti.',hint:'Maç kayıtlarına göre değerlendir.',answer:'Doğru',options:['Doğru','Yanlış'],truth:true})),
+  ...profiles.slice(0,20).map(p=>({q:p.name+', '+p.team+' formasıyla '+p.goals+' gol attı.',hint:'Gol krallığı kayıtlarına göre değerlendir.',answer:'Doğru',options:['Doğru','Yanlış'],truth:true}))
+ ];
+ const modes={
+  player:{title:'BU FUTBOLCU KİM?',pool:playerQuestions},
+  club:{title:'KULÜBÜ TAHMİN ET',pool:teamQuestions},
+  riddle:{title:'FUTBOL BİLMECELERİ',pool:riddleQuestions},
+  truth:{title:'DOĞRU MU, YANLIŞ MI?',pool:truthQuestions},
+  missing:{title:'EKSİK BİLGİYİ TAMAMLA',pool:goalQuestions},
+  match:{title:'GİZEMLİ MAÇ',pool:matchQuestions},
+  duel:{title:'KİM DAHA FAZLA?',pool:profiles.length>1?profiles.map(p=>{const other=pick(profiles.filter(x=>x.name!==p.name));const winner=p.goals>=other.goals?p:other;return {q:p.name+' ('+p.team+') ile '+other.name+' ('+other.team+') arasında kim daha fazla gol attı?',hint:'İki oyuncunun lig gol sayılarını karşılaştır.',answer:winner.name,options:[p.name,other.name]}}):[]}
+ };
+ modes.quick={title:'HIZLI LİG TESTİ',pool:[...playerQuestions,...teamQuestions,...riddleQuestions,...truthQuestions,...matchQuestions,...goalQuestions]};
+ let active=null,questions=[],index=0,score=0,streak=0,rounds=0,total=Number(localStorage.getItem('vestel-game-total')||0),best=Number(localStorage.getItem('vestel-game-best')||0),answered=false;
+ function stats(){ $('game-total-score').textContent=total;$('game-best-streak').textContent=best;$('game-rounds').textContent=rounds; }
+ function start(mode){
+  active=mode;const count=mode==='quick'?5:5;const pool=modes[mode].pool;if(!pool.length){$('game-question').innerHTML='<p>Bu oyun için yeterli lig kaydı bulunamadı.</p>';return;}
+  questions=shuffle(pool).slice(0,Math.min(count,pool.length));index=0;score=0;streak=0;answered=false;
+  $('game-menu').hidden=true;$('game-result').hidden=true;$('game-play').hidden=false;draw();
+ }
+ function draw(){
+  const item=questions[index];answered=false;
+  $('game-progress').textContent=(index+1)+' / '+questions.length;
+  $('game-progress-bar').style.width=(index/questions.length*100)+'%';
+  $('game-feedback').textContent='';$('game-feedback').className='game-feedback';$('game-next').disabled=true;
+  $('game-next').textContent=index===questions.length-1?'Sonuçları gör':'Sonraki soru →';
+  $('game-question').innerHTML='<div class="question-kicker">'+modes[active].title+' · SORU '+(index+1)+'</div><h3 class="question-title">'+item.q+'</h3><p class="question-hint">'+item.hint+'</p><div class="question-options">'+shuffle(item.options).map(opt=>'<button type="button" class="question-option" data-answer="'+encodeURIComponent(opt)+'">'+opt+'</button>').join('')+'</div>';
+  $('game-question').querySelectorAll('[data-answer]').forEach(btn=>btn.addEventListener('click',()=>answer(btn,decodeURIComponent(btn.dataset.answer),item)));
+ }
+ function answer(btn,value,item){
+  if(answered)return;answered=true;const correct=value===item.answer;
+  $('game-question').querySelectorAll('[data-answer]').forEach(b=>{b.disabled=true;const v=decodeURIComponent(b.dataset.answer);if(v===item.answer)b.classList.add('correct');else if(b===btn&&!correct)b.classList.add('wrong')});
+  if(correct){score+=10;total+=10;streak++;best=Math.max(best,streak);$('game-feedback').textContent='✓ Doğru cevap! +10 puan';$('game-feedback').classList.add('good')}
+  else{streak=0;$('game-feedback').textContent='✕ Doğru cevap: '+item.answer;$('game-feedback').classList.add('bad')}
+  localStorage.setItem('vestel-game-total',String(total));localStorage.setItem('vestel-game-best',String(best));stats();$('game-next').disabled=false;
+ }
+ function finish(){
+  rounds++;stats();$('game-play').hidden=true;$('game-result').hidden=false;$('game-progress-bar').style.width='100%';
+  const pct=score/(questions.length*10);const medal=pct===1?'🏆':pct>=.6?'🥇':'⚽';
+  $('game-result').innerHTML='<div class="result-medal">'+medal+'</div><h3>Tur tamamlandı!</h3><p>'+questions.length+' soruda '+score+' puan topladın. '+(pct===1?'Mükemmel performans!':pct>=.6?'Gayet iyi, biraz daha çalış ve rekorunu geliştir.':'Bir tur daha dene, lig hafızanı güçlendir!')+'</p><button type="button" id="game-retry">Tekrar oyna</button><button type="button" id="game-home">Oyunlara dön</button>';
+  $('game-retry').addEventListener('click',()=>start(active));$('game-home').addEventListener('click',home);
+ }
+ function home(){active=null;$('game-play').hidden=true;$('game-result').hidden=true;$('game-menu').hidden=false;}
+ host.querySelectorAll('[data-game]').forEach(btn=>btn.addEventListener('click',()=>start(btn.dataset.game)));
+ $('game-back').addEventListener('click',home);
+ $('game-next').addEventListener('click',()=>{if(!answered)return;if(index<questions.length-1){index++;draw()}else finish()});
+ stats();
+})();
+</script><!-- Taraftar Köşesi yayına alma tetikleyicisi -->
 </body></html>
