@@ -998,15 +998,14 @@ header nav a{padding:8px 13px;font-size:13px}
 #hakem .referee-footnote{font-size:12px;color:#75849a;margin:15px 2px}
 @media(max-width:680px){#hakem .referee-fixtures{grid-template-columns:1fr}#hakem .referee-scoreline{padding:15px 10px}#hakem .referee-team{font-size:13px}}
 
-#puan .standings-layout{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;align-items:start}
-#puan .standings-weekrail{position:relative;min-width:0}
-#puan .standings-rail-title{font-size:10px;font-weight:900;letter-spacing:.1em;color:#8190a4;padding:4px 8px 10px}
-#puan .standings-weeklist{display:flex;flex-direction:column;gap:4px;max-height:590px;overflow-y:auto;padding:2px 5px 2px 0;scrollbar-width:thin}
-#puan .standings-weekbtn{width:100%;text-align:left;border:1px solid transparent;background:transparent;color:#52647b;border-radius:7px;padding:9px 10px;font:750 12px system-ui;cursor:pointer;transition:.16s}
-#puan .standings-weekbtn:hover{background:#f1f4f7}
-#puan .standings-weekbtn.active{background:#edf1f5;border-color:#dce3ea;color:#172b43;box-shadow:inset 3px 0 #8b9aab}
-#puan .standings-content{min-width:0}
-@media(max-width:700px){#puan .standings-layout{grid-template-columns:94px minmax(0,1fr);gap:9px}#puan .standings-weeklist{max-height:65vh;overflow-y:auto;overflow-x:hidden}#puan .standings-weekbtn{padding:9px 7px;font-size:11px}#puan .standings-rail-title{font-size:9px;padding-left:7px}}
+#puan .standings-picker{position:relative;display:inline-block;margin:0 0 14px}
+#puan .standings-picker-toggle{display:inline-flex;align-items:center;gap:12px;border:1px solid #d9e1e9;background:#fff;color:#263b53;border-radius:8px;padding:10px 14px;font:800 13px system-ui;cursor:pointer;box-shadow:0 2px 7px #152b4410}
+#puan .standings-picker-toggle:hover{background:#f7f9fb;border-color:#b8c6d5}
+#puan .standings-picker-menu{position:absolute;z-index:20;top:calc(100% + 6px);left:0;width:190px;max-height:300px;overflow-y:auto;padding:6px;background:#fff;border:1px solid #dce4ec;border-radius:9px;box-shadow:0 12px 28px #10243b24}
+#puan .standings-picker-menu[hidden]{display:none}
+#puan .standings-picker-option{display:block;width:100%;text-align:left;border:0;background:transparent;color:#43566d;border-radius:6px;padding:9px 10px;font:700 12px system-ui;cursor:pointer}
+#puan .standings-picker-option:hover{background:#f0f3f6}
+#puan .standings-picker-option.active{background:#e9eef3;color:#172d46}
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#hakem">VAR &amp; Hakem Merkezi</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#dna">Takımlar</a><a href="#medya">Medya Köşesi</a><a href="#sezon">Sezon Enleri</a><a href="#yonetmelik">Lig Yönetmeliği</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><p class="season-subtitle">Hafta seçerek sezonun her aşamasındaki puan tablosunu görüntüle</p><div class="card pad" id="table"></div></section>
 
@@ -1095,8 +1094,11 @@ const standingsLatestWeek=Math.max(1,...matches.filter(m=>m.s).map(m=>m.w));
 function renderStandings(selectedWeek){
  const week=Math.max(1,Math.min(22,Number(selectedWeek)||standingsLatestWeek));
  const rows=stats(week);
- document.getElementById('table').innerHTML='<div class="standings-layout"><aside class="standings-weekrail"><div class="standings-rail-title">HAFTA SEÇ</div><div class="standings-weeklist">'+Array.from({length:22},(_,i)=>i+1).map(w=>'<button type="button" class="standings-weekbtn '+(w===week?'active':'')+'" data-week="'+w+'" aria-pressed="'+(w===week)+'">'+w+'. Hafta</button>').join('')+'</div></aside><div class="standings-content"><div style="overflow:auto"><table><thead><tr><th>#</th><th>TAKIM</th><th>O</th><th>G</th><th>B</th><th>M</th><th>AG</th><th>YG</th><th>AV</th><th>P</th><th>FORM</th></tr></thead><tbody>'+rows.map((t,i)=>'<tr><td class="rank">'+(i+1)+'</td><td>'+t.n+'</td><td>'+t.o+'</td><td>'+t.g+'</td><td>'+t.b+'</td><td>'+t.m+'</td><td>'+t.ag+'</td><td>'+t.yg+'</td><td>'+(t.ag-t.yg>0?'+':'')+(t.ag-t.yg)+'</td><td class="pts">'+t.p+'</td><td><div class="form-dots">'+recentForm(t.n,week).map(f=>'<span class="form-dot form-'+f.result+'" title="'+f.week+'. hafta: '+(f.result==='G'?'Galibiyet':f.result==='B'?'Beraberlik':'Mağlubiyet')+'">'+f.result+'</span>').join('')+'</div></td></tr>').join('')+'</tbody></table></div></div></div>';
- document.querySelectorAll('.standings-weekbtn').forEach(btn=>btn.addEventListener('click',()=>renderStandings(btn.dataset.week)));
+ document.getElementById('table').innerHTML='<div class="standings-picker"><button type="button" class="standings-picker-toggle" id="standings-picker-toggle" aria-expanded="false">Hafta seç <span>'+week+'. Hafta</span> ▾</button><div class="standings-picker-menu" id="standings-picker-menu" hidden>'+Array.from({length:22},(_,i)=>i+1).map(w=>'<button type="button" class="standings-picker-option '+(w===week?'active':'')+'" data-week="'+w+'">'+w+'. Hafta</button>').join('')+'</div></div><div style="overflow:auto"><table><thead><tr><th>#</th><th>TAKIM</th><th>O</th><th>G</th><th>B</th><th>M</th><th>AG</th><th>YG</th><th>AV</th><th>P</th><th>FORM</th></tr></thead><tbody>'+rows.map((t,i)=>'<tr><td class="rank">'+(i+1)+'</td><td>'+t.n+'</td><td>'+t.o+'</td><td>'+t.g+'</td><td>'+t.b+'</td><td>'+t.m+'</td><td>'+t.ag+'</td><td>'+t.yg+'</td><td>'+(t.ag-t.yg>0?'+':'')+(t.ag-t.yg)+'</td><td class="pts">'+t.p+'</td><td><div class="form-dots">'+recentForm(t.n,week).map(f=>'<span class="form-dot form-'+f.result+'" title="'+f.week+'. hafta: '+(f.result==='G'?'Galibiyet':f.result==='B'?'Beraberlik':'Mağlubiyet')+'">'+f.result+'</span>').join('')+'</div></td></tr>').join('')+'</tbody></table></div>';
+ const toggle=document.getElementById('standings-picker-toggle');
+ const menu=document.getElementById('standings-picker-menu');
+ toggle.addEventListener('click',()=>{menu.hidden=!menu.hidden;toggle.setAttribute('aria-expanded',String(!menu.hidden));});
+ document.querySelectorAll('.standings-picker-option').forEach(btn=>btn.addEventListener('click',()=>renderStandings(btn.dataset.week)));
 }
 renderStandings(standingsLatestWeek);
 function card(m){return '<div class="match"><div class="club">'+m.h+'</div><div><div class="score">'+(m.s?m.s.join(' - '):'OYNANMADI')+'</div></div><div class="club">'+m.a+'</div></div>'}
