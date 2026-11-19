@@ -1296,6 +1296,64 @@ header nav a{padding:8px 13px;font-size:13px}
  #oyunlar .game-play{padding:14px}
 }
 
+
+/* Oyun Merkezi: sade spor yayın stüdyosu, açık zemin ve mercan vurgu */
+#oyunlar{background:#f1f0ec;color:#202832;padding:24px;border:1px solid #d9d7d0;border-radius:18px;box-shadow:0 12px 34px #06162920}
+#oyunlar>h2{color:#202832;font-size:30px;letter-spacing:-.04em}
+#oyunlar .season-subtitle{color:#68727d}
+#oyunlar .game-hero{min-height:176px;padding:clamp(22px,4vw,36px);border:0;border-radius:5px;background:linear-gradient(110deg,#202832 0%,#293541 68%,#38434a 100%);box-shadow:none}
+#oyunlar .game-hero:after{inset:0;border:0;border-radius:0;background:linear-gradient(90deg,transparent 66%,#ffffff0a 66.2%,transparent 66.5%),linear-gradient(0deg,transparent 49.5%,#ffffff0a 50%,transparent 50.5%);opacity:1}
+#oyunlar .game-kicker{color:#ff7868;letter-spacing:.19em}
+#oyunlar .game-hero h3{color:#fff;font-size:clamp(28px,4vw,40px);letter-spacing:-.035em}
+#oyunlar .game-hero p{color:#c8d0d4;max-width:560px}
+#oyunlar .game-trophy{width:78px;height:78px;border:1px solid #ff7868;background:#ed5c4d;color:#fff;font-size:39px;box-shadow:none;border-radius:5px;transform:none}
+#oyunlar .game-stats{gap:10px;margin:12px 0 20px}
+#oyunlar .game-stats>div{padding:13px 16px;border:1px solid #dedbd4;border-radius:5px;background:#fff;box-shadow:none}
+#oyunlar .game-stats small{color:#727b83;font-size:9px;letter-spacing:.12em}
+#oyunlar .game-stats b{color:#e45143;font-size:28px}
+#oyunlar .game-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+#oyunlar .game-tile{min-height:182px;padding:17px;border:1px solid #dedbd4;border-radius:5px;background:#fff;color:#202832;box-shadow:0 3px 10px #1d29330a;transition:transform .16s,border-color .16s,box-shadow .16s}
+#oyunlar .game-tile:before{height:4px;background:#e65b4c;opacity:1}
+#oyunlar .game-tile:after{content:none}
+#oyunlar .game-tile:hover{transform:translateY(-3px);border-color:#e65b4c;background:#fff;box-shadow:0 9px 20px #1d293318}
+#oyunlar .game-tile>span{width:42px;height:42px;display:grid;place-items:center;margin-bottom:13px;border:1px solid #eee5df;border-radius:5px;background:#faf3ef;font-size:23px;filter:none}
+#oyunlar .game-tile b{color:#202832;font-size:15px}
+#oyunlar .game-tile small{color:#69747d;font-size:11px;line-height:1.5}
+#oyunlar .game-tile em{color:#dc5144;font-size:9px;letter-spacing:.12em}
+#oyunlar .game-tile-feature{border-color:#e65b4c;background:#fff8f5}
+#oyunlar .game-play{border:1px solid #dedbd4;border-radius:5px;background:#fff;color:#202832;box-shadow:0 8px 24px #1d293312}
+#oyunlar .game-play-top{color:#d94f42}
+#oyunlar .game-back{border:1px solid #d7d5cf;background:#f6f5f1;color:#303b44;border-radius:5px}
+#oyunlar .game-progress{background:#e9e7e1}
+#oyunlar .game-progress i{background:#e65b4c;box-shadow:none}
+#oyunlar .question-kicker{color:#df5749}
+#oyunlar .question-title{color:#202832}
+#oyunlar .question-hint{color:#68747d}
+#oyunlar .question-option{border:1px solid #dedbd4;background:#faf9f6;color:#26323b;border-radius:5px}
+#oyunlar .question-option:hover:not(:disabled){border-color:#e65b4c;background:#fff4f0}
+#oyunlar .question-option.correct{background:#e8f5ed;border-color:#5b9c72;color:#245d39}
+#oyunlar .question-option.wrong{background:#fff0ee;border-color:#d86a60;color:#9a3029}
+#oyunlar .game-feedback.good{color:#28794a}
+#oyunlar .game-feedback.bad{color:#bd4038}
+#oyunlar #game-next{border:1px solid #d84e41;border-radius:5px;padding:12px 19px;background:#e65b4c;color:#fff}
+#oyunlar #game-next:disabled{opacity:.4}
+#oyunlar .game-result{border:1px solid #dedbd4;border-radius:5px;background:#fff;color:#202832}
+#oyunlar .game-result h3{color:#202832}
+#oyunlar .game-result p{color:#68747d}
+#oyunlar .game-result button{border:1px solid #e65b4c;border-radius:5px;background:#e65b4c;color:#fff}
+#oyunlar .blind-category-btn,#oyunlar .blind-slot-button{border-color:#dedbd4;background:#faf9f6;color:#26323b;border-radius:5px}
+#oyunlar .blind-category-btn span,#oyunlar .blind-slot-copy small{color:#68747d}
+#oyunlar .blind-category-btn small{color:#d94f42}
+#oyunlar .blind-current{background:#fff7f3;border-color:#e7b5ac;border-radius:5px}
+#oyunlar .blind-current>span{color:#d94f42}
+#oyunlar .blind-current h3{color:#202832}
+#oyunlar .blind-instruction{color:#68747d}
+#oyunlar .blind-slot-number{background:#f7e8e3;color:#d94f42}
+#oyunlar .blind-slot-button.filled{border-color:#75a987;background:#eef7f0}
+#oyunlar .game-note{color:#727b83}
+@media(max-width:850px){#oyunlar .game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){#oyunlar{padding:16px 12px}#oyunlar>h2{font-size:25px}#oyunlar .game-grid{grid-template-columns:1fr}#oyunlar .game-tile{min-height:145px;padding:15px}#oyunlar .game-hero{min-height:155px;padding:19px}#oyunlar .game-trophy{width:58px;height:58px;flex:0 0 58px;font-size:30px}#oyunlar .game-stats{gap:6px}#oyunlar .game-stats>div{padding:10px 8px}#oyunlar .game-stats small{font-size:8px}#oyunlar .game-stats b{font-size:22px}#oyunlar .question-options{grid-template-columns:1fr}}
+
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#hakem">VAR &amp; Hakem Merkezi</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#taraftar">Editör Köşesi</a><a href="#medya">Medya Köşesi</a><a href="#sezon">Sezon Enleri</a><a href="#oyunlar">Oyun Merkezi</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
@@ -1363,7 +1421,7 @@ header nav a{padding:8px 13px;font-size:13px}
 <section id="oyunlar">
 <h2>Vestel Lig Oyun Merkezi</h2>
 <p class="season-subtitle">Lig yıldızlarını tanı, takımları keşfet, futbol hafızanı sına. Her oyunda yeni sorular ve puanlar seni bekliyor.</p>
-<div class="game-hero"><div><span class="game-kicker">VESTEL SÜPER LİG · ARCADE</span><h3>OYUN MODLARI</h3><p>Dokuz oyun modu. Futbol bilginle lig tablosunu çöz, yıldızları keşfet ve puanları topla.</p></div><div class="game-trophy" aria-hidden="true">✦</div></div>
+<div class="game-hero"><div><span class="game-kicker">VESTEL SÜPER LİG · ARCADE</span><h3>OYUN MODLARI</h3><p>Sekiz oyun modu. Futbol bilginle lig tablosunu çöz, yıldızları keşfet ve puanları topla.</p></div><div class="game-trophy" aria-hidden="true">✦</div></div>
 <div class="game-stats"><div><small>TOPLAM PUANIN</small><b id="game-total-score">0</b></div><div><small>EN İYİ SERİN</small><b id="game-best-streak">0</b></div><div><small>OYNANAN TUR</small><b id="game-rounds">0</b></div></div>
 <div class="game-grid" id="game-menu">
 <button class="game-tile" data-game="scout"><span>🕵️</span><b>Scout Raporu</b><small>Ülke ipucu olmadan, oyuncu ve performans verilerinden futbolcuyu bul.</small><em>RAPORU AÇ →</em></button>
