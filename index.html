@@ -1486,90 +1486,96 @@ function renderEditorArticles(){
 let tvUtterance=null;
 
 
-/* Vestel Lig Oyun Merkezi: soru havuzu ve oyun akışı */
-(()=>{
- const host=document.getElementById('oyunlar');if(!host)return;
- const $=id=>document.getElementById(id);
- const country={
-  'Alessandro Del Piero':'İtalya','Gabriel Batistuta':'Arjantin','Gareth Bale':'Galler','Pelé':'Brezilya',
-  'Andriy Shevchenko':'Ukrayna','Filippo Inzaghi':'İtalya','El Hadji Diouf':'Senegal','Zlatan Ibrahimović':'İsveç',
-  'Kylian Mbappé':'Fransa','Cristiano Ronaldo':'Portekiz','Lionel Messi':'Arjantin','Wayne Rooney':'İngiltere',
-  'Neymar':'Brezilya','Samuel Eto’o':'Kamerun','Ruud Gullit':'Hollanda','Arda Güler':'Türkiye',
-  'Jude Bellingham':'İngiltere','Kenan Yıldız':'Türkiye','Victor Osimhen':'Nijerya','Thomas Rosický':'Çekya'
- };
- const profiles=[];const seen=new Set();
- scorers.forEach(([name,team,goals])=>{const key=name+'|'+team;if(!seen.has(key)&&country[name]){seen.add(key);profiles.push({name,team,goals,country:country[name]})}});
- const unique=(arr)=>[...new Set(arr)];
- const shuffle=arr=>arr.slice().sort(()=>Math.random()-.5);
- const pick=arr=>arr[Math.floor(Math.random()*arr.length)];
- const teamQuestions=teams.map(team=>{const p=profiles.find(x=>x.team===team);return p?{q:p.name+' hangi kulübün kadrosunda yer alıyor?',hint:'Oyuncu: '+p.name,answer:team,options:unique([team,...shuffle(teams.filter(t=>t!==team)).slice(0,3)])}:null}).filter(Boolean);
- const playerQuestions=profiles.map(p=>({q:'Bu futbolcu kim?',hint:'Ülke: '+p.country+'  ·  Takım: '+p.team+'  ·  Gol: '+p.goals,answer:p.name,options:unique([p.name,...shuffle(profiles.filter(x=>x.name!==p.name)).slice(0,3).map(x=>x.name)])}));
- const riddleQuestions=[
-  {q:'Bir maçta iki takımın da attığı gol sayısı eşitse sonuç nedir?',hint:'Futbolun en temel sonuçlarından biri.',answer:'Beraberlik',options:['Beraberlik','Hükmen galibiyet','Uzatma','Altın gol']},
-  {q:'Kalecinin ceza sahası içinde topu elle kontrol etmesini sağlayan özel alan hangisidir?',hint:'Adı üzerinde, kaleciye özel alan.',answer:'Ceza sahası',options:['Taç alanı','Ceza sahası','Santra noktası','Köşe yayı']},
-  {q:'Bir oyuncunun aynı maçta üç gol atmasına ne denir?',hint:'İngilizce futbol terimiyle de bilinir.',answer:'Hat-trick',options:['Asist','Hat-trick','Ofsayt','Pres']},
-  {q:'Maç başlamadan önce iki takımın karşılaştığı orta noktanın adı nedir?',hint:'Hakemin başlama vuruşunu yaptırdığı nokta.',answer:'Santra noktası',options:['Penaltı noktası','Köşe noktası','Santra noktası','Yay']},
-  {q:'Top oyun alanının yan çizgisini tamamen geçerse oyun hangi vuruşla başlar?',hint:'Elle kullanılır.',answer:'Taç atışı',options:['Kale vuruşu','Korner','Taç atışı','Serbest vuruş']},
-  {q:'Bir oyuncunun takım arkadaşına gol pası vermesine ne denir?',hint:'Golü atan değil, hazırlayan oyuncu.',answer:'Asist',options:['Asist','Pres','Markaj','Kontra']},
-  {q:'Hakemin video görüntülerini incelemesine yardımcı olan sistemin kısa adı nedir?',hint:'Ligimizde ayrı bir hakem merkezi de var.',answer:'VAR',options:['GPS','VAR','TFF','FIFA']},
-  {q:'Savunma oyuncularının rakip hücumunu durdurmak için topu uzaklaştırması hangi temel görevin parçasıdır?',hint:'Takımın kendi kalesini koruma işi.',answer:'Savunma',options:['Hücum','Savunma','Organizasyon','Rotasyon']}
+
+</script><!-- Taraftar Köşesi yayına alma tetikleyicisi -->
+
+<script>
+/* Oyun merkezi bağımsız çalışır: ana site kodundan ve localStorage'dan bağımsızdır. */
+(function(){
+ const root=document.getElementById('oyunlar');
+ if(!root) return;
+ const el=id=>document.getElementById(id);
+ const players=[
+  ['Andriy Shevchenko','Kütahyaspor',39,'Ukrayna'],['Gareth Bale','Germencikspor',33,'Galler'],
+  ['Filippo Inzaghi','Aydınspor 1966',32,'İtalya'],['Zlatan Ibrahimović','45 Manisa FK',29,'İsveç'],
+  ['Kylian Mbappé','Bursaspor',25,'Fransa'],['Cristiano Ronaldo','Bursaspor',25,'Portekiz'],
+  ['El Hadji Diouf','Aydınspor 1966',23,'Senegal'],['Alessandro Del Piero','Karpuzlu FK',18,'İtalya'],
+  ['Luis Suárez','Elazığspor',17,'Uruguay'],['Romario','Artukluspor',14,'Brezilya'],
+  ['Victor Osimhen','45 Manisa FK',17,'Nijerya'],['Marco van Basten','Çine Madranspor',14,'Hollanda'],
+  ['Wayne Rooney','Elazığspor',9,'İngiltere'],['Lionel Messi','Aydınspor 1966',10,'Arjantin'],
+  ['Bebeto','Erzurumspor',10,'Brezilya'],['Jude Bellingham','Bursaspor',1,'İngiltere']
  ];
- const matchQuestions=playedMatches.filter(m=>m.s).map(m=>({q:'Hangi karşılaşmada bu skor alındı: '+m.s[0]+' - '+m.s[1]+'?',hint:'Ev sahibi takımı ve rakibini seç.',answer:m.h+' - '+m.a,options:unique([m.h+' - '+m.a,...shuffle(playedMatches.filter(x=>x!==m)).slice(0,3).map(x=>x.h+' - '+x.a)])}));
- const goalQuestions=profiles.map(p=>({q:p.name+' bu ligde kaç gol kaydetti?',hint:'Takım: '+p.team,answer:String(p.goals),options:unique([String(p.goals),...shuffle(profiles.filter(x=>x.goals!==p.goals)).slice(0,3).map(x=>String(x.goals))])}));
- const truthQuestions=[
-  ...playedMatches.slice(0,Math.min(playedMatches.length,18)).flatMap((m,i)=>[
-   {q:m.h+' - '+m.a+' karşılaşması '+m.s[0]+' - '+m.s[1]+' bitti.',hint:'Maç kayıtlarına göre değerlendir.',answer:'Doğru',options:['Doğru','Yanlış']},
-   {q:m.h+' - '+m.a+' karşılaşması '+(m.s[0]+(i%2?1:2))+' - '+m.s[1]+' bitti.',hint:'Skoru maç arşivindeki sonuçla karşılaştır.',answer:'Yanlış',options:['Doğru','Yanlış']}
-  ]),
-  ...profiles.slice(0,16).flatMap((p,i)=>[
-   {q:p.name+', '+p.team+' formasıyla '+p.goals+' gol attı.',hint:'Gol krallığı kayıtlarına göre değerlendir.',answer:'Doğru',options:['Doğru','Yanlış']},
-   {q:p.name+', '+p.team+' formasıyla '+(p.goals+2)+' gol attı.',hint:'Gol krallığı kayıtlarına göre değerlendir.',answer:'Yanlış',options:['Doğru','Yanlış']}
-  ])
+ const matches=[
+  ['Germencikspor','Elazığspor',7,2],['Kütahyaspor','45 Manisa FK',3,3],
+  ['Aydınspor 1966','Karpuzlu FK',4,3],['Erzurumspor','Mardin 1969',3,2],
+  ['Germencikspor','Aydınspor 1966',3,0],['Erzurumspor','45 Manisa FK',2,8],
+  ['Çine Madranspor','Aydınspor 1966',2,5],['Mardin 1969','Elazığspor',5,3],
+  ['Erzurumspor','Bursaspor',0,5],['Artukluspor','Karpuzlu FK',6,0],
+  ['Kütahyaspor','Karpuzlu FK',9,2],['Bursaspor','Elazığspor',2,3],
+  ['Kütahyaspor','Germencikspor',7,2],['Artukluspor','Güzide Gebzespor',3,0],
+  ['Aydınspor 1966','Elazığspor',8,5],['Artukluspor','Bursaspor',2,3]
  ];
- const modes={
-  player:{title:'BU FUTBOLCU KİM?',pool:playerQuestions},
-  club:{title:'KULÜBÜ TAHMİN ET',pool:teamQuestions},
-  riddle:{title:'FUTBOL BİLMECELERİ',pool:riddleQuestions},
-  truth:{title:'DOĞRU MU, YANLIŞ MI?',pool:truthQuestions},
-  missing:{title:'EKSİK BİLGİYİ TAMAMLA',pool:goalQuestions},
-  match:{title:'GİZEMLİ MAÇ',pool:matchQuestions},
-  duel:{title:'KİM DAHA FAZLA?',pool:profiles.length>1?profiles.filter(p=>profiles.some(x=>x.name!==p.name&&x.goals!==p.goals)).map(p=>{const other=pick(profiles.filter(x=>x.name!==p.name&&x.goals!==p.goals));const winner=p.goals>=other.goals?p:other;return {q:p.name+' ('+p.team+') ile '+other.name+' ('+other.team+') arasında kim daha fazla gol attı?',hint:'İki oyuncunun lig gol sayılarını karşılaştır.',answer:winner.name,options:[p.name,other.name]}}):[]}
+ const teams=['Erzurumspor','Mardin 1969','Kütahyaspor','45 Manisa FK','Çine Madranspor','Bursaspor','Artukluspor','Güzide Gebzespor','Germencikspor','Elazığspor','Aydınspor 1966','Karpuzlu FK'];
+ const shuffle=a=>a.slice().sort(()=>Math.random()-.5);
+ const unique=a=>[...new Set(a)];
+ const choose=(a,n)=>shuffle(a).slice(0,n);
+ const question=(q,h,a,o)=>({q,hint:h,answer:String(a),options:unique([String(a),...o.map(String)])});
+ const playerPool=players.map(p=>question('Bu futbolcu kim?','Ülke: '+p[3]+' · Takım: '+p[1]+' · Gol: '+p[2],p[0],choose(players.filter(x=>x!==p).map(x=>x[0]),3)));
+ const clubPool=players.map(p=>question(p[0]+' hangi kulüpte oynuyor?','Gol sayısı: '+p[2]+' · Ülke: '+p[3],p[1],choose(teams.filter(t=>t!==p[1]),3)));
+ const riddlePool=[
+  question('Bir maçta iki takımın gol sayısı eşitse sonuç nedir?','Futbolun temel maç sonuçlarından biri.','Beraberlik',['Galibiyet','Mağlubiyet','Hükmen']),
+  question('Bir oyuncunun aynı maçta üç gol atmasına ne denir?','İngilizce futbol terimi.','Hat-trick',['Asist','Ofsayt','Pres']),
+  question('Top yan çizgiyi tamamen geçerse oyun hangi vuruşla başlar?','Elle kullanılır.','Taç atışı',['Korner','Penaltı','Kale vuruşu']),
+  question('Kalecinin topu elle kontrol edebildiği özel alan hangisidir?','Ceza alanı olarak da bilinir.','Ceza sahası',['Taç alanı','Köşe yayı','Santra noktası']),
+  question('Gol pasına verilen isim nedir?','Golü atan değil, hazırlayan oyuncu.','Asist',['Pres','Markaj','Kontra']),
+  question('Video Yardımcı Hakem sisteminin kısa adı nedir?','Hakem kararlarının incelenmesine yardımcı olur.','VAR',['GPS','FIFA','UEFA'])
+ ];
+ const truthPool=[];
+ matches.forEach(m=>{truthPool.push(question(m[0]+' - '+m[1]+' maçı '+m[2]+' - '+m[3]+' bitti.','Maç kayıtlarına göre değerlendir.','Doğru',['Yanlış']));truthPool.push(question(m[0]+' - '+m[1]+' maçı '+(m[2]+2)+' - '+m[3]+' bitti.','Skor kaydını hatırla.','Yanlış',['Doğru']))});
+ const missingPool=players.map(p=>question(p[0]+' ligde kaç gol attı?','Kulüp: '+p[1],p[2],choose(unique(players.filter(x=>x[2]!==p[2]).map(x=>x[2])),3)));
+ const matchPool=matches.map(m=>question('Hangi maçta '+m[2]+' - '+m[3]+' skoru alındı?','Ev sahibi ve deplasman takımını bul.',m[0]+' - '+m[1],choose(matches.filter(x=>x!==m).map(x=>x[0]+' - '+x[1]),3)));
+ const duelPool=players.map(p=>{const other=choose(players.filter(x=>x[0]!==p[0]&&x[2]!==p[2]),1)[0];const winner=p[2]>other[2]?p:other;return question(p[0]+' ('+p[2]+' gol) ile '+other[0]+' ('+other[2]+' gol) arasında kim daha fazla gol attı?','Gol sayılarını karşılaştır.',winner[0],[p[0],other[0]])});
+ const pools={
+  player:{title:'BU FUTBOLCU KİM?',pool:playerPool},club:{title:'KULÜBÜ TAHMİN ET',pool:clubPool},
+  riddle:{title:'FUTBOL BİLMECELERİ',pool:riddlePool},truth:{title:'DOĞRU MU, YANLIŞ MI?',pool:truthPool},
+  missing:{title:'EKSİK BİLGİYİ TAMAMLA',pool:missingPool},match:{title:'GİZEMLİ MAÇ',pool:matchPool},
+  duel:{title:'KİM DAHA FAZLA?',pool:duelPool}
  };
- modes.quick={title:'HIZLI LİG TESTİ',pool:[...playerQuestions,...teamQuestions,...riddleQuestions,...truthQuestions,...matchQuestions,...goalQuestions]};
- let active=null,questions=[],index=0,score=0,streak=0,rounds=0,total=Number(safeStore.get('vestel-game-total','0'))||0,best=Number(safeStore.get('vestel-game-best','0'))||0,answered=false;
- function stats(){ $('game-total-score').textContent=total;$('game-best-streak').textContent=best;$('game-rounds').textContent=rounds; }
- function start(mode){
-  active=mode;const count=5;const pool=modes[mode]?.pool||[];if(!pool.length){$('game-menu').hidden=true;$('game-result').hidden=true;$('game-play').hidden=false;$('game-question').innerHTML='<p>Bu oyun için yeterli lig kaydı bulunamadı.</p>';return;}
-  questions=shuffle(pool).slice(0,Math.min(count,pool.length));index=0;score=0;streak=0;answered=false;
-  $('game-menu').hidden=true;$('game-result').hidden=true;$('game-play').hidden=false;draw();
+ pools.quick={title:'HIZLI LİG TESTİ',pool:[...playerPool,...clubPool,...riddlePool,...truthPool,...missingPool,...matchPool,...duelPool]};
+ let mode=null,round=[],at=0,points=0,total=0,best=0,rounds=0,streak=0,locked=false;
+ function stats(){el('game-total-score').textContent=total;el('game-best-streak').textContent=best;el('game-rounds').textContent=rounds}
+ function home(){mode=null;el('game-menu').hidden=false;el('game-play').hidden=true;el('game-result').hidden=true}
+ function begin(key){
+  if(!pools[key]||!pools[key].pool.length)return;
+  mode=key;round=choose(pools[key].pool,Math.min(5,pools[key].pool.length));at=0;points=0;streak=0;
+  el('game-menu').hidden=true;el('game-result').hidden=true;el('game-play').hidden=false;draw();
  }
  function draw(){
-  const item=questions[index];answered=false;
-  $('game-progress').textContent=(index+1)+' / '+questions.length;
-  $('game-progress-bar').style.width=(index/questions.length*100)+'%';
-  $('game-feedback').textContent='';$('game-feedback').className='game-feedback';$('game-next').disabled=true;
-  $('game-next').textContent=index===questions.length-1?'Sonuçları gör':'Sonraki soru →';
-  $('game-question').innerHTML='<div class="question-kicker">'+modes[active].title+' · SORU '+(index+1)+'</div><h3 class="question-title">'+item.q+'</h3><p class="question-hint">'+item.hint+'</p><div class="question-options">'+shuffle(item.options).map(opt=>'<button type="button" class="question-option" data-answer="'+encodeURIComponent(opt)+'">'+opt+'</button>').join('')+'</div>';
-  $('game-question').querySelectorAll('[data-answer]').forEach(btn=>btn.addEventListener('click',()=>answer(btn,decodeURIComponent(btn.dataset.answer),item)));
+  locked=false;const q=round[at];
+  el('game-progress').textContent=(at+1)+' / '+round.length;
+  el('game-progress-bar').style.width=(at/round.length*100)+'%';
+  el('game-feedback').textContent='';el('game-feedback').className='game-feedback';
+  el('game-next').disabled=true;el('game-next').textContent=at===round.length-1?'Sonuçları gör':'Sonraki soru →';
+  el('game-question').innerHTML='<div class="question-kicker">'+pools[mode].title+' · SORU '+(at+1)+'</div><h3 class="question-title">'+q.q+'</h3><p class="question-hint">'+q.hint+'</p><div class="question-options">'+shuffle(q.options).map((v,i)=>'<button type="button" class="question-option" data-choice="'+i+'">'+v+'</button>').join('')+'</div>';
+  el('game-question').querySelectorAll('[data-choice]').forEach((b,i)=>b.addEventListener('click',()=>answer(b,q.options.indexOf(b.textContent),q)));
  }
- function answer(btn,value,item){
-  if(answered)return;answered=true;const correct=value===item.answer;
-  $('game-question').querySelectorAll('[data-answer]').forEach(b=>{b.disabled=true;const v=decodeURIComponent(b.dataset.answer);if(v===item.answer)b.classList.add('correct');else if(b===btn&&!correct)b.classList.add('wrong')});
-  if(correct){score+=10;total+=10;streak++;best=Math.max(best,streak);$('game-feedback').textContent='✓ Doğru cevap! +10 puan';$('game-feedback').classList.add('good')}
-  else{streak=0;$('game-feedback').textContent='✕ Doğru cevap: '+item.answer;$('game-feedback').classList.add('bad')}
-  safeStore.set('vestel-game-total',String(total));safeStore.set('vestel-game-best',String(best));stats();$('game-next').disabled=false;
+ function answer(btn,unused,q){
+  if(locked)return;locked=true;const correct=btn.textContent===q.answer;
+  el('game-question').querySelectorAll('.question-option').forEach(b=>{b.disabled=true;if(b.textContent===q.answer)b.classList.add('correct');else if(b===btn)b.classList.add('wrong')});
+  if(correct){points+=10;total+=10;streak++;best=Math.max(best,streak);el('game-feedback').textContent='✓ Doğru cevap! +10 puan';el('game-feedback').className='game-feedback good'}
+  else{streak=0;el('game-feedback').textContent='✕ Doğru cevap: '+q.answer;el('game-feedback').className='game-feedback bad'}
+  stats();el('game-next').disabled=false;
  }
  function finish(){
-  rounds++;stats();$('game-play').hidden=true;$('game-result').hidden=false;$('game-progress-bar').style.width='100%';
-  const pct=score/(questions.length*10);const medal=pct===1?'🏆':pct>=.6?'🥇':'⚽';
-  $('game-result').innerHTML='<div class="result-medal">'+medal+'</div><h3>Tur tamamlandı!</h3><p>'+questions.length+' soruda '+score+' puan topladın. '+(pct===1?'Mükemmel performans!':pct>=.6?'Gayet iyi, biraz daha çalış ve rekorunu geliştir.':'Bir tur daha dene, lig hafızanı güçlendir!')+'</p><button type="button" id="game-retry">Tekrar oyna</button><button type="button" id="game-home">Oyunlara dön</button>';
-  $('game-retry').addEventListener('click',()=>start(active));$('game-home').addEventListener('click',home);
+  rounds++;stats();el('game-play').hidden=true;el('game-result').hidden=false;el('game-progress-bar').style.width='100%';
+  const rate=points/(round.length*10),medal=rate===1?'🏆':rate>=.6?'🥇':'⚽';
+  el('game-result').innerHTML='<div class="result-medal">'+medal+'</div><h3>Tur tamamlandı!</h3><p>'+round.length+' soruda '+points+' puan topladın.</p><button type="button" id="game-retry">Tekrar oyna</button><button type="button" id="game-home">Oyunlara dön</button>';
+  el('game-retry').addEventListener('click',()=>begin(mode));el('game-home').addEventListener('click',home);
  }
- function home(){active=null;$('game-play').hidden=true;$('game-result').hidden=true;$('game-menu').hidden=false;}
- $('game-menu').addEventListener('click',event=>{const target=event.target;const btn=target&&typeof target.closest==='function'?target.closest('[data-game]'):null;if(!btn||!host.contains(btn))return;try{start(btn.dataset.game)}catch(error){$('game-play').hidden=false;$('game-menu').hidden=true;$('game-question').textContent='Oyun açılırken hata oluştu: '+(error&&error.message?error.message:'Bilinmeyen hata');console.error('Vestel Lig oyun hatası:',error)}});
- $('game-back').addEventListener('click',home);
- $('game-next').addEventListener('click',()=>{if(!answered)return;if(index<questions.length-1){index++;draw()}else finish()});
- stats();
+ el('game-menu').addEventListener('click',e=>{const b=e.target.closest('[data-game]');if(b)begin(b.dataset.game)});
+ el('game-back').addEventListener('click',home);
+ el('game-next').addEventListener('click',()=>{if(!locked)return;if(at<round.length-1){at++;draw()}else finish()});
+ stats();home();
 })();
-</script><!-- Taraftar Köşesi yayına alma tetikleyicisi -->
+</script>
 </body></html>
