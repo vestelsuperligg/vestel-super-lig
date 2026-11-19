@@ -940,7 +940,41 @@ header nav a{padding:8px 13px;font-size:13px}
  #medya .media-note b{display:block;margin-bottom:5px}
 }
 
-</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#dna">Takımlar</a><a href="#medya">Medya Köşesi</a><a href="#yonetmelik">Lig Yönetmeliği</a><a href="#sezon">Sezon Enleri</a></nav><main class="wrap">
+
+/* High-impact sports newsroom visual treatment */
+#medya{position:relative;isolation:isolate;padding-bottom:24px}
+#medya:before{content:"";position:absolute;z-index:-1;inset:-22px -22px 0;background:radial-gradient(ellipse at 8% 0%,#9e1e32aa 0,transparent 38%),linear-gradient(180deg,#07111f 0%,#101f32 48%,#081321 100%);border-radius:14px}
+#medya>h2{font-size:clamp(34px,5.4vw,52px);font-weight:1000;text-transform:uppercase;letter-spacing:-.045em;text-shadow:0 4px 22px #0009}
+#medya>h2:after{font-size:11px;box-shadow:0 0 22px #ed304966;animation:mediaPulse 2s infinite}
+#medya>.season-subtitle{font-size:15px;color:#d4deea;font-weight:600}
+#medya .media-lead{position:relative;overflow:hidden;min-height:390px;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(25px,5vw,54px);border:1px solid #ffffff38;border-left:0;border-radius:9px;background:#07111f;box-shadow:0 22px 55px #0009}
+#medya .media-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:.76;filter:saturate(1.18) contrast(1.08)}
+#medya .media-lead:before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,#06101fee 0%,#06101fbb 48%,#06101f22 100%),linear-gradient(0deg,#06101ff2 0%,transparent 78%)}
+#medya .media-lead>*:not(.media-hero-photo){position:relative;z-index:1}
+#medya .media-lead-tag{align-self:flex-start;padding:9px 13px;font-size:12px;font-weight:950;box-shadow:0 5px 20px #0007}
+#medya .media-lead h3{max-width:850px;font-size:clamp(32px,5.8vw,58px);line-height:1.04;text-transform:uppercase;text-shadow:0 3px 18px #000b}
+#medya .media-lead p{max-width:780px;font-size:clamp(16px,2vw,19px);font-weight:550;color:#f1f5fa;text-shadow:0 2px 9px #000}
+#medya .media-grid{gap:18px}
+#medya .media-card{min-height:230px;padding:27px 26px 25px 29px;border:1px solid #52647b;border-radius:7px;background:linear-gradient(145deg,#fff 0%,#e4ebf4 100%);box-shadow:0 14px 32px #0006;transition:transform .2s ease,box-shadow .2s ease}
+#medya .media-card:hover{transform:translateY(-4px);box-shadow:0 20px 38px #0008}
+#medya .media-card:before{width:6px;background:linear-gradient(180deg,#ff425c,#a9102a)}
+#medya .media-label{display:inline-block;padding:6px 9px;border-radius:3px;background:#a91e36;color:#fff;font-weight:950;font-size:10px}
+#medya .media-card h3{font-size:clamp(20px,2.4vw,25px);font-weight:950;line-height:1.22;color:#0a1a2e}
+#medya .media-card p{font-size:15px;line-height:1.78;color:#263c55}
+#medya .media-note{background:#081626;border-color:#52647b;color:#e5edf7;font-size:14px}
+@keyframes mediaPulse{0%,100%{box-shadow:0 0 0 0 #ed304900}50%{box-shadow:0 0 0 6px #ed304933}}
+@media(max-width:650px){
+ #medya:before{inset:-12px -10px 0}
+ #medya .media-lead{min-height:390px;padding:23px 18px}
+ #medya .media-lead:before{background:linear-gradient(0deg,#06101ff5 0%,#06101f99 62%,#06101f30 100%)}
+ #medya .media-lead h3{font-size:34px}
+ #medya .media-lead p{font-size:15px}
+ #medya .media-card{min-height:0;padding:23px 19px 22px 24px}
+ #medya .media-card h3{font-size:21px}
+ #medya .media-card p{font-size:14px}
+}
+
+</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#dna">Takımlar</a><a href="#medya">Medya Köşesi</a><a href="#sezon">Sezon Enleri</a><a href="#yonetmelik">Lig Yönetmeliği</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
 <section id="fikstur"><h2>Fikstür</h2><div id="fixtures"></div></section>
@@ -976,10 +1010,11 @@ header nav a{padding:8px 13px;font-size:13px}
 <h2>📰 Medya Köşesi</h2>
 <p class="season-subtitle">Vestel Süper Lig 2026-2027 · Gündem, iddialar ve kulüplerden açıklamalar</p>
 <div class="media-lead">
+ <img class="media-hero-photo" src="https://images.unsplash.com/photo-1781152791898-945ca008c8ef?auto=format&fit=crop&fm=jpg&q=85&w=2200" alt="Gece ışıkları altında dolu futbol stadyumu">
  <div class="media-lead-tag">GÜNDEMİN SICAK BAŞLIĞI</div>
  <h3>Şike iddiaları ve teşvik primi söylentileri futbol gündeminde</h3>
  <p>Bazı karşılaşmaların sonuçlarına ve kulüpler arasındaki temaslara ilişkin ortaya atılan iddialar, lig kamuoyunda geniş yankı uyandırdı. İddiaların doğruluğu henüz kanıtlanmış değil.</p>
- <span class="media-disclaimer">Bu başlıklar kurgu lig evrenindeki medya gündemidir. Kesinleşmiş bir karar veya kanıtlanmış suçlama değildir.</span>
+ 
 </div>
 <div class="media-grid">
  <article class="media-card"><div class="media-label">İNCELEME DOSYASI</div><h3>Şike şüphesi taşıdığı öne sürülen maçlar mercek altında</h3><p>Bazı maçlarda yaşandığı iddia edilen sıra dışı gelişmelerin, ilgili kurullar tarafından değerlendirilmesi bekleniyor. İnceleme tamamlanmadan hiçbir kulüp hakkında hüküm verilmeyecek.</p></article>
