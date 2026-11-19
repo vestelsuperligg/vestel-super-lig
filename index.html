@@ -1107,7 +1107,8 @@ renderStandings(standingsLatestWeek);
 function card(m){return '<div class="match"><div class="club">'+m.h+'</div><div><div class="score">'+(m.s?m.s.join(' - '):'OYNANMADI')+'</div></div><div class="club">'+m.a+'</div></div>'}
 // Maç Sonuçları sekmesi kaldırıldı; sonuçlar fikstürde gösteriliyor.
 document.getElementById('fixtures').innerHTML=Array.from({length:22},(_,i)=>i+1).map(w=>'<div class="week"><div class="weektitle">'+w+'. HAFTA</div><div class="pad">'+matches.filter(m=>m.w===w).map(card).join('')+'</div></div>').join('');
-const refereePool=['Halil Umut Meler','Arda Kardeşler','Ali Şansalan','Atilla Karaoğlan','Zorbay Küçük','Abdulkadir Bitigen','Ümit Öztürk','Yaşar Kemal Uğurlu','Mete Kalkavan','Cihan Aydın','Kadir Sağlam','Burak Pakkan'];
+const refereePool=['Zorbay Küçük','Doğukan Yıldırım','Kadir Sağlam','Burak Olcar','Burak Pakkan','Burak Demirkıran','Alper Akarsu','Gürcan Hasova','Emre Kaan Çalışkan','Burak Kamalak','Batuhan Kolak','Ömer Faruk Turtay','İbrahim Güner','Kaan Kara','Adnan Deniz Kayatepe','Oğuzhan Çakır','Cihan Aydın','Birkan Altındaş','Ali Şansalan','Ümit Öztürk','Turgut Doman','Ali Yılmaz','Çağdaş Altay','İlker Yasin Avcı','Ömer Tolga Güldibi','Abdullah Buğra Taşkınsoy','Ozan Ergün','Mehmet Türkmen','Süleyman Bahadır','Melih Aldemir','Oğuzhan Gökçen','Emrullah Baydar','Halil Umut Meler','Yiğit Arslan','Davut Dakul Çelik','Direnç Tonusluoğlu','Berkay Erdemir','Reşat Onur Coşkunses','Fatih Tokail','Ayberk Demirbaş','Muhammet Alperen Çopur','Mustafa Hakan Belder','Raşit Yorgancılar','Oğuzhan Aksu','Hakan Ülker','Emre Kargın','Muhammet Ali Metoğlu','Yücel Büyük','Atilla Karaoğlan','Erdem Mertoğlu','Yusuf Adnan Kendirciler','Ömer Faruk Gültekin','Yusuf Ziya Gündüz','Yasin Kol','Alpaslan Şen'];
+const varRefereePool=['Özer Özden','Efe Tanrıverdi','Sarper Barış Saka','Erkan Engin','Özgür Yankaya','Volkan Bayarslan','Onur Özütoprak','Ferhan Kestanlıoğlu','Melis Özçiğdem','Eren Özyemişcioğlu','Bülent Birincioğlu','Bilal Köseoğlu','Sinan Dereci'];
 const stadiums={'Erzurumspor':'Kazım Karabekir Stadyumu','Mardin 1969':'21 Kasım Şehir Stadyumu','Kütahyaspor':'Dumlupınar Stadyumu','45 Manisa FK':'Manisa 19 Mayıs Stadyumu','Çine Madranspor':'Çine Yüksel Yalova Stadı','Bursaspor':'Atatürk Spor Kompleksi Matlı Stadyumu','Artukluspor':'Artuklu İlçe Stadı','Güzide Gebzespor':'Alaettin Kurt Stadı','Germencikspor':'Germencik İlçe Stadı','Elazığspor':'Elazığ Atatürk Stadyumu','Aydınspor 1966':'Adnan Menderes Stadı','Karpuzlu FK':'Karpuzlu İlçe Stadı'};
 const kickoffTimes=['14:00','16:00','19:00','20:00','15:00','18:00'];
 const refereeWeek=document.getElementById('referee-week');
@@ -1120,9 +1121,16 @@ function renderRefereeWeek(){
  const played=weekMatches.filter(m=>m.s).length;
  document.getElementById('referee-week-status').textContent=played+'/'+weekMatches.length+' maç tamamlandı';
  document.getElementById('referee-fixtures').innerHTML=weekMatches.map((m,i)=>{
-  const base=(week*5+i*3)%refereePool.length;
-  const officials=[0,1,2,3].map(n=>refereePool[(base+n*3)%refereePool.length]);
-  return '<article class="referee-card"><div class="referee-card-head"><small>'+week+'. HAFTA · MAÇ '+(i+1)+'</small><span class="referee-state '+(m.s?'':'pending')+'">'+(m.s?'TAMAMLANDI':'PROGRAMDA')+'</span></div><div class="referee-scoreline"><div class="referee-team">'+m.h+'</div><div class="referee-score">'+(m.s?m.s[0]+' - '+m.s[1]:'<span class="referee-vs">VS</span>')+'</div><div class="referee-team">'+m.a+'</div></div><div class="referee-meta"><span>🏟 '+(stadiums[m.h]||'Kulüp Stadı')+'</span><span>🕒 '+kickoffTimes[(week+i)%kickoffTimes.length]+'</span></div><div class="referee-officials"><div class="referee-official"><small>ORTA HAKEM</small><b>'+officials[0]+'</b></div><div class="referee-official"><small>VAR</small><b>'+officials[1]+'</b></div><div class="referee-official"><small>AVAR</small><b>'+officials[2]+'</b></div><div class="referee-official"><small>DÖRDÜNCÜ HAKEM</small><b>'+officials[3]+'</b></div></div></article>';
+  // Aynı hafta saha görevlileri kendi aralarında tekrarlanmaz.
+  const fieldBase=((week-1)*12+i*2)%refereePool.length;
+  const varBase=((week-1)*12+i*2)%varRefereePool.length;
+  const officials={
+   center:refereePool[fieldBase],
+   fourth:refereePool[(fieldBase+1)%refereePool.length],
+   video:varRefereePool[varBase],
+   assistantVideo:varRefereePool[(varBase+1)%varRefereePool.length]
+  };
+  return '<article class="referee-card"><div class="referee-card-head"><small>'+week+'. HAFTA · MAÇ '+(i+1)+'</small><span class="referee-state '+(m.s?'':'pending')+'">'+(m.s?'TAMAMLANDI':'PROGRAMDA')+'</span></div><div class="referee-scoreline"><div class="referee-team">'+m.h+'</div><div class="referee-score">'+(m.s?m.s[0]+' - '+m.s[1]:'<span class="referee-vs">VS</span>')+'</div><div class="referee-team">'+m.a+'</div></div><div class="referee-meta"><span>🏟 '+(stadiums[m.h]||'Kulüp Stadı')+'</span><span>🕒 '+kickoffTimes[(week+i)%kickoffTimes.length]+'</span></div><div class="referee-officials"><div class="referee-official"><small>ORTA HAKEM</small><b>'+officials.center+'</b></div><div class="referee-official"><small>VAR</small><b>'+officials.video+'</b></div><div class="referee-official"><small>AVAR</small><b>'+officials.assistantVideo+'</b></div><div class="referee-official"><small>DÖRDÜNCÜ HAKEM</small><b>'+officials.fourth+'</b></div></div></article>';
  }).join('');
 }
 refereeWeek.addEventListener('change',renderRefereeWeek);
