@@ -1354,6 +1354,25 @@ header nav a{padding:8px 13px;font-size:13px}
 @media(max-width:850px){#oyunlar .game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){#oyunlar{padding:16px 12px}#oyunlar>h2{font-size:25px}#oyunlar .game-grid{grid-template-columns:1fr}#oyunlar .game-tile{min-height:145px;padding:15px}#oyunlar .game-hero{min-height:155px;padding:19px}#oyunlar .game-trophy{width:58px;height:58px;flex:0 0 58px;font-size:30px}#oyunlar .game-stats{gap:6px}#oyunlar .game-stats>div{padding:10px 8px}#oyunlar .game-stats small{font-size:8px}#oyunlar .game-stats b{font-size:22px}#oyunlar .question-options{grid-template-columns:1fr}}
 
+
+/* Oyun kartları: iki sütunlu, yan yana ve altlı üstlü düzen */
+#oyunlar .game-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+#oyunlar .game-tile{min-height:170px}
+@media(max-width:600px){
+ #oyunlar .game-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ #oyunlar .game-tile{min-height:174px;padding:12px}
+ #oyunlar .game-tile>span{width:36px;height:36px;font-size:20px;margin-bottom:9px}
+ #oyunlar .game-tile b{font-size:13px}
+ #oyunlar .game-tile small{font-size:10px;line-height:1.4}
+ #oyunlar .game-tile em{font-size:8px;margin-top:10px}
+}
+@media(max-width:360px){
+ #oyunlar .game-grid{gap:7px}
+ #oyunlar .game-tile{padding:10px;min-height:180px}
+ #oyunlar .game-tile b{font-size:12px}
+ #oyunlar .game-tile small{font-size:9px}
+}
+
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#hakem">VAR &amp; Hakem Merkezi</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#taraftar">Editör Köşesi</a><a href="#medya">Medya Köşesi</a><a href="#sezon">Sezon Enleri</a><a href="#oyunlar">Oyun Merkezi</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
