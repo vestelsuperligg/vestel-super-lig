@@ -1552,7 +1552,7 @@ let tvUtterance=null;
  const scramble=w=>{const a=Array.from(w.replace(/ /g,''));let out=w;for(let n=0;n<8&&out===w;n++){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}out=a.join('')}return out};
  const wordQuiz=wordList.map(([w,category])=>q('Karışık harfleri çöz: '+scramble(w),category,w,pick(wordList.filter(x=>x[0]!==w).map(x=>x[0]),3)));
  const arena=bank([
- ['Bir futbol takımında sahadaki oyuncu sayısı kaçtır?','Kaleci de bu sayıya dahildir.','11',['10','ಸ್ತ12','9']],
+ ['Bir futbol takımında sahadaki oyuncu sayısı kaçtır?','Kaleci de bu sayıya dahildir.','11',['10','12','9']],
  ['Bir maçın normal süresi kaç dakikadır?','Uzatmalar hariç.','90',['80','100','120']],
  ['Penaltı noktası kale çizgisinden kaç metre uzaktadır?','IFAB oyun kuralları.','11 metre',['9 metre','10 metre','12 metre']],
  ['Bir oyuncu aynı maçta iki sarı kart görürse ne olur?','Disiplin yaptırımı.','Kırmızı kartla oyundan atılır',['Oyuna devam eder','Sadece uyarılır','Penaltı verilir']],
