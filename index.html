@@ -1232,6 +1232,70 @@ header nav a{padding:8px 13px;font-size:13px}
 #oyunlar .blind-slot-arrow{color:#81dccc;font-size:18px}.blind-slot-check{color:#8ce8b9;font-size:18px;font-weight:900}
 #oyunlar .blind-slot-button.filled{border-color:#397d63;background:#14372f}.blind-slot-button.filled .blind-slot-number{background:#226b50;color:white}
 @media(max-width:600px){#oyunlar .blind-setup-grid{grid-template-columns:1fr}.blind-category-btn{min-height:88px}}
+
+/* Vestel Lig Oyun Merkezi: saha ışıkları ve skorboard teması */
+#oyunlar{color:#edf4f8}
+#oyunlar>h2{color:#f7fafc;font-size:29px;letter-spacing:-.025em}
+#oyunlar .season-subtitle{color:#a9bac8;letter-spacing:.015em}
+#oyunlar .game-hero{min-height:190px;padding:clamp(20px,4vw,34px);border:1px solid #456b58;border-radius:18px;background:radial-gradient(ellipse at 78% 120%,#367b4d88 0,transparent 45%),linear-gradient(115deg,#102b25 0%,#123c31 48%,#0d2630 100%);box-shadow:0 18px 38px #0005,inset 0 1px #ffffff14}
+#oyunlar .game-hero:after{inset:12px;border:1px solid #ffffff12;border-radius:12px;background:linear-gradient(90deg,transparent 49.8%,#ffffff0c 50%,transparent 50.2%),radial-gradient(ellipse at center,transparent 0 19%,#ffffff0c 19.2% 19.5%,transparent 19.7%);opacity:.8}
+#oyunlar .game-kicker{color:#b6e7a2;letter-spacing:.18em}
+#oyunlar .game-hero h3{color:#fff;text-shadow:none;letter-spacing:.035em}
+#oyunlar .game-hero p{color:#d0e0d7;max-width:540px}
+#oyunlar .game-trophy{width:82px;height:82px;border:1px solid #d4b86a;background:linear-gradient(145deg,#e0c879,#9b742b);color:#183329;font-size:42px;box-shadow:0 8px 25px #0004,inset 0 1px #fff9;transform:none;border-radius:20px}
+#oyunlar .game-stats{gap:12px;margin:15px 0 22px}
+#oyunlar .game-stats>div{padding:14px 16px;border:1px solid #ffffff18;border-radius:13px;background:linear-gradient(145deg,#142d40,#0e2234);box-shadow:inset 0 1px #ffffff0a}
+#oyunlar .game-stats small{color:#a9bdca;letter-spacing:.09em}
+#oyunlar .game-stats b{color:#d9c078;font-size:27px}
+#oyunlar .game-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+#oyunlar .game-tile{min-height:184px;padding:19px;border:1px solid #29475a;border-radius:15px;background:linear-gradient(155deg,#15344a 0%,#10283b 68%,#102d2b 100%);box-shadow:0 7px 18px #0002;transition:transform .18s,border-color .18s,background .18s,box-shadow .18s}
+#oyunlar .game-tile:before{height:3px;background:linear-gradient(90deg,#b99b52,#77b66c);opacity:.95}
+#oyunlar .game-tile:after{content:"";position:absolute;width:110px;height:110px;right:-52px;bottom:-57px;border:1px solid #ffffff0b;border-radius:50%;box-shadow:0 0 0 15px #ffffff05,0 0 0 30px #ffffff03;pointer-events:none}
+#oyunlar .game-tile:hover{transform:translateY(-3px);border-color:#8bbd83;background:linear-gradient(155deg,#1b4255,#123247 68%,#12392f);box-shadow:0 12px 25px #0004}
+#oyunlar .game-tile>span{width:45px;height:45px;display:grid;place-items:center;margin-bottom:14px;border:1px solid #ffffff18;border-radius:12px;background:#ffffff0b;font-size:24px;filter:none}
+#oyunlar .game-tile b{color:#f6f8f8;font-size:15px;letter-spacing:.005em}
+#oyunlar .game-tile small{color:#b4c5cf;font-size:12px;line-height:1.5}
+#oyunlar .game-tile em{color:#d8c27f;font-size:10px;letter-spacing:.1em}
+#oyunlar .game-tile-feature{border-color:#a78d4d;background:linear-gradient(145deg,#294b43,#153344)}
+#oyunlar .game-tile-feature:before{background:linear-gradient(90deg,#e3c978,#7fb77b)}
+#oyunlar .game-play{border:1px solid #416650;border-radius:17px;background:radial-gradient(ellipse at 100% 0,#28553c66 0,transparent 42%),linear-gradient(145deg,#122e32,#102437);box-shadow:0 16px 35px #0005}
+#oyunlar .game-play-top{color:#d7c27f}
+#oyunlar .game-back{border:1px solid #53705e;background:#ffffff0b;color:#edf5ef}
+#oyunlar .game-progress{background:#ffffff18}
+#oyunlar .game-progress i{background:linear-gradient(90deg,#c6a95c,#83bd78);box-shadow:0 0 10px #83bd7855}
+#oyunlar .question-kicker{color:#b9d99e}
+#oyunlar .question-title{color:#f8fafb}
+#oyunlar .question-hint{color:#b6c7d0}
+#oyunlar .question-option{border:1px solid #3b5968;background:#ffffff09;color:#f0f5f7;border-radius:11px}
+#oyunlar .question-option:hover:not(:disabled){border-color:#a5c88d;background:#1d403d}
+#oyunlar .question-option.correct{background:#174b3b;border-color:#78c99a;color:#d7ffe5}
+#oyunlar .question-option.wrong{background:#512b36;border-color:#d77983;color:#ffe0e3}
+#oyunlar .game-feedback.good{color:#9de0ad}
+#oyunlar .game-feedback.bad{color:#ffabb1}
+#oyunlar #game-next{border:1px solid #d7c078;background:linear-gradient(135deg,#e1cc82,#b7974d);color:#1c302c}
+#oyunlar .game-result{border:1px solid #496b55;border-radius:17px;background:linear-gradient(145deg,#15352f,#10283b);color:#f3f7f5}
+#oyunlar .game-result h3{color:#fff}
+#oyunlar .game-result p{color:#c1d0d3}
+#oyunlar .game-result button{border:1px solid #d4bd76;background:#c9ad60;color:#1c302c;border-radius:10px;font-weight:850}
+#oyunlar .blind-category-btn,#oyunlar .blind-slot-button{border-color:#3b5e64;background:#173747;color:#f4f7f6}
+#oyunlar .blind-current{background:#183d39;border-color:#6c9871}
+#oyunlar .blind-current h3{color:#fff}
+#oyunlar .blind-instruction{color:#bfd0d0}
+#oyunlar .game-note{color:#9fb3bf}
+@media(max-width:850px){#oyunlar .game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){
+ #oyunlar>h2{font-size:24px}
+ #oyunlar .game-hero{min-height:160px;padding:20px}
+ #oyunlar .game-trophy{width:58px;height:58px;font-size:32px;border-radius:15px;flex:0 0 58px}
+ #oyunlar .game-grid{grid-template-columns:1fr;gap:10px}
+ #oyunlar .game-tile{min-height:148px;padding:16px}
+ #oyunlar .game-stats{gap:7px}
+ #oyunlar .game-stats>div{padding:11px 9px}
+ #oyunlar .game-stats small{font-size:8px}
+ #oyunlar .game-stats b{font-size:23px}
+ #oyunlar .game-play{padding:14px}
+}
+
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#hakem">VAR &amp; Hakem Merkezi</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#taraftar">Editör Köşesi</a><a href="#medya">Medya Köşesi</a><a href="#sezon">Sezon Enleri</a><a href="#oyunlar">Oyun Merkezi</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
