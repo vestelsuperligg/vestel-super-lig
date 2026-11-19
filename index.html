@@ -1068,6 +1068,39 @@ header nav a{padding:8px 13px;font-size:13px}
 #medya .story-debate{background:linear-gradient(145deg,#edf0f7,#dfe5ef);border-color:#8493ae}
 #medya .story-debate .media-story-copy>small,#medya .story-debate .media-story-meta{color:#4d5f88}
 @media(max-width:680px){#medya.media-desk{padding:17px 12px 19px}#medya .media-story-grid{grid-template-columns:1fr;gap:11px}#medya .media-story-image{height:105px;min-height:105px}#medya .media-story-copy{padding:12px 13px}#medya .media-story-copy h3{font-size:16px}}
+
+/* Editorial typography, richer club accents and resilient photo treatments */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+#medya.media-desk{font-family:'DM Sans','Manrope',system-ui,sans-serif;padding:24px 24px 28px;background:radial-gradient(ellipse at 8% 0%,#25476a55,transparent 42%),linear-gradient(145deg,#0c1b2b,#10283e 58%,#0a1928);border:1px solid #ffffff20;border-radius:21px}
+#medya.media-desk>h2{font-family:'Manrope',sans-serif;font-size:clamp(27px,4vw,36px);font-weight:800;letter-spacing:-.045em;color:#f5f8ff}
+#medya.media-desk>.season-subtitle{font-size:12px;letter-spacing:.025em;color:#a9bdd1}
+#medya .media-lead.media-investigation{background:linear-gradient(115deg,#1a344d,#12283d);border:1px solid #ffffff20;border-left:4px solid #e14b61;border-radius:15px;padding:23px 25px;box-shadow:0 12px 28px #0002}
+#medya .media-investigation .media-lead-tag{font-size:9px;letter-spacing:.13em;padding:6px 9px;background:#a9344a}
+#medya .media-investigation h3{font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-.035em;font-size:clamp(22px,3vw,30px)}
+#medya .media-investigation p{font-size:13px;line-height:1.75;color:#c7d5e3}
+#medya .media-story{border-radius:15px;box-shadow:0 10px 26px #0003;transition:transform .2s ease,box-shadow .2s ease}
+#medya .media-story:hover{transform:translateY(-3px);box-shadow:0 16px 32px #0005}
+#medya .media-story-image{height:145px;min-height:145px;background:linear-gradient(135deg,#1d3c5a,#102238)}
+#medya .media-story-image img:not(.media-club-mark){filter:saturate(1.12) contrast(1.04)}
+#medya .media-story-image span{font-family:'Manrope',sans-serif;letter-spacing:.12em;text-shadow:0 2px 8px #000b}
+#medya .media-club-mark{position:absolute;z-index:2;right:12px;top:12px;width:62px;height:62px;object-fit:contain;padding:6px;border-radius:12px;background:#fff;box-shadow:0 4px 14px #0005}
+#medya .shevchenko-image img:not(.media-club-mark){object-position:center 22%;object-fit:cover}
+#medya .media-image-fallback{background:radial-gradient(circle at 70% 25%,#426c8d,#142b43 65%,#0b1b2d)}
+#medya .media-image-fallback:before{content:'VESTEL SÜPER LİG';position:absolute;inset:0;display:grid;place-items:center;color:#d9e7f5;font:800 12px 'Manrope',sans-serif;letter-spacing:.18em}
+#medya .media-story-copy{padding:15px 16px 16px}
+#medya .media-story-copy>small{font-size:9px;letter-spacing:.13em}
+#medya .media-story-copy h3{font-family:'Manrope',sans-serif;font-size:18px;letter-spacing:-.025em;font-weight:800}
+#medya .media-story-copy p{font-size:12px;line-height:1.72}
+#medya .media-story-meta{font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.055em}
+#medya .story-cup{background:linear-gradient(145deg,#f1f8f1,#e0eee3);border-color:#8caf94}
+#medya .story-cup .media-story-copy>small,#medya .story-cup .media-story-meta{color:#176b3c}
+#medya .story-scorers{background:linear-gradient(145deg,#fff8eb,#f0e3ca);border-color:#c5a66c}
+#medya .story-scorers .media-story-copy>small,#medya .story-scorers .media-story-meta{color:#9a6a18}
+#medya .story-attack{background:linear-gradient(145deg,#edf5fb,#dce9f5);border-color:#8caec8}
+#medya .story-attack .media-story-copy>small,#medya .story-attack .media-story-meta{color:#315f86}
+#medya .story-debate{background:linear-gradient(145deg,#f7edf0,#ecdee4);border-color:#c49aa8}
+#medya .story-debate .media-story-copy>small,#medya .story-debate .media-story-meta{color:#8a4057}
+@media(max-width:680px){#medya.media-desk{padding:18px 12px 20px}#medya .media-story-image{height:125px;min-height:125px}#medya .media-club-mark{width:54px;height:54px}#medya .media-investigation h3{font-size:23px}}
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#hakem">VAR &amp; Hakem Merkezi</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#taraftar">Editör Köşesi</a><a href="#medya">Medya Köşesi</a><a href="#sezon">Sezon Enleri</a><a href="#yonetmelik">Lig Yönetmeliği</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
@@ -1118,19 +1151,19 @@ header nav a{padding:8px 13px;font-size:13px}
 </div>
 <div class="media-story-grid">
  <article class="media-story story-cup">
-  <div class="media-story-image"><img loading="lazy" src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=700&q=75" alt="Futbol karşılaşmasından saha görüntüsü"><span>KUPA SONUÇLARI</span></div>
+  <div class="media-story-image"><img loading="lazy" src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=900&q=85" alt="Futbol karşılaşmasından saha görüntüsü" onerror="this.style.display='none';this.parentElement.classList.add('media-image-fallback')"><img class="media-club-mark" loading="lazy" src="https://www.bursaspor.org.tr/data/serbest/bursaspor_logo.png" alt="Bursaspor arması" onerror="this.style.display='none'"><span>KUPA SONUÇLARI</span></div>
   <div class="media-story-copy"><small>ZİRAAT TÜRKİYE KUPASI</small><h3>Bursaspor'dan 5 gollü galibiyet</h3><p>Bursaspor, Artukluspor'u 5-1 yenerek tur biletini aldı. 45 Manisa FK, Erzurumspor'u 3-2; Aydınspor 1966 ise Güzide Gebzespor'u 3-0 geçti. Bu üç sonuçta en net mesajı hücum gücü verdi.</p><div class="media-story-meta">BURSASPOR 5-1 ARTUKLUSPOR · 45 MANİSA FK 3-2 ERZURUMSPOR</div></div>
  </article>
  <article class="media-story story-scorers">
-  <div class="media-story-image"><img loading="lazy" src="https://images.unsplash.com/photo-1508098682722-e99c643e7f0b?auto=format&fit=crop&w=700&q=75" alt="Futbol sahasında gol sevinci"><span>GOL KRALLIĞI</span></div>
+  <div class="media-story-image shevchenko-image"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Andriy_Shevchenko.jpg" alt="Andriy Shevchenko" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1508098682722-e99c643e7f0b?auto=format&fit=crop&w=900&q=85'"><span>GOL KRALLIĞI</span></div>
   <div class="media-story-copy"><small>ZİRVEDEKİ GOLCÜLER</small><h3>Shevchenko 39 gole ulaştı</h3><p>Kütahyaspor forması giyen Shevchenko 39 golle listenin başında. Germencikspor'dan Gareth Bale 33, Aydınspor 1966'dan Filippo Inzaghi 32, 45 Manisa FK'dan Zlatan Ibrahimović 29 golle takibini sürdürüyor.</p><div class="media-story-meta">SHEVCHENKO 39 · BALE 33 · INZAGHI 32 · ZLATAN 29</div></div>
  </article>
  <article class="media-story story-attack">
-  <div class="media-story-image"><img loading="lazy" src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=700&q=75" alt="Futbol sahasında takım mücadelesi"><span>AYDINSPOR 1966</span></div>
+  <div class="media-story-image"><img loading="lazy" src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=900&q=85" alt="Futbol sahasında takım mücadelesi" onerror="this.style.display='none';this.parentElement.classList.add('media-image-fallback')"><span>AYDINSPOR 1966</span></div>
   <div class="media-story-copy"><small>HÜCUM HATTI</small><h3>Inzaghi, Diouf ve Messi'den 65 gol</h3><p>Aydınspor 1966'nın üç önemli hücumcusu toplam 65 gole ulaştı: Inzaghi 32, El Hadji Diouf 23, Lionel Messi 10. Üç oyuncunun skor katkısı, takımın hücumdaki en güçlü verisi olarak öne çıkıyor.</p><div class="media-story-meta">INZAGHI 32 · DIOUF 23 · MESSI 10</div></div>
  </article>
  <article class="media-story story-debate">
-  <div class="media-story-image"><img loading="lazy" src="https://images.unsplash.com/photo-1517466787929-bc2a2877d9b5?auto=format&fit=crop&w=700&q=75" alt="Futbol maçında ikili mücadele"><span>MAÇIN DETAYI</span></div>
+  <div class="media-story-image"><img loading="lazy" src="https://images.unsplash.com/photo-1517466787929-bc2a2877d9b5?auto=format&fit=crop&w=900&q=85" alt="Futbol maçında ikili mücadele" onerror="this.style.display='none';this.parentElement.classList.add('media-image-fallback')"><span>MAÇIN DETAYI</span></div>
   <div class="media-story-copy"><small>TAKIM PERFORMANSI</small><h3>Gol farkı yarışın kaderini değiştirebilir</h3><p>Gol krallığının ilk dört sırasındaki oyuncular dört ayrı kulüpten geliyor. Bu tablo, hücum üretiminin tek bir takıma yığılmadığını gösteriyor. Kalan haftalarda zirve yarışında averaj ve doğrudan maçların sonuçları daha da önem kazanacak.</p><div class="media-story-meta">GOL AVERAJI · ZİRVE YARIŞI</div></div>
  </article>
 </div>
