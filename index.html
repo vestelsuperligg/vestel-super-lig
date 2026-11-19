@@ -1299,7 +1299,7 @@ header nav a{padding:8px 13px;font-size:13px}
 <section id="oyunlar">
 <h2>Vestel Lig Oyun Merkezi</h2>
 <p class="season-subtitle">Lig yıldızlarını tanı, takımları keşfet, futbol hafızanı sına. Her oyunda yeni sorular ve puanlar seni bekliyor.</p>
-<div class="game-hero"><div><span class="game-kicker">VESTEL SÜPER LİG · ARCADE</span><h3>OYUN MODLARI</h3><p>Sekiz oyun modu. Bilgi, refleks, kadro kurma ve penaltı heyecanı. Her oyunda yeni bir meydan okuma.</p></div><div class="game-trophy" aria-hidden="true">✦</div></div>
+<div class="game-hero"><div><span class="game-kicker">VESTEL SÜPER LİG · ARCADE</span><h3>OYUN MODLARI</h3><p>Dokuz oyun modu. Futbol bilginle lig tablosunu çöz, yıldızları keşfet ve puanları topla.</p></div><div class="game-trophy" aria-hidden="true">✦</div></div>
 <div class="game-stats"><div><small>TOPLAM PUANIN</small><b id="game-total-score">0</b></div><div><small>EN İYİ SERİN</small><b id="game-best-streak">0</b></div><div><small>OYNANAN TUR</small><b id="game-rounds">0</b></div></div>
 <div class="game-grid" id="game-menu">
 <button class="game-tile" data-game="scout"><span>🕵️</span><b>Scout Raporu</b><small>Ülke ipucu olmadan, oyuncu ve performans verilerinden futbolcuyu bul.</small><em>RAPORU AÇ →</em></button>
@@ -1310,6 +1310,7 @@ header nav a{padding:8px 13px;font-size:13px}
 <button class="game-tile" data-game="goals"><span>🎯</span><b>Gol Sayısı</b><small>Ligin yıldızlarının kaç gol attığını tahmin et.</small><em>GOLLERİ BUL →</em></button>
 <button class="game-tile" data-game="mystery"><span>🕵️‍♂️</span><b>Gizemli Futbolcu</b><small>İpuçları açıldıkça futbolcuyu bul. Erken bilirsen daha çok puan kazan.</small><em>İPUÇLARINI AÇ →</em></button>
 <button class="game-tile" data-game="teamquiz"><span>🛡️</span><b>Bu Hangi Takım?</b><small>Maç, galibiyet ve gol istatistiklerinden kulübü tanı.</small><em>TAKIMI BUL →</em></button>
+<button class="game-tile" data-game="table"><span>📊</span><b>Puan Tablosu Mühendisi</b><small>Maç, galibiyet, beraberlik ve gol istatistiklerinden takımın puanını ve sırasını bul.</small><em>TABLOYU ÇÖZ →</em></button>
 </div>
 <div class="game-play" id="game-play" hidden>
 <div class="game-play-top"><button type="button" class="game-back" id="game-back">← Oyunlara dön</button><span id="game-progress">1 / 5</span></div>
@@ -1571,6 +1572,7 @@ let tvUtterance=null;
  const clubs=players.map(p=>q(p[0]+' hangi kulübün oyuncusu?','Gol sayısı: '+p[2]+' · Mevki: '+p[3],p[1],pick(unique(players.filter(x=>x!==p).map(x=>x[1])),3)));
  const scorerBank=matches.filter(m=>players.some(p=>p[1]===m[0])&&players.some(p=>p[1]===m[1])).map((m,i)=>{const home=players.filter(p=>p[1]===m[0]),away=players.filter(p=>p[1]===m[1]),pool=home.concat(away);return q(m[0]+' - '+m[1]+' maçında '+(i%2?'67':'23')+'. dakikadaki golü kim attı?','Maç skoru: '+m[2]+'-'+m[3]+' · Gol anonsu',pool[i%pool.length][0],pick(players.filter(p=>p[0]!==pool[i%pool.length][0]).map(p=>p[0]),3))});
  const teamQuiz=seasonStats.map(t=>q('Bu istatistikler hangi takıma ait?','Oynanan maç: '+t.o+' · Galibiyet: '+t.g+' · Attığı gol: '+t.ag+' · Yediği gol: '+t.yg,t.n,pick(teams.filter(x=>x!==t.n),3)));
+ const tableQuiz=seasonStats.map(t=>q(t.n+' puan tablosunda kaç puanda?','Oynanan: '+t.o+' · Galibiyet: '+t.g+' · Beraberlik: '+t.b+' · Mağlubiyet: '+t.m,t.p,unique(seasonStats.filter(x=>x.n!==t.n).map(x=>x.p)).filter(v=>v!==t.p).slice(0,3)));
  const wordList=[['OFFSAYT','Oyun kuralı'],['PENALTI','Duran top'],['KORNER','Duran top'],['FRİKİK','Duran top'],['HATTRICK','Gol başarısı'],['KONTRA','Hücum türü'],['SANTRFOR','Mevki'],['KALECİ','Mevki'],['DERBİ','Maç türü'],['ASİST','İstatistik'],['VOLE','Vuruş tekniği'],['PRES','Savunma anlayışı'],['ORTA SAHA','Mevki'],['TAÇ ATIŞI','Oyun başlangıcı']];
  const scramble=w=>{const a=Array.from(w.replace(/ /g,''));let out=w;for(let n=0;n<8&&out===w;n++){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}out=a.join('')}return out};
  const wordQuiz=wordList.map(([w,category])=>q('Karışık harfleri çöz: '+scramble(w),category,w,pick(wordList.filter(x=>x[0]!==w).map(x=>x[0]),3)));
@@ -1597,6 +1599,7 @@ let tvUtterance=null;
   blind:{title:'KÖR SIRALAMA',make:()=>[]},
   mystery:{title:'GİZEMLİ FUTBOLCU',make:()=>cyclePick(players,5,'mystery')},
   teamquiz:{title:'BU HANGİ TAKIM?',make:()=>cyclePick(teamQuiz,10,'teamquiz')},
+  table:{title:'PUAN TABLOSU MÜHENDİSİ',make:()=>cyclePick(tableQuiz,10,'table')},
  };
  let blindSlots=[],blindAt=0,blindPoints=0,blindCategory=null,mysteryClue=0;
  let mode=null,round=[],at=0,points=0,total=0,best=0,rounds=0,streak=0,locked=false;
