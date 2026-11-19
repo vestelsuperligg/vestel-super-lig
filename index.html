@@ -1144,94 +1144,60 @@ header nav a{padding:8px 13px;font-size:13px}
 #medya .media-footerline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:17px;padding-top:10px;border-top:1px solid #d5cec1;color:#85877f;font-size:8px;font-weight:900;letter-spacing:.13em}
 @media(max-width:650px){#medya.media-desk{padding:16px 12px;border-radius:14px}#medya .media-masthead{align-items:flex-start}#medya .media-issue{font-size:7px}#medya .media-issue b{font-size:23px}#medya .media-lead.media-investigation{padding:18px 16px;margin:13px 0}#medya .media-story-grid{grid-template-columns:1fr;gap:10px}#medya .media-story{padding:15px}#medya .media-story-copy h3{font-size:20px}}
 
-/* Vestel Futbol TV */
-#futboltv{scroll-margin-top:100px;color:#f4f7fc}
-.tv-masthead{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:8px 0 20px}
-.tv-kicker,.tv-panel-label{font-size:10px;font-weight:950;letter-spacing:.15em;color:#e6bd6b}
-.tv-masthead h2{margin:5px 0;font-size:clamp(28px,5vw,42px);color:#fff}
-.tv-masthead p{margin:0;color:#a9bad0}
-.tv-live{padding:8px 12px;border:1px solid #ef5263;border-radius:999px;color:#ff8b98;font-size:10px;font-weight:900;letter-spacing:.1em}
-.tv-feature{display:grid;grid-template-columns:1.08fr .92fr;gap:0;overflow:hidden;border:1px solid #ffffff20;border-radius:18px;background:linear-gradient(135deg,#122b47,#0a192b);box-shadow:0 16px 38px #0004}
-.tv-screen{min-height:330px;padding:14px;background:#050e19;display:flex;flex-direction:column}
-.tv-screen-top,.tv-screen-bottom{display:flex;justify-content:space-between;gap:10px;color:#9db2ca;font-size:9px;font-weight:900;letter-spacing:.13em}
-.tv-studio-art{position:relative;flex:1;min-height:260px;margin:12px 0;overflow:hidden;border:1px solid #ffffff20;border-radius:12px;background:radial-gradient(ellipse at 55% 15%,#315b80 0,transparent 45%),linear-gradient(145deg,#1c3858,#071321 70%)}
-.tv-studio-art:before,.tv-studio-art:after{content:"";position:absolute;top:0;bottom:0;width:18%;background:repeating-linear-gradient(0deg,#e5b95c22 0 2px,transparent 2px 18px);opacity:.7}
-.tv-studio-art:before{left:0}.tv-studio-art:after{right:0}
-.tv-studio-glow{position:absolute;left:15%;right:15%;bottom:8%;height:34%;border-radius:50%;background:#e43c5540;filter:blur(28px)}
-.tv-presenter{position:absolute;left:8%;bottom:0;width:34%;height:82%;display:flex;align-items:flex-end;justify-content:center}
-.tv-presenter-head{position:absolute;top:8%;width:31%;aspect-ratio:1;border-radius:48% 48% 43% 43%;background:linear-gradient(130deg,#e5b997,#8e604b);box-shadow:0 0 0 8px #ffffff0a}
-.tv-presenter-body{width:100%;height:58%;border-radius:48% 48% 0 0;background:linear-gradient(110deg,#243f5e,#0b1728);border-top:5px solid #e6bd6b;display:grid;place-items:center;color:#e6bd6b;font-size:30px;font-weight:950}
-.tv-screen-copy{position:absolute;left:43%;top:22%;right:6%;display:grid;gap:9px}
-.tv-screen-copy small{font-size:9px;color:#e8c778;letter-spacing:.2em;font-weight:900}
-.tv-screen-copy strong{font-size:clamp(21px,3.5vw,36px);line-height:1.04;color:#fff;font-weight:1000;letter-spacing:-.04em}
-.tv-screen-copy i{font-style:normal;color:#ff8795;font-size:9px;font-weight:900;letter-spacing:.12em}
-.tv-feature-copy{padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;justify-content:center}
-.tv-episode{color:#e6bd6b;font-size:10px;font-weight:950;letter-spacing:.13em}
-.tv-feature-copy h3{font-size:clamp(21px,3vw,29px);line-height:1.18;color:#fff;margin:12px 0}
-.tv-feature-copy p{font-size:13px;line-height:1.8;color:#b9c9dc}
-.tv-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:10px}
-.tv-actions button{border:0;border-radius:9px;padding:11px 15px;font-weight:900;cursor:pointer}
-.tv-play{background:#e8bd65;color:#18283a}.tv-stop{background:#ffffff14;color:#e7eef8;border:1px solid #ffffff22!important}
-.tv-audio-note{margin-top:9px;color:#91a8c3;font-size:10px}
-.tv-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:15px 0}
-.tv-panel,.tv-script{padding:20px;border:1px solid #ffffff1c;border-radius:15px;background:linear-gradient(145deg,#132b45,#0c1d31)}
-.tv-panel h3,.tv-script h3{margin:7px 0 14px;color:#fff;font-size:19px}
-.tv-name-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #ffffff14;font-size:12px}
-.tv-name-row:last-child{border:0}.tv-name-row b{color:#f4f7fc}.tv-name-row span{color:#a9bad0;text-align:right}
-.tv-questions ul{margin:0;padding-left:18px;color:#c4d1e0;font-size:12px;line-height:1.9}
-.tv-script{margin-top:14px}.tv-script-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.tv-script-head h3{margin-bottom:5px}.tv-script-head>span{font-size:9px;color:#9db2ca;letter-spacing:.1em;white-space:nowrap}
-#tv-script-text{color:#c7d4e3;font-size:13px;line-height:1.9}
-.tv-disclaimer{margin:14px 0;padding:13px 15px;border-left:3px solid #e0b65e;border-radius:8px;background:#e0b65e12;color:#d9c99f;font-size:11px;line-height:1.7}
-@media(max-width:760px){.tv-feature{grid-template-columns:1fr}.tv-screen{min-height:285px}.tv-studio-art{min-height:230px}.tv-grid{grid-template-columns:1fr}.tv-masthead{align-items:flex-start;flex-direction:column}.tv-screen-copy strong{font-size:25px}}
 
-
-/* Vestel Lig Oyun Merkezi */
-#oyunlar .game-hero{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px;border:1px solid #d7b86b;border-radius:20px;background:radial-gradient(circle at 85% 20%,#41658b 0,transparent 35%),linear-gradient(120deg,#173b61,#0b1c31);box-shadow:0 16px 35px #0004}
-#oyunlar .game-kicker{font-size:10px;font-weight:950;letter-spacing:.16em;color:#f0d18a}
-#oyunlar .game-hero h3{font-size:clamp(22px,4vw,32px);line-height:1.12;color:#fff;margin:9px 0}
-#oyunlar .game-hero p{margin:0;color:#c4d4e8;font-size:13px}
-#oyunlar .game-trophy{font-size:66px;filter:drop-shadow(0 8px 10px #0006)}
+/* Neon arcade identity for the league game hub */
+#oyunlar{color:#f4f2ff}
+#oyunlar>h2{color:#f6f2ff;letter-spacing:.015em}
+#oyunlar .season-subtitle{color:#a8a0c8}
+#oyunlar .game-hero{position:relative;overflow:hidden;min-height:150px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:25px;border:1px solid #7861d5;border-radius:19px;background:radial-gradient(circle at 82% 35%,#6d45c7 0,transparent 28%),radial-gradient(circle at 15% 110%,#1a9a9b66 0,transparent 38%),linear-gradient(115deg,#17112f,#101b39 58%,#17102d);box-shadow:0 16px 40px #050311aa,inset 0 1px #ffffff1a}
+#oyunlar .game-hero:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 17px,#ffffff06 18px 19px);pointer-events:none}
+#oyunlar .game-kicker{font-size:10px;font-weight:950;letter-spacing:.2em;color:#8ce9e1}
+#oyunlar .game-hero h3{font-size:clamp(25px,4vw,36px);line-height:1;color:#fff;margin:12px 0;text-shadow:0 0 24px #9d7bff66;letter-spacing:.05em}
+#oyunlar .game-hero p{margin:0;color:#c4bfdf;font-size:13px}
+#oyunlar .game-trophy{position:relative;z-index:1;width:76px;height:76px;display:grid;place-items:center;border-radius:23px;border:1px solid #8d79ef;background:linear-gradient(145deg,#6f4bd4,#30216e);color:#a9fff0;font-size:44px;box-shadow:0 0 30px #7958df66, inset 0 1px #ffffff55;transform:rotate(8deg)}
 #oyunlar .game-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
-#oyunlar .game-stats>div{padding:13px 15px;border:1px solid #ffffff1c;border-radius:13px;background:#ffffff0b}
-#oyunlar .game-stats small{display:block;color:#9fb5ce;font-size:9px;font-weight:900;letter-spacing:.09em}
-#oyunlar .game-stats b{display:block;color:#fff;font-size:24px;margin-top:3px}
+#oyunlar .game-stats>div{padding:13px 15px;border:1px solid #ffffff20;border-radius:13px;background:linear-gradient(145deg,#1b1b3c,#11172d);box-shadow:inset 0 1px #ffffff0b}
+#oyunlar .game-stats small{display:block;color:#a8a0ce;font-size:9px;font-weight:900;letter-spacing:.11em}
+#oyunlar .game-stats b{display:block;color:#9af1e5;font-size:25px;margin-top:3px}
 #oyunlar .game-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-#oyunlar .game-tile{display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-height:190px;padding:17px;border:1px solid #ffffff20;border-radius:16px;background:linear-gradient(145deg,#173653,#0c2035);color:#fff;cursor:pointer;transition:transform .18s,border-color .18s,background .18s}
-#oyunlar .game-tile:hover{transform:translateY(-3px);border-color:#e2c274;background:linear-gradient(145deg,#20466b,#102840)}
-#oyunlar .game-tile>span{font-size:27px;margin-bottom:12px}
-#oyunlar .game-tile b{font-size:15px}
-#oyunlar .game-tile small{color:#a9bdd3;font-size:11px;line-height:1.45;margin-top:6px;flex:1}
-#oyunlar .game-tile em{font-style:normal;color:#f0ce7e;font-size:10px;font-weight:950;letter-spacing:.1em;margin-top:15px}
-#oyunlar .game-tile-feature{border-color:#caa653;background:linear-gradient(145deg,#4a3b20,#142943)}
-#oyunlar .game-play{margin-top:18px;padding:18px;border:1px solid #d5b76d;border-radius:18px;background:linear-gradient(145deg,#122e4a,#0a1b2e);box-shadow:0 15px 35px #0004}
-#oyunlar .game-play-top{display:flex;align-items:center;justify-content:space-between;color:#d8c17f;font-size:12px;font-weight:900}
-#oyunlar .game-back{border:0;background:#ffffff12;color:#dce8f6;padding:9px 12px;border-radius:9px;cursor:pointer;font-weight:800}
+#oyunlar .game-tile{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-height:190px;padding:17px;border:1px solid #514a82;border-radius:16px;background:linear-gradient(150deg,#222047,#151a34 65%,#102b3b);color:#fff;cursor:pointer;transition:transform .18s,border-color .18s,box-shadow .18s}
+#oyunlar .game-tile:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#8e70f2,#5ce2d1);opacity:.8}
+#oyunlar .game-tile:hover{transform:translateY(-4px);border-color:#8e7aff;box-shadow:0 12px 28px #08051c88,0 0 18px #7860d533}
+#oyunlar .game-tile>span{font-size:27px;margin-bottom:12px;filter:drop-shadow(0 0 8px #8f7bff66)}
+#oyunlar .game-tile b{font-size:15px;color:#f6f3ff}
+#oyunlar .game-tile small{color:#b4b0d1;font-size:11px;line-height:1.45;margin-top:6px;flex:1}
+#oyunlar .game-tile em{font-style:normal;color:#82eee0;font-size:10px;font-weight:950;letter-spacing:.12em;margin-top:15px}
+#oyunlar .game-tile-feature{border-color:#8d72dc;background:linear-gradient(145deg,#40316f,#17223d)}
+#oyunlar .game-play{margin-top:18px;padding:19px;border:1px solid #7967d5;border-radius:18px;background:radial-gradient(circle at 100% 0,#39266c 0,transparent 38%),linear-gradient(145deg,#191735,#101b32);box-shadow:0 15px 35px #0006}
+#oyunlar .game-play-top{display:flex;align-items:center;justify-content:space-between;color:#a8f4e9;font-size:12px;font-weight:900}
+#oyunlar .game-back{border:1px solid #5e588d;background:#ffffff0d;color:#e6e1ff;padding:9px 12px;border-radius:9px;cursor:pointer;font-weight:800}
 #oyunlar .game-progress{height:7px;background:#ffffff16;border-radius:9px;overflow:hidden;margin:14px 0 22px}
-#oyunlar .game-progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,#e2bd64,#fff0b0);transition:width .2s}
-#oyunlar .question-kicker{color:#e4c579;font-size:10px;font-weight:950;letter-spacing:.13em}
+#oyunlar .game-progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,#8b6cf0,#61e8d6);box-shadow:0 0 12px #65e8d6;transition:width .2s}
+#oyunlar .question-kicker{color:#8ce9e1;font-size:10px;font-weight:950;letter-spacing:.13em}
 #oyunlar .question-title{font-size:clamp(20px,4vw,27px);line-height:1.25;color:#fff;margin:9px 0 16px}
-#oyunlar .question-hint{color:#a9bdd3;font-size:13px;margin:-7px 0 17px}
+#oyunlar .question-hint{color:#b7b1d2;font-size:13px;margin:-7px 0 17px}
 #oyunlar .question-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-#oyunlar .question-option{border:1px solid #ffffff24;background:#ffffff0c;color:#f3f7fc;border-radius:11px;padding:13px;text-align:left;font-weight:750;cursor:pointer}
-#oyunlar .question-option:hover:not(:disabled){border-color:#e1c174;background:#ffffff16}
+#oyunlar .question-option{border:1px solid #514a82;background:#ffffff0a;color:#f3f0ff;border-radius:11px;padding:13px;text-align:left;font-weight:750;cursor:pointer}
+#oyunlar .question-option:hover:not(:disabled){border-color:#78e5d8;background:#24234b}
 #oyunlar .question-option:disabled{cursor:default;opacity:.8}
-#oyunlar .question-option.correct{background:#164b3a;border-color:#48b987;color:#b9f4d5;opacity:1}
-#oyunlar .question-option.wrong{background:#542936;border-color:#d65c70;color:#ffd1d7;opacity:1}
+#oyunlar .question-option.correct{background:#124a45;border-color:#5ce2c5;color:#c3fff1;opacity:1}
+#oyunlar .question-option.wrong{background:#512640;border-color:#e66c9b;color:#ffd4e3;opacity:1}
 #oyunlar .game-feedback{min-height:25px;margin-top:13px;font-weight:800;font-size:13px}
-#oyunlar .game-feedback.good{color:#8de0b4}#oyunlar .game-feedback.bad{color:#ff9ba8}
+#oyunlar .game-feedback.good{color:#8cebd0}#oyunlar .game-feedback.bad{color:#ff9bbd}
 #oyunlar .game-controls{display:flex;justify-content:flex-end;margin-top:12px}
-#oyunlar #game-next{border:0;border-radius:10px;padding:12px 18px;background:linear-gradient(135deg,#f0d48c,#c49b48);color:#17263b;font-weight:950;cursor:pointer}
+#oyunlar #game-next{border:1px solid #8deee2;border-radius:10px;padding:12px 18px;background:linear-gradient(135deg,#8cebdc,#58c5c4);color:#102b38;font-weight:950;cursor:pointer}
 #oyunlar #game-next:disabled{opacity:.4;cursor:not-allowed}
-#oyunlar .game-result{margin-top:18px;padding:25px;text-align:center;border:1px solid #d5b76d;border-radius:18px;background:linear-gradient(145deg,#203d5b,#0d2035)}
+#oyunlar .game-result{margin-top:18px;padding:25px;text-align:center;border:1px solid #7967d5;border-radius:18px;background:linear-gradient(145deg,#292052,#101e36)}
 #oyunlar .game-result .result-medal{font-size:48px}
 #oyunlar .game-result h3{color:white;font-size:26px;margin:8px 0}
-#oyunlar .game-result p{color:#b8cbe0}
-#oyunlar .game-result button{border:0;border-radius:10px;padding:12px 18px;margin:5px;background:#e2c274;color:#15243a;font-weight:900;cursor:pointer}
-#oyunlar .game-note{color:#91a9c4;font-size:11px;line-height:1.6;margin-top:17px}
+#oyunlar .game-result p{color:#c0badb}
+#oyunlar .game-result button{border:1px solid #8deee2;border-radius:10px;padding:12px 18px;margin:5px;background:#78dfd4;color:#102b38;font-weight:900;cursor:pointer}
+#oyunlar .game-note{color:#9690b9;font-size:11px;line-height:1.6;margin-top:17px}
+#oyunlar .game-grid[hidden],#oyunlar .game-play[hidden],#oyunlar .game-result[hidden]{display:none!important}
 @media(max-width:800px){#oyunlar .game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:480px){#oyunlar .game-hero{padding:18px}#oyunlar .game-trophy{font-size:48px}#oyunlar .game-tile{min-height:175px;padding:13px}#oyunlar .question-options{grid-template-columns:1fr}#oyunlar .game-play{padding:13px}#oyunlar .game-stats>div{padding:11px 9px}#oyunlar .game-stats b{font-size:21px}}
+@media(max-width:480px){#oyunlar .game-hero{padding:18px}#oyunlar .game-trophy{width:60px;height:60px;font-size:34px}#oyunlar .game-tile{min-height:175px;padding:13px}#oyunlar .question-options{grid-template-columns:1fr}#oyunlar .game-play{padding:13px}#oyunlar .game-stats>div{padding:11px 9px}#oyunlar .game-stats b{font-size:21px}}
 
-</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#hakem">VAR &amp; Hakem Merkezi</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#taraftar">Editör Köşesi</a><a href="#medya">Medya Köşesi</a><a href="#futboltv">Vestel Futbol TV</a><a href="#sezon">Sezon Enleri</a><a href="#oyunlar">🎮 Oyun Merkezi</a></nav><main class="wrap">
+</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#hakem">VAR &amp; Hakem Merkezi</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#taraftar">Editör Köşesi</a><a href="#medya">Medya Köşesi</a><a href="#sezon">Sezon Enleri</a><a href="#oyunlar">Oyun Merkezi</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
 <section id="fikstur"><h2>Fikstür</h2><div id="fixtures"></div></section>
@@ -1296,9 +1262,9 @@ header nav a{padding:8px 13px;font-size:13px}
 </section>
 <section id="disiplin"><h2>⚖️ Disiplin Merkezi</h2><p class="season-subtitle">2026-2027 sezonu · Oyuncu, yönetici ve takım ceza kayıtları</p><div class="discipline-tabs"><button class="discipline-tab" type="button" onclick="showDisciplineTab('players',this)">⚽ Oyuncular</button><button class="discipline-tab" type="button" onclick="showDisciplineTab('managers',this)">🧑‍💼 Yöneticiler</button><button class="discipline-tab" type="button" onclick="showDisciplineTab('teams',this)">🛡️ Takımlar</button></div><div id="discipline-players" class="discipline-panel" hidden><div class="discipline-list"><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Davinson Sanchez</b><span>Germencikspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Fabio Cannavaro</b><span>Mardin 1969</span></div><div class="discipline-status"><i></i> 2 maç ceza</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Clarence Seedorf</b><span>Artukluspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Andrea Pirlo</b><span>Erzurumspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Mark van Bommel</b><span>Elazığspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article><article class="discipline-item"><div class="discipline-icon">🟥</div><div class="discipline-player"><b>Adrien Rabiot</b><span>Elazığspor</span></div><div class="discipline-status"><i></i> Ceza tamamlandı</div></article></div></div><div id="discipline-managers" class="discipline-panel" hidden><div class="discipline-list"><article class="discipline-item"><div class="discipline-icon">⚖️</div><div class="discipline-player"><b>İbrahim Akçiçek</b><span>Bursaspor Başkanı · Kamuoyuna ve futbol camiasına yönelik açıklamalarında küfürlü ve sportmenliğe aykırı ifadeler kullanılması</span><small style="display:block;color:#e6a6b2;font-size:11px;font-weight:800;margin-top:6px">45 gün hak mahrumiyeti · 150.000 TL para cezası</small></div></article></div></div><div id="discipline-teams" class="discipline-panel" hidden><div class="discipline-team-list"><article class="discipline-team discipline-team-sanction"><div class="discipline-team-mark">⚖️</div><div><b>Kütahyaspor</b><span>Cezalı oyuncu oynatma · Fabio Cannavaro</span><small>Takım cezası: -3 puan</small></div><strong>-3 PUAN</strong></article></div></div></section>
 <section id="oyunlar">
-<h2>🎮 Vestel Lig Oyun Merkezi</h2>
+<h2>Vestel Lig Oyun Merkezi</h2>
 <p class="season-subtitle">Lig yıldızlarını tanı, takımları keşfet, futbol hafızanı sına. Her oyunda yeni sorular ve puanlar seni bekliyor.</p>
-<div class="game-hero"><div><span class="game-kicker">VESTEL SÜPER LİG · OYUN ALANI</span><h3>Ne kadar iyi bir lig takipçisisin?</h3><p>Bir oyun seç, soruları cevapla ve kişisel rekorunu oluştur.</p></div><div class="game-trophy">🏆</div></div>
+<div class="game-hero"><div><span class="game-kicker">VESTEL SÜPER LİG · ARCADE</span><h3>OYUN MODLARI</h3><p>Ligden sorular. Beş soruluk turlar. Her doğru cevapta 10 puan.</p></div><div class="game-trophy" aria-hidden="true">✦</div></div>
 <div class="game-stats"><div><small>TOPLAM PUANIN</small><b id="game-total-score">0</b></div><div><small>EN İYİ SERİN</small><b id="game-best-streak">0</b></div><div><small>OYNANAN TUR</small><b id="game-rounds">0</b></div></div>
 <div class="game-grid" id="game-menu">
 <button class="game-tile" data-game="player"><span>🕵️</span><b>Bu Futbolcu Kim?</b><small>Ülke, takım ve gol ipuçlarıyla yıldızı bul.</small><em>OYNA →</em></button>
@@ -1320,43 +1286,7 @@ header nav a{padding:8px 13px;font-size:13px}
 <div class="game-result" id="game-result" hidden></div>
 <p class="game-note">Oyun soruları sitedeki lig kadrosu, gol krallığı ve tamamlanmış maç kayıtlarından hazırlanır. Futbolcu ipuçlarında yaş yerine doğrulanabilir lig bilgileri kullanılır.</p>
 </section>
-<section id="futboltv" class="football-tv">
- <div class="tv-masthead"><div><span class="tv-kicker">VESTEL SÜPER LİG · ÖZEL YAYIN</span><h2>Vestel Futbol TV</h2><p>Futbolun gündemi, dosyalar ve stüdyo yorumları.</p></div><span class="tv-live">● ÖZEL DOSYA</span></div>
- <article class="tv-feature">
-  <div class="tv-screen">
-   <div class="tv-screen-top"><span>VESTEL FUTBOL TV</span><span>ÖZEL DOSYA / 01</span></div>
-   <div class="tv-studio-art"><div class="tv-studio-glow"></div><div class="tv-presenter"><div class="tv-presenter-head"></div><div class="tv-presenter-body"><span>V</span></div></div><div class="tv-screen-copy"><small>BU AKŞAMIN DOSYASI</small><strong>LİGİN DÜĞÜMÜ<br>ÇÖZÜLÜYOR</strong><i>ŞİKE VE TEŞVİK PRİMİ İDDİALARI</i></div></div>
-   <div class="tv-screen-bottom"><span>STÜDYO YAYINI</span><span>VESTEL FUTBOL TV</span></div>
-  </div>
-  <div class="tv-feature-copy">
-   <span class="tv-episode">BÖLÜM 01 · ARAŞTIRMA DOSYASI</span>
-   <h3>Şike ve teşvik primi iddiaları: Maçlar sahada mı, masa başında mı kazanılıyor?</h3>
-   <p>Beş kulüp başkanının adının geçtiği iddialar, futbolun güvenilirliği ve sportif rekabetin adaleti üzerine soruları beraberinde getiriyor. Bu özel yayında iddiaları, masumiyet karinesini ve futbolun temiz kalması için gerekenleri konuşuyoruz.</p>
-   <div class="tv-actions"><button type="button" class="tv-play" onclick="playTvEpisode()">▶ Bölümü sesli dinle</button><button type="button" class="tv-stop" onclick="stopTvEpisode()">■ Durdur</button></div>
-   <small class="tv-audio-note" id="tv-audio-status">Sunucu metni, cihazındaki Türkçe ses desteğiyle okunabilir.</small>
-  </div>
- </article>
- <div class="tv-grid">
-  <article class="tv-panel"><span class="tv-panel-label">DOSYADA ADI GEÇEN KULÜPLER</span><h3>Beş başkan, beş kulüp</h3>
-   <div class="tv-name-row"><b>Şakircan Aksoy</b><span>Germencikspor</span></div>
-   <div class="tv-name-row"><b>Bünyamin Çevik</b><span>Artukluspor</span></div>
-   <div class="tv-name-row"><b>Abdullah Karayiğit</b><span>Karpuzlu FK</span></div>
-   <div class="tv-name-row"><b>İbrahim Akçicek</b><span>Bursaspor</span></div>
-   <div class="tv-name-row"><b>Yuşa Karakoç</b><span>45 Manisa FK</span></div>
-  </article>
-  <article class="tv-panel tv-questions"><span class="tv-panel-label">YAYININ MASASINDA</span><h3>Bu dosyada yanıt bekleyen sorular</h3>
-   <ul><li>Şike ile teşvik primi arasındaki fark nedir?</li><li>İddialar hangi somut delillerle destekleniyor?</li><li>Bir soruşturma ve tutuklama kararı, suçun kanıtlandığı anlamına gelir mi?</li><li>Sportif rekabetin güvenini yeniden kurmak için ne yapılmalı?</li></ul>
-  </article>
- </div>
- <article class="tv-script"><div class="tv-script-head"><div><span class="tv-panel-label">SUNUCU METNİ</span><h3>Ligin Düğümü Çözülüyor</h3></div><span>03:00 · SESLİ OKUMA</span></div>
-  <p id="tv-script-text">İyi akşamlar. Vestel Futbol TV'ye hoş geldiniz. Bu akşam futbolun en hassas başlıklarından birini, şike ve teşvik primi iddialarını ele alıyoruz. Çünkü futbol yalnızca doksan dakikadan ibaret değil; sahadaki mücadelenin adil olduğuna duyulan güven de bu oyunun temelidir.
-  <br><br>Bu dosyada Germencikspor Başkanı Şakircan Aksoy, Artukluspor Başkanı Bünyamin Çevik, Karpuzlu FK Başkanı Abdullah Karayiğit, Bursaspor Başkanı İbrahim Akçicek ve 45 Manisa FK Başkanı Yuşa Karakoç isimleri, bu yayın için hazırlanan dramatize edilmiş senaryoda iddialar çerçevesinde anılıyor.
-  <br><br>Önce şu ayrımı netleştirelim: İddia, kanıt değildir. Soruşturma, hüküm değildir. Tutuklama kararı da tek başına suçun sabit olduğu anlamına gelmez. Bu nedenle hiçbir isim hakkında gerçek dünyada tutuklandığı veya suç işlediği yönünde doğrulanmış bir haber sunmuyoruz.
-  <br><br>Asıl sorumuz şu: Bir maçın sonucuna saha dışında müdahale edildiği şüphesi doğarsa, futbolun adalet duygusu nasıl korunur? Cevap; şeffaf soruşturma, denetlenebilir delil, bağımsız karar ve herkes için geçerli kurallardan geçiyor.
-  <br><br>Vestel Futbol TV'de Ligin Düğümü Çözülüyor dosyasını takip etmeye devam edeceğiz. Futbolun konuşulduğu yerde, gerçekler ve adil yargılama ilkesi her zaman öncelikli olmalı. İyi akşamlar.</p>
- </article>
- <div class="tv-disclaimer">YAYIN NOTU · Bu bölüm dramatize edilmiş bir yayın senaryosudur. İsimler ve olay anlatımı gerçek dünyada doğrulanmış bir tutuklama, soruşturma veya suç isnadı haberi değildir. Gerçek kişiler hakkında kesin hüküm ifade etmez.</div>
-</section>
+
 </main><footer>VESTEL SÜPER LİG · 2026-2027</footer><script>
 const teams=["Erzurumspor","Mardin 1969","Kütahyaspor","45 Manisa FK","Çine Madranspor","Bursaspor","Artukluspor","Güzide Gebzespor","Germencikspor","Elazığspor","Aydınspor 1966","Karpuzlu FK"];
 const first=[[["Erzurumspor","Mardin 1969"],["Kütahyaspor","45 Manisa FK"],["Çine Madranspor","Bursaspor"],["Artukluspor","Güzide Gebzespor"],["Germencikspor","Elazığspor"],["Aydınspor 1966","Karpuzlu FK"]],[["Erzurumspor","45 Manisa FK"],["Mardin 1969","Bursaspor"],["Kütahyaspor","Güzide Gebzespor"],["Çine Madranspor","Elazığspor"],["Artukluspor","Karpuzlu FK"],["Germencikspor","Aydınspor 1966"]],[["Erzurumspor","Bursaspor"],["45 Manisa FK","Güzide Gebzespor"],["Mardin 1969","Elazığspor"],["Kütahyaspor","Karpuzlu FK"],["Çine Madranspor","Aydınspor 1966"],["Artukluspor","Germencikspor"]],[["Erzurumspor","Güzide Gebzespor"],["Bursaspor","Elazığspor"],["45 Manisa FK","Karpuzlu FK"],["Mardin 1969","Aydınspor 1966"],["Kütahyaspor","Germencikspor"],["Çine Madranspor","Artukluspor"]],[["Erzurumspor","Elazığspor"],["Güzide Gebzespor","Karpuzlu FK"],["Bursaspor","Aydınspor 1966"],["45 Manisa FK","Germencikspor"],["Mardin 1969","Artukluspor"],["Kütahyaspor","Çine Madranspor"]],[["Erzurumspor","Karpuzlu FK"],["Elazığspor","Aydınspor 1966"],["Güzide Gebzespor","Germencikspor"],["Bursaspor","Artukluspor"],["45 Manisa FK","Çine Madranspor"],["Mardin 1969","Kütahyaspor"]],[["Erzurumspor","Aydınspor 1966"],["Karpuzlu FK","Germencikspor"],["Elazığspor","Artukluspor"],["Güzide Gebzespor","Çine Madranspor"],["Bursaspor","Kütahyaspor"],["45 Manisa FK","Mardin 1969"]],[["Erzurumspor","Germencikspor"],["Aydınspor 1966","Artukluspor"],["Karpuzlu FK","Çine Madranspor"],["Elazığspor","Kütahyaspor"],["Güzide Gebzespor","Mardin 1969"],["Bursaspor","45 Manisa FK"]],[["Erzurumspor","Artukluspor"],["Germencikspor","Çine Madranspor"],["Aydınspor 1966","Kütahyaspor"],["Karpuzlu FK","Mardin 1969"],["Elazığspor","45 Manisa FK"],["Güzide Gebzespor","Bursaspor"]],[["Erzurumspor","Çine Madranspor"],["Artukluspor","Kütahyaspor"],["Germencikspor","Mardin 1969"],["Aydınspor 1966","45 Manisa FK"],["Karpuzlu FK","Bursaspor"],["Elazığspor","Güzide Gebzespor"]],[["Erzurumspor","Kütahyaspor"],["Çine Madranspor","Mardin 1969"],["Artukluspor","45 Manisa FK"],["Germencikspor","Bursaspor"],["Aydınspor 1966","Güzide Gebzespor"],["Karpuzlu FK","Elazığspor"]]];
@@ -1553,22 +1483,7 @@ function renderEditorArticles(){
 
 
 let tvUtterance=null;
-function playTvEpisode(){
- const textNode=document.getElementById('tv-script-text');
- const status=document.getElementById('tv-audio-status');
- if(!textNode||!status)return;
- if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){status.textContent='Bu tarayıcı sesli okumayı desteklemiyor. Sunucu metnini ekrandan takip edebilirsin.';return;}
- window.speechSynthesis.cancel();
- tvUtterance=new SpeechSynthesisUtterance(textNode.innerText);
- tvUtterance.lang='tr-TR';tvUtterance.rate=.94;tvUtterance.pitch=.92;
- tvUtterance.onstart=()=>status.textContent='Sunucu metni seslendiriliyor…';
- tvUtterance.onend=()=>status.textContent='Bölüm sona erdi.';
- tvUtterance.onerror=()=>status.textContent='Sesli okuma başlatılamadı. Tarayıcı ses ayarlarını kontrol et.';
- window.speechSynthesis.speak(tvUtterance);
-}
-function stopTvEpisode(){if('speechSynthesis' in window)window.speechSynthesis.cancel();const status=document.getElementById('tv-audio-status');if(status)status.textContent='Sesli yayın durduruldu.';}
 
-let presidentSpeech=null;
 
 /* Vestel Lig Oyun Merkezi: soru havuzu ve oyun akışı */
 (()=>{
@@ -1623,7 +1538,7 @@ let presidentSpeech=null;
  let active=null,questions=[],index=0,score=0,streak=0,rounds=0,total=Number(localStorage.getItem('vestel-game-total')||0),best=Number(localStorage.getItem('vestel-game-best')||0),answered=false;
  function stats(){ $('game-total-score').textContent=total;$('game-best-streak').textContent=best;$('game-rounds').textContent=rounds; }
  function start(mode){
-  active=mode;const count=mode==='quick'?5:5;const pool=modes[mode].pool;if(!pool.length){$('game-question').innerHTML='<p>Bu oyun için yeterli lig kaydı bulunamadı.</p>';return;}
+  active=mode;const count=5;const pool=modes[mode]?.pool||[];if(!pool.length){$('game-menu').hidden=true;$('game-result').hidden=true;$('game-play').hidden=false;$('game-question').innerHTML='<p>Bu oyun için yeterli lig kaydı bulunamadı.</p>';return;}
   questions=shuffle(pool).slice(0,Math.min(count,pool.length));index=0;score=0;streak=0;answered=false;
   $('game-menu').hidden=true;$('game-result').hidden=true;$('game-play').hidden=false;draw();
  }
@@ -1650,7 +1565,7 @@ let presidentSpeech=null;
   $('game-retry').addEventListener('click',()=>start(active));$('game-home').addEventListener('click',home);
  }
  function home(){active=null;$('game-play').hidden=true;$('game-result').hidden=true;$('game-menu').hidden=false;}
- host.querySelectorAll('[data-game]').forEach(btn=>btn.addEventListener('click',()=>start(btn.dataset.game)));
+ $('game-menu').addEventListener('click',event=>{const btn=event.target.closest('[data-game]');if(!btn)return;try{start(btn.dataset.game)}catch(error){$('game-play').hidden=false;$('game-menu').hidden=true;$('game-question').textContent='Bu oyun yüklenirken bir sorun oluştu. Sayfayı yenileyip tekrar deneyebilirsin.';console.error('Vestel Lig oyun hatası:',error)}});
  $('game-back').addEventListener('click',home);
  $('game-next').addEventListener('click',()=>{if(!answered)return;if(index<questions.length-1){index++;draw()}else finish()});
  stats();
