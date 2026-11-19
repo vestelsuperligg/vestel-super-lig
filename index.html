@@ -1143,7 +1143,48 @@ header nav a{padding:8px 13px;font-size:13px}
 #medya .story-debate .media-statline>b{color:#a33a40}
 #medya .media-footerline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:17px;padding-top:10px;border-top:1px solid #d5cec1;color:#85877f;font-size:8px;font-weight:900;letter-spacing:.13em}
 @media(max-width:650px){#medya.media-desk{padding:16px 12px;border-radius:14px}#medya .media-masthead{align-items:flex-start}#medya .media-issue{font-size:7px}#medya .media-issue b{font-size:23px}#medya .media-lead.media-investigation{padding:18px 16px;margin:13px 0}#medya .media-story-grid{grid-template-columns:1fr;gap:10px}#medya .media-story{padding:15px}#medya .media-story-copy h3{font-size:20px}}
-</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#hakem">VAR &amp; Hakem Merkezi</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#taraftar">Editör Köşesi</a><a href="#medya">Medya Köşesi</a><a href="#sezon">Sezon Enleri</a><a href="#yonetmelik">Lig Yönetmeliği</a></nav><main class="wrap">
+
+/* Vestel Futbol TV */
+#futboltv{scroll-margin-top:100px;color:#f4f7fc}
+.tv-masthead{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:8px 0 20px}
+.tv-kicker,.tv-panel-label{font-size:10px;font-weight:950;letter-spacing:.15em;color:#e6bd6b}
+.tv-masthead h2{margin:5px 0;font-size:clamp(28px,5vw,42px);color:#fff}
+.tv-masthead p{margin:0;color:#a9bad0}
+.tv-live{padding:8px 12px;border:1px solid #ef5263;border-radius:999px;color:#ff8b98;font-size:10px;font-weight:900;letter-spacing:.1em}
+.tv-feature{display:grid;grid-template-columns:1.08fr .92fr;gap:0;overflow:hidden;border:1px solid #ffffff20;border-radius:18px;background:linear-gradient(135deg,#122b47,#0a192b);box-shadow:0 16px 38px #0004}
+.tv-screen{min-height:330px;padding:14px;background:#050e19;display:flex;flex-direction:column}
+.tv-screen-top,.tv-screen-bottom{display:flex;justify-content:space-between;gap:10px;color:#9db2ca;font-size:9px;font-weight:900;letter-spacing:.13em}
+.tv-studio-art{position:relative;flex:1;min-height:260px;margin:12px 0;overflow:hidden;border:1px solid #ffffff20;border-radius:12px;background:radial-gradient(ellipse at 55% 15%,#315b80 0,transparent 45%),linear-gradient(145deg,#1c3858,#071321 70%)}
+.tv-studio-art:before,.tv-studio-art:after{content:"";position:absolute;top:0;bottom:0;width:18%;background:repeating-linear-gradient(0deg,#e5b95c22 0 2px,transparent 2px 18px);opacity:.7}
+.tv-studio-art:before{left:0}.tv-studio-art:after{right:0}
+.tv-studio-glow{position:absolute;left:15%;right:15%;bottom:8%;height:34%;border-radius:50%;background:#e43c5540;filter:blur(28px)}
+.tv-presenter{position:absolute;left:8%;bottom:0;width:34%;height:82%;display:flex;align-items:flex-end;justify-content:center}
+.tv-presenter-head{position:absolute;top:8%;width:31%;aspect-ratio:1;border-radius:48% 48% 43% 43%;background:linear-gradient(130deg,#e5b997,#8e604b);box-shadow:0 0 0 8px #ffffff0a}
+.tv-presenter-body{width:100%;height:58%;border-radius:48% 48% 0 0;background:linear-gradient(110deg,#243f5e,#0b1728);border-top:5px solid #e6bd6b;display:grid;place-items:center;color:#e6bd6b;font-size:30px;font-weight:950}
+.tv-screen-copy{position:absolute;left:43%;top:22%;right:6%;display:grid;gap:9px}
+.tv-screen-copy small{font-size:9px;color:#e8c778;letter-spacing:.2em;font-weight:900}
+.tv-screen-copy strong{font-size:clamp(21px,3.5vw,36px);line-height:1.04;color:#fff;font-weight:1000;letter-spacing:-.04em}
+.tv-screen-copy i{font-style:normal;color:#ff8795;font-size:9px;font-weight:900;letter-spacing:.12em}
+.tv-feature-copy{padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;justify-content:center}
+.tv-episode{color:#e6bd6b;font-size:10px;font-weight:950;letter-spacing:.13em}
+.tv-feature-copy h3{font-size:clamp(21px,3vw,29px);line-height:1.18;color:#fff;margin:12px 0}
+.tv-feature-copy p{font-size:13px;line-height:1.8;color:#b9c9dc}
+.tv-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:10px}
+.tv-actions button{border:0;border-radius:9px;padding:11px 15px;font-weight:900;cursor:pointer}
+.tv-play{background:#e8bd65;color:#18283a}.tv-stop{background:#ffffff14;color:#e7eef8;border:1px solid #ffffff22!important}
+.tv-audio-note{margin-top:9px;color:#91a8c3;font-size:10px}
+.tv-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:15px 0}
+.tv-panel,.tv-script{padding:20px;border:1px solid #ffffff1c;border-radius:15px;background:linear-gradient(145deg,#132b45,#0c1d31)}
+.tv-panel h3,.tv-script h3{margin:7px 0 14px;color:#fff;font-size:19px}
+.tv-name-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #ffffff14;font-size:12px}
+.tv-name-row:last-child{border:0}.tv-name-row b{color:#f4f7fc}.tv-name-row span{color:#a9bad0;text-align:right}
+.tv-questions ul{margin:0;padding-left:18px;color:#c4d1e0;font-size:12px;line-height:1.9}
+.tv-script{margin-top:14px}.tv-script-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.tv-script-head h3{margin-bottom:5px}.tv-script-head>span{font-size:9px;color:#9db2ca;letter-spacing:.1em;white-space:nowrap}
+#tv-script-text{color:#c7d4e3;font-size:13px;line-height:1.9}
+.tv-disclaimer{margin:14px 0;padding:13px 15px;border-left:3px solid #e0b65e;border-radius:8px;background:#e0b65e12;color:#d9c99f;font-size:11px;line-height:1.7}
+@media(max-width:760px){.tv-feature{grid-template-columns:1fr}.tv-screen{min-height:285px}.tv-studio-art{min-height:230px}.tv-grid{grid-template-columns:1fr}.tv-masthead{align-items:flex-start;flex-direction:column}.tv-screen-copy strong{font-size:25px}}
+
+</style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#hakem">VAR &amp; Hakem Merkezi</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#taraftar">Editör Köşesi</a><a href="#medya">Medya Köşesi</a><a href="#futboltv">Vestel Futbol TV</a><a href="#sezon">Sezon Enleri</a><a href="#yonetmelik">Lig Yönetmeliği</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
 <section id="fikstur"><h2>Fikstür</h2><div id="fixtures"></div></section>
@@ -1215,7 +1256,45 @@ header nav a{padding:8px 13px;font-size:13px}
 <article class="reg-card"><div class="reg-kicker">04 · KADRO VE TRANSFER</div><h3>Esame listesi ve oyuncu uygunluğu</h3><ul><li>Kulüpler, belirlenen süre içinde esame listelerini Kulüpler Birliği Başkanlığına teslim eder.</li><li>Transfer dönemi resmen açılmadan, onaylı esame listesi ve transfer kuralları dışında kalan oyuncular oynatılamaz.</li><li>Uygunsuz oyuncu oynatılması hâlinde disiplin işlemini Denge ve Denetleme Kamarası yürütür.</li></ul></article>
 <article class="reg-card"><div class="reg-kicker">05 · YETKİ VE KARARLAR</div><h3>Lig organizasyonu ve nihai karar</h3><ul><li>Kulüpler Birliği Başkanlığı, birliğin en üst organıdır ve genel kurul süreçlerini yürütür.</li><li>Lig şampiyonunun tescili, küme düşme, play-off, Ziraat Türkiye Kupası ve diğer organizasyonların uygulanmasına ilişkin karar yetkisi Kulüpler Birliği Başkanına aittir.</li><li>Hakem, ceza, maç iptali ve tekrarına ilişkin konular Denge ve Denetleme Kamarasının görev alanındadır.</li><li>Günlük organizasyon ve müsabaka akışı İcra Kurulu tarafından yürütülür.</li></ul></article>
 </div>
-</section></main><footer>VESTEL SÜPER LİG · 2026-2027</footer><script>
+</section>
+<section id="futboltv" class="football-tv">
+ <div class="tv-masthead"><div><span class="tv-kicker">VESTEL SÜPER LİG · ÖZEL YAYIN</span><h2>Vestel Futbol TV</h2><p>Futbolun gündemi, dosyalar ve stüdyo yorumları.</p></div><span class="tv-live">● ÖZEL DOSYA</span></div>
+ <article class="tv-feature">
+  <div class="tv-screen">
+   <div class="tv-screen-top"><span>VESTEL FUTBOL TV</span><span>ÖZEL DOSYA / 01</span></div>
+   <div class="tv-studio-art"><div class="tv-studio-glow"></div><div class="tv-presenter"><div class="tv-presenter-head"></div><div class="tv-presenter-body"><span>V</span></div></div><div class="tv-screen-copy"><small>BU AKŞAMIN DOSYASI</small><strong>LİGİN DÜĞÜMÜ<br>ÇÖZÜLÜYOR</strong><i>ŞİKE VE TEŞVİK PRİMİ İDDİALARI</i></div></div>
+   <div class="tv-screen-bottom"><span>STÜDYO YAYINI</span><span>VESTEL FUTBOL TV</span></div>
+  </div>
+  <div class="tv-feature-copy">
+   <span class="tv-episode">BÖLÜM 01 · ARAŞTIRMA DOSYASI</span>
+   <h3>Şike ve teşvik primi iddiaları: Maçlar sahada mı, masa başında mı kazanılıyor?</h3>
+   <p>Beş kulüp başkanının adının geçtiği iddialar, futbolun güvenilirliği ve sportif rekabetin adaleti üzerine soruları beraberinde getiriyor. Bu özel yayında iddiaları, masumiyet karinesini ve futbolun temiz kalması için gerekenleri konuşuyoruz.</p>
+   <div class="tv-actions"><button type="button" class="tv-play" onclick="playTvEpisode()">▶ Bölümü sesli dinle</button><button type="button" class="tv-stop" onclick="stopTvEpisode()">■ Durdur</button></div>
+   <small class="tv-audio-note" id="tv-audio-status">Sunucu metni, cihazındaki Türkçe ses desteğiyle okunabilir.</small>
+  </div>
+ </article>
+ <div class="tv-grid">
+  <article class="tv-panel"><span class="tv-panel-label">DOSYADA ADI GEÇEN KULÜPLER</span><h3>Beş başkan, beş kulüp</h3>
+   <div class="tv-name-row"><b>Şakircan Aksoy</b><span>Germencikspor</span></div>
+   <div class="tv-name-row"><b>Bünyamin Çevik</b><span>Artukluspor</span></div>
+   <div class="tv-name-row"><b>Abdullah Karayiğit</b><span>Karpuzlu FK</span></div>
+   <div class="tv-name-row"><b>İbrahim Akçicek</b><span>Bursaspor</span></div>
+   <div class="tv-name-row"><b>Yuşa Karakoç</b><span>45 Manisa FK</span></div>
+  </article>
+  <article class="tv-panel tv-questions"><span class="tv-panel-label">YAYININ MASASINDA</span><h3>Bu dosyada yanıt bekleyen sorular</h3>
+   <ul><li>Şike ile teşvik primi arasındaki fark nedir?</li><li>İddialar hangi somut delillerle destekleniyor?</li><li>Bir soruşturma ve tutuklama kararı, suçun kanıtlandığı anlamına gelir mi?</li><li>Sportif rekabetin güvenini yeniden kurmak için ne yapılmalı?</li></ul>
+  </article>
+ </div>
+ <article class="tv-script"><div class="tv-script-head"><div><span class="tv-panel-label">SUNUCU METNİ</span><h3>Ligin Düğümü Çözülüyor</h3></div><span>03:00 · SESLİ OKUMA</span></div>
+  <p id="tv-script-text">İyi akşamlar. Vestel Futbol TV'ye hoş geldiniz. Bu akşam futbolun en hassas başlıklarından birini, şike ve teşvik primi iddialarını ele alıyoruz. Çünkü futbol yalnızca doksan dakikadan ibaret değil; sahadaki mücadelenin adil olduğuna duyulan güven de bu oyunun temelidir.
+  <br><br>Bu dosyada Germencikspor Başkanı Şakircan Aksoy, Artukluspor Başkanı Bünyamin Çevik, Karpuzlu FK Başkanı Abdullah Karayiğit, Bursaspor Başkanı İbrahim Akçicek ve 45 Manisa FK Başkanı Yuşa Karakoç isimleri, bu yayın için hazırlanan dramatize edilmiş senaryoda iddialar çerçevesinde anılıyor.
+  <br><br>Önce şu ayrımı netleştirelim: İddia, kanıt değildir. Soruşturma, hüküm değildir. Tutuklama kararı da tek başına suçun sabit olduğu anlamına gelmez. Bu nedenle hiçbir isim hakkında gerçek dünyada tutuklandığı veya suç işlediği yönünde doğrulanmış bir haber sunmuyoruz.
+  <br><br>Asıl sorumuz şu: Bir maçın sonucuna saha dışında müdahale edildiği şüphesi doğarsa, futbolun adalet duygusu nasıl korunur? Cevap; şeffaf soruşturma, denetlenebilir delil, bağımsız karar ve herkes için geçerli kurallardan geçiyor.
+  <br><br>Vestel Futbol TV'de Ligin Düğümü Çözülüyor dosyasını takip etmeye devam edeceğiz. Futbolun konuşulduğu yerde, gerçekler ve adil yargılama ilkesi her zaman öncelikli olmalı. İyi akşamlar.</p>
+ </article>
+ <div class="tv-disclaimer">YAYIN NOTU · Bu bölüm dramatize edilmiş bir yayın senaryosudur. İsimler ve olay anlatımı gerçek dünyada doğrulanmış bir tutuklama, soruşturma veya suç isnadı haberi değildir. Gerçek kişiler hakkında kesin hüküm ifade etmez.</div>
+</section>
+</main><footer>VESTEL SÜPER LİG · 2026-2027</footer><script>
 const teams=["Erzurumspor","Mardin 1969","Kütahyaspor","45 Manisa FK","Çine Madranspor","Bursaspor","Artukluspor","Güzide Gebzespor","Germencikspor","Elazığspor","Aydınspor 1966","Karpuzlu FK"];
 const first=[[["Erzurumspor","Mardin 1969"],["Kütahyaspor","45 Manisa FK"],["Çine Madranspor","Bursaspor"],["Artukluspor","Güzide Gebzespor"],["Germencikspor","Elazığspor"],["Aydınspor 1966","Karpuzlu FK"]],[["Erzurumspor","45 Manisa FK"],["Mardin 1969","Bursaspor"],["Kütahyaspor","Güzide Gebzespor"],["Çine Madranspor","Elazığspor"],["Artukluspor","Karpuzlu FK"],["Germencikspor","Aydınspor 1966"]],[["Erzurumspor","Bursaspor"],["45 Manisa FK","Güzide Gebzespor"],["Mardin 1969","Elazığspor"],["Kütahyaspor","Karpuzlu FK"],["Çine Madranspor","Aydınspor 1966"],["Artukluspor","Germencikspor"]],[["Erzurumspor","Güzide Gebzespor"],["Bursaspor","Elazığspor"],["45 Manisa FK","Karpuzlu FK"],["Mardin 1969","Aydınspor 1966"],["Kütahyaspor","Germencikspor"],["Çine Madranspor","Artukluspor"]],[["Erzurumspor","Elazığspor"],["Güzide Gebzespor","Karpuzlu FK"],["Bursaspor","Aydınspor 1966"],["45 Manisa FK","Germencikspor"],["Mardin 1969","Artukluspor"],["Kütahyaspor","Çine Madranspor"]],[["Erzurumspor","Karpuzlu FK"],["Elazığspor","Aydınspor 1966"],["Güzide Gebzespor","Germencikspor"],["Bursaspor","Artukluspor"],["45 Manisa FK","Çine Madranspor"],["Mardin 1969","Kütahyaspor"]],[["Erzurumspor","Aydınspor 1966"],["Karpuzlu FK","Germencikspor"],["Elazığspor","Artukluspor"],["Güzide Gebzespor","Çine Madranspor"],["Bursaspor","Kütahyaspor"],["45 Manisa FK","Mardin 1969"]],[["Erzurumspor","Germencikspor"],["Aydınspor 1966","Artukluspor"],["Karpuzlu FK","Çine Madranspor"],["Elazığspor","Kütahyaspor"],["Güzide Gebzespor","Mardin 1969"],["Bursaspor","45 Manisa FK"]],[["Erzurumspor","Artukluspor"],["Germencikspor","Çine Madranspor"],["Aydınspor 1966","Kütahyaspor"],["Karpuzlu FK","Mardin 1969"],["Elazığspor","45 Manisa FK"],["Güzide Gebzespor","Bursaspor"]],[["Erzurumspor","Çine Madranspor"],["Artukluspor","Kütahyaspor"],["Germencikspor","Mardin 1969"],["Aydınspor 1966","45 Manisa FK"],["Karpuzlu FK","Bursaspor"],["Elazığspor","Güzide Gebzespor"]],[["Erzurumspor","Kütahyaspor"],["Çine Madranspor","Mardin 1969"],["Artukluspor","45 Manisa FK"],["Germencikspor","Bursaspor"],["Aydınspor 1966","Güzide Gebzespor"],["Karpuzlu FK","Elazığspor"]]];
 const matches=[];first.forEach((w,i)=>w.forEach(([h,a])=>matches.push({w:i+1,h,a,s:null})));first.forEach((w,i)=>w.forEach(([h,a])=>matches.push({w:i+12,h:a,a:h,s:null})));
@@ -1408,6 +1487,23 @@ function renderEditorArticles(){
  ];
  host.innerHTML=articles.slice(0,5).map(c=>{const a=authors[c.author]||['Editör',''];return '<article class="editor-card"><div class="editor-head"><img loading="lazy" src="'+authorPhotos[c.author]+'" alt="'+c.author+' için temsili '+a[1].toLocaleLowerCase('tr-TR')+' portresi"><div><b>'+c.author+'</b><span>'+a[0]+'</span></div></div><span class="editor-tag">'+c.tag+'</span><h4>'+c.title+'</h4><p>'+c.body+'</p><small>'+c.meta+'</small></article>'}).join('');
 }
+
+
+let tvUtterance=null;
+function playTvEpisode(){
+ const textNode=document.getElementById('tv-script-text');
+ const status=document.getElementById('tv-audio-status');
+ if(!textNode||!status)return;
+ if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){status.textContent='Bu tarayıcı sesli okumayı desteklemiyor. Sunucu metnini ekrandan takip edebilirsin.';return;}
+ window.speechSynthesis.cancel();
+ tvUtterance=new SpeechSynthesisUtterance(textNode.innerText);
+ tvUtterance.lang='tr-TR';tvUtterance.rate=.94;tvUtterance.pitch=.92;
+ tvUtterance.onstart=()=>status.textContent='Sunucu metni seslendiriliyor…';
+ tvUtterance.onend=()=>status.textContent='Bölüm sona erdi.';
+ tvUtterance.onerror=()=>status.textContent='Sesli okuma başlatılamadı. Tarayıcı ses ayarlarını kontrol et.';
+ window.speechSynthesis.speak(tvUtterance);
+}
+function stopTvEpisode(){if('speechSynthesis' in window)window.speechSynthesis.cancel();const status=document.getElementById('tv-audio-status');if(status)status.textContent='Sesli yayın durduruldu.';}
 
 let presidentSpeech=null;</script><!-- Taraftar Köşesi yayına alma tetikleyicisi -->
 </body></html>
