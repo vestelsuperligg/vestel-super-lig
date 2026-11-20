@@ -1554,7 +1554,7 @@ const winStreak=best(teams,t=>streakFor(t,'win')),unbeatenStreak=best(teams,t=>s
 const seasonAliases={cruyff:'Johan Cruyff',delpiero:'Alessandro Del Piero',luissuarez:'Luis Suárez',hadji:'El Hadji Diouf',romario:'Romário',kvaratskhelia:'Khvicha Kvaratskhelia',olmo:'Dani Olmo',dembele:'Ousmane Dembélé',enzofernandes:'Enzo Fernández',mckennie:'Weston McKennie',scholes:'Paul Scholes',pires:'Robert Pirès',gravenberch:'Ryan Gravenberch',weghorst:'Wout Weghorst',huijsen:'Dean Huijsen',michaelplatini:'Michel Platini'};
 const seasonNormalize=v=>v.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/ı/g,'i').replace(/[^a-z0-9]/g,'');
 const seasonPlayerTotals={};
-scorers.forEach(([raw,team,goals])=>{const name=seasonAliases[seasonNormalize(raw)]||raw,key=seasonNormalize(name);seasonPlayerTotals[key]=seasonPlayerTotals[key]||{name,goals:0};seasonPlayerTotals[key].goals+=goals});
+scorers.forEach(([raw,team,goals])=>{const name=seasonAliases[seasonNormalize(raw)]||raw,key=team+'|'+seasonNormalize(name);seasonPlayerTotals[key]=seasonPlayerTotals[key]||{name,team,goals:0};seasonPlayerTotals[key].goals+=goals});
 const scorerTotals=Object.values(seasonPlayerTotals).sort((a,b)=>b.goals-a.goals);
 const topScorer=scorerTotals[0];
 const oneGoalWins=teams.map(n=>({n,count:playedMatches.filter(m=>(m.h===n&&m.s[0]>m.s[1]&&m.s[0]-m.s[1]===1)||(m.a===n&&m.s[1]>m.s[0]&&m.s[1]-m.s[0]===1)).length})).sort((a,b)=>b.count-a.count);
@@ -1583,7 +1583,7 @@ const cards=[
 ['📅','EN GOLLÜ HAFTA',topWeek.week+'. Hafta',topWeek.goals+' gol'],
 ['🔥','EN UZUN GALİBİYET SERİSİ',winStreak,streakFor(winStreak,'win')+' maç'],
 ['🛡️','EN UZUN YENİLMEZLİK',unbeatenStreak,streakFor(unbeatenStreak,'unbeaten')+' maç'],
-['👑','EN ÇOK GOL ATAN FUTBOLCU',topScorer?topScorer.name:'-',topScorer?topScorer.goals+' gol':''],
+['👑','EN ÇOK GOL ATAN FUTBOLCU',topScorer?topScorer.name+' · '+topScorer.team:'-',topScorer?topScorer.goals+' gol':''],
 ['🚫','GOL ATAMAMA SERİSİ',topNoGoalRun?topNoGoalRun.n:'-',topNoGoalRun?topNoGoalRun.count+' maç üst üste gol atamadı':''],
 ['🎯','EN ÇOK TEK FARKLI KAZANAN',topOneGoalWins?topOneGoalWins.n:'-',topOneGoalWins?topOneGoalWins.count+' galibiyet (1 gol fark)':''],
 ['🤝','EN ÇOK GOL ATAN FUTBOLCU İKİLİSİ',topPair?topPair.n:'-',topPair?topPair.first.name+' + '+topPair.second.name+' · '+topPair.pairGoals+' gol':''],
