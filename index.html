@@ -1583,10 +1583,10 @@ const cards=[
 ['📅','EN GOLLÜ HAFTA',topWeek.week+'. Hafta',topWeek.goals+' gol'],
 ['🔥','EN UZUN GALİBİYET SERİSİ',winStreak,streakFor(winStreak,'win')+' maç'],
 ['🛡️','EN UZUN YENİLMEZLİK',unbeatenStreak,streakFor(unbeatenStreak,'unbeaten')+' maç'],
-['👑','EN ÇOK GOL ATAN FUTBOLCU',topScorer?topScorer[0]:'-',topScorer?topScorer[2]+' gol':''],
+['👑','EN ÇOK GOL ATAN FUTBOLCU',topScorer?topScorer.name:'-',topScorer?topScorer.goals+' gol':''],
 ['🚫','GOL ATAMAMA SERİSİ',topNoGoalRun?topNoGoalRun.n:'-',topNoGoalRun?topNoGoalRun.count+' maç üst üste gol atamadı':''],
 ['🎯','EN ÇOK TEK FARKLI KAZANAN',topOneGoalWins?topOneGoalWins.n:'-',topOneGoalWins?topOneGoalWins.count+' galibiyet (1 gol fark)':''],
-['🤝','EN ÇOK GOL ATAN FUTBOLCU İKİLİSİ',topPair?topPair.n:'-',topPair?topPair.first[0]+' + '+topPair.second[0]+' · '+topPair.pairGoals+' gol':''],
+['🤝','EN ÇOK GOL ATAN FUTBOLCU İKİLİSİ',topPair?topPair.n:'-',topPair?topPair.first.name+' + '+topPair.second.name+' · '+topPair.pairGoals+' gol':''],
 ['⚖️','EN DENGELİ GOL DAĞILIMI',balancedTeam?balancedTeam.n:'-',balancedTeam?balancedTeam.count+' farklı golcü · en golcü oyuncunun payı %'+(balancedTeam.share*100).toFixed(1):'']
 ];
 document.getElementById('season-records').innerHTML=cards.map(c=>'<article class="season-record"><div class="season-icon">'+c[0]+'</div><div class="season-label">'+c[1]+'</div><div class="season-value">'+c[2]+'</div><div class="season-detail">'+c[3]+'</div></article>').join('');
