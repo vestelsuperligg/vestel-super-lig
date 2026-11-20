@@ -1923,7 +1923,7 @@ let tvUtterance=null;
  function finishPenalty(){
   rounds++;stats();el('game-play').hidden=true;el('game-result').hidden=false;el('game-progress-bar').style.width='100%';
   const medal=penaltyGoals===penaltyShooters.length?'🏆':penaltyGoals>=Math.ceil(penaltyShooters.length*.6)?'🥇':'⚽';
-  el('game-result').innerHTML='<div class="result-medal">'+medal+'</div><h3>Penaltı serisi tamamlandı!</h3><p><b>'+penaltyGoals+'/5 gol</b> · '+penaltySaves+' kurtarış · '+points+' puan</p><button type="button" id="game-retry">Yeniden penaltı kullan</button><button type="button" id="game-home">Oyunlara dön</button>';
+  el('game-result').innerHTML='<div class="result-medal">'+medal+'</div><h3>Penaltı serisi tamamlandı!</h3><p><b>'+penaltyGoals+'/'+penaltyShooters.length+' gol</b> · '+penaltySaves+' kurtarış · '+points+' puan</p><button type="button" id="game-retry">Yeniden penaltı kullan</button><button type="button" id="game-home">Oyunlara dön</button>';
   el('game-retry').addEventListener('click',()=>begin('penalty'));el('game-home').addEventListener('click',home);
  }
  const playerCost=p=>4+Math.ceil(p[2]/5);
