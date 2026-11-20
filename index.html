@@ -1706,8 +1706,43 @@ let tvUtterance=null;
  ['El Hadji Diouf, 2002 Dünya Kupası’nda hangi milli takımla çeyrek finale yükseldi?','Afrika futbolu adına tarihi başarı.','Senegal',['Nijerya','Kamerun','Gana']],
  ['Bebeto, 1994 FIFA Dünya Kupası finalinde hangi ülkeye karşı oynadı?','Finalde penaltılarla şampiyon belli oldu.','İtalya',['Almanya','Arjantin','İsveç']]
  ]);
- const historyPlayers=players.map(p=>q(p[0]+' bu ligde hangi takım adına forma giyiyor?','Lig gol sayısı: '+p[2],p[1],pick(unique(players.filter(x=>x[1]!==p[1]).map(x=>x[1])),3)));
- const historyPool=history.concat(historyPlayers);
+ const playerBioQuiz=bank([
+ ['Pelé, çocukluk yıllarında hangi Brezilya şehrinde büyüdü?','Santos kariyerinden önceki memleketi.','Bauru',['Rio de Janeiro','São Paulo','Brasília']],
+ ['Johan Cruyff, futbolculuk kariyerinin simgesi hâline geldiği Hollanda kulübü hangisidir?','Total Futbol anlayışının öncüsü.','Ajax',['PSV','Feyenoord','AZ Alkmaar']],
+ ['Eric Cantona, Manchester United’a transfer olmadan önce hangi İngiliz kulübünde oynadı?','Leeds United ile lig şampiyonluğu yaşadı.','Leeds United',['Arsenal','Chelsea','Liverpool']],
+ ['Clarence Seedorf, UEFA Şampiyonlar Ligi’ni kaç farklı kulüple kazanan ilk futbolcudur?','Ajax, Real Madrid ve Milan başarıları.','3',['2','4','5']],
+ ['Thomas Rosický, milli takım düzeyinde hangi ülkeyi temsil etti?','Lakabı Küçük Mozart idi.','Çekya',['Slovakya','Avusturya','Polonya']],
+ ['Khvicha Kvaratskhelia hangi ülkede doğdu?','Napoli’deki çıkışıyla Avrupa çapında tanındı.','Gürcistan',['Ermenistan','Ukrayna','Azerbaycan']],
+ ['Marcelo, Real Madrid’de en çok hangi pozisyonda görev yaptı?','Hücum katkısıyla öne çıkan sol ayaklı savunmacı.','Sol bek',['Sağ bek','Kaleci','Santrfor']],
+ ['Lamine Yamal, Barcelona A takımında ilk maçına kaç yaşında çıktı?','La Liga tarihinin en genç oyuncularından biri oldu.','15',['16','17','14']],
+ ['Kenan Yıldız, profesyonel çıkışını yaptığı Juventus öncesinde hangi kulübün altyapısındaydı?','Almanya’da yetişti.','Bayern Münih',['Borussia Dortmund','Schalke 04','Bayer Leverkusen']],
+ ['Neymar, Avrupa’ya transfer olmadan önce hangi Brezilya kulübünde yıldızlaştı?','Santos formasıyla uluslararası üne kavuştu.','Santos',['Flamengo','Palmeiras','Corinthians']],
+ ['Patrick Vieira, 1998 Dünya Kupası’nı hangi ülkeyle kazandı?','Finalde Brezilya mağlup edildi.','Fransa',['Senegal','Fildişi Sahili','Portekiz']],
+ ['İlhan Mansız, 2002 Dünya Kupası’nda Türkiye ile hangi dereceyi elde etti?','Güney Kore ve Japonya ortak ev sahipliğinde.','Üçüncülük',['İkincilik','Şampiyonluk','Dördüncülük']],
+ ['Arda Güler, profesyonel futbol kariyerine hangi Türk kulübünde başladı?','Real Madrid’e transferinden önce Süper Lig’de parladı.','Fenerbahçe',['Galatasaray','Beşiktaş','Trabzonspor']],
+ ['Eden Hazard, Chelsea’ye transfer olmadan önce hangi Fransız kulübünde oynadı?','Ligue 1’de Lille ile şampiyonluk yaşadı.','Lille',['Monaco','Lyon','Marseille']],
+ ['Samuel Eto’o, 2000 Olimpiyat Oyunları’nda hangi ülkeyle altın madalya kazandı?','Finalde İspanya’yı penaltılarla geçtiler.','Kamerun',['Nijerya','Gana','Fildişi Sahili']],
+ ['Frank Lampard, futbolculuk kariyerinin büyük bölümünü hangi Londra kulübünde geçirdi?','Chelsea tarihinin en golcü orta saha oyuncularından.','Chelsea',['Arsenal','Tottenham','West Ham United']],
+ ['Ronaldinho, 2002 FIFA Dünya Kupası’nı hangi ülkeyle kazandı?','Ronaldo ve Rivaldo ile hücum hattında yer aldı.','Brezilya',['Arjantin','Portekiz','İtalya']],
+ ['Wesley Sneijder, 2010 Dünya Kupası’nda Hollanda ile hangi aşamaya kadar yükseldi?','Finalde İspanya’ya karşı oynadılar.','Final',['Yarı final','Çeyrek final','Son 16']],
+ ['Fernando Torres, 2008 Avrupa Şampiyonası finalinde hangi ülkeye gol attı?','İspanya kupayı bu golle kazandı.','Almanya',['İtalya','Rusya','Portekiz']],
+ ['Michael Owen, 1998 Dünya Kupası’nda hangi ülkeye attığı golle hafızalara kazındı?','Turnuvada genç yaşta büyük çıkış yaptı.','Arjantin',['Brezilya','Almanya','İtalya']],
+ ['Andrea Pirlo, 2006 FIFA Dünya Kupası’nı hangi ülkeyle kazandı?','Finalde Fransa penaltılarla geçildi.','İtalya',['Brezilya','Almanya','İspanya']],
+ ['Kaká, 2007 yılında hangi bireysel ödülü kazandı?','Milan formasıyla Şampiyonlar Ligi zaferinin ardından.','Ballon d’Or',['Puskás Ödülü','Altın Ayakkabı','Golden Boy']],
+ ['Thierry Henry, Arsenal taraftarları arasında hangi lakapla anılır?','Kulübün efsane golcülerinden.','King Henry',['The Special One','El Niño','The Wall']],
+ ['Erling Haaland, çocukluğunda hangi ülkede büyüdü?','Norveçli golcü İngiltere’nin Leeds kentinde doğdu.','Norveç',['İngiltere','Almanya','Danimarka']],
+ ['Harry Kane, çocukluk döneminde hangi İngiliz kulübünün altyapısına katıldı?','Tottenham’dan önce kısa süre Arsenal altyapısında da bulundu.','Tottenham',['Chelsea','Liverpool','Manchester City']],
+ ['Adriano, futbol kariyerinde en parlak dönemlerinden birini hangi İtalyan kulübünde yaşadı?','İmparator lakabıyla tanındı.','Inter',['Juventus','Roma','Napoli']],
+ ['Zico, futbolculuk kariyerinde en çok özdeşleştiği Brezilya kulübü hangisidir?','Maracanã’da unutulmaz performanslar sergiledi.','Flamengo',['Santos','Botafogo','Fluminense']],
+ ['Rivaldo, 1999 yılında hangi bireysel ödülü kazandı?','Barcelona ve Brezilya formalarıyla parladı.','Ballon d’Or',['FIFA Puskás Ödülü','Golden Boy','Altın Ayakkabı']],
+ ['Javier Zanetti, Inter’de hangi lakapla tanındı?','Uzun yıllar takım kaptanlığını yaptı.','Il Capitano',['El Niño','Il Divin Codino','Il Fenomeno']],
+ ['Marco Reus, kariyerinin büyük bölümünü hangi Alman kulübünde geçirdi?','Dortmund’un simge oyuncularından oldu.','Borussia Dortmund',['Bayern Münih','Schalke 04','Hamburg']],
+ ['Andrés Iniesta, 2010 Dünya Kupası finalinde hangi ülkeye gol attı?','Uzatmalarda gelen şampiyonluk golü.','Hollanda',['Almanya','İtalya','Brezilya']],
+ ['Diego Forlán, 2010 Dünya Kupası’nda hangi ülkeyle yarı finale yükseldi?','Turnuvanın en iyi oyuncusu seçildi.','Uruguay',['Paraguay','Şili','Meksika']],
+ ['Bebeto, 1994 Dünya Kupası’nda hangi ülkeyle şampiyon oldu?','Gol sevincinde bebek sallama hareketiyle hatırlandı.','Brezilya',['Arjantin','İtalya','Almanya']],
+ ['Romário, 1994 Dünya Kupası’nda hangi bireysel ödülü kazandı?','Turnuvanın en iyi oyuncusu seçildi.','Altın Top',['Altın Eldiven','Altın Ayakkabı','Fair Play Ödülü']]
+ ]);
+ const historyPool=history.concat(playerBioQuiz);
  const goals=players.map(p=>q(p[0]+' ligde kaç gol attı?','Takımı: '+p[1],p[2],pick(unique(players.filter(x=>x!==p).map(x=>x[2])).filter(x=>x!==p[2]),3)));
  const clubs=players.map(p=>q(p[0]+' hangi kulübün oyuncusu?','Gol sayısı: '+p[2]+' · Mevki: '+p[3],p[1],pick(unique(players.filter(x=>x!==p).map(x=>x[1])),3)));
  const scorerBank=matches.filter(m=>players.some(p=>p[1]===m[0])&&players.some(p=>p[1]===m[1])).map((m,i)=>{const home=players.filter(p=>p[1]===m[0]),away=players.filter(p=>p[1]===m[1]),pool=home.concat(away);return q(m[0]+' - '+m[1]+' maçında '+(i%2?'67':'23')+'. dakikadaki golü kim attı?','Maç skoru: '+m[2]+'-'+m[3]+' · Gol anonsu',pool[i%pool.length][0],pick(players.filter(p=>p[0]!==pool[i%pool.length][0]).map(p=>p[0]),3))});
