@@ -1551,14 +1551,18 @@ const weekGoals=Array.from({length:22},(_,i)=>({week:i+1,goals:playedMatches.fil
 const topWeek=best(weekGoals,w=>w.goals);
 const streakFor=(team,type)=>{let run=0,bestRun=0;playedMatches.filter(m=>m.h===team||m.a===team).sort((a,b)=>a.w-b.w).forEach(m=>{const home=m.h===team,[x,y]=m.s,win=home?x>y:x<y,draw=x===y,ok=type==='win'?win:type==='unbeaten'?(win||draw):false;run=ok?run+1:0;bestRun=Math.max(bestRun,run)});return bestRun};
 const winStreak=best(teams,t=>streakFor(t,'win')),unbeatenStreak=best(teams,t=>streakFor(t,'unbeaten'));
-const scorerTotals=players.slice().sort((a,b)=>b[2]-a[2]);
+const seasonAliases={cruyff:'Johan Cruyff',delpiero:'Alessandro Del Piero',luissuarez:'Luis Suárez',hadji:'El Hadji Diouf',romario:'Romário',kvaratskhelia:'Khvicha Kvaratskhelia',olmo:'Dani Olmo',dembele:'Ousmane Dembélé',enzofernandes:'Enzo Fernández',mckennie:'Weston McKennie',scholes:'Paul Scholes',pires:'Robert Pirès',gravenberch:'Ryan Gravenberch',weghorst:'Wout Weghorst',huijsen:'Dean Huijsen',michaelplatini:'Michel Platini'};
+const seasonNormalize=v=>v.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/ı/g,'i').replace(/[^a-z0-9]/g,'');
+const seasonPlayerTotals={};
+scorers.forEach(([raw,team,goals])=>{const name=seasonAliases[seasonNormalize(raw)]||raw,key=seasonNormalize(name);seasonPlayerTotals[key]=seasonPlayerTotals[key]||{name,goals:0};seasonPlayerTotals[key].goals+=goals});
+const scorerTotals=Object.values(seasonPlayerTotals).sort((a,b)=>b.goals-a.goals);
 const topScorer=scorerTotals[0];
 const oneGoalWins=teams.map(n=>({n,count:playedMatches.filter(m=>(m.h===n&&m.s[0]>m.s[1]&&m.s[0]-m.s[1]===1)||(m.a===n&&m.s[1]>m.s[0]&&m.s[1]-m.s[0]===1)).length})).sort((a,b)=>b.count-a.count);
 const noGoalRuns=teams.map(n=>{let run=0,max=0;playedMatches.filter(m=>m.h===n||m.a===n).sort((a,b)=>a.w-b.w).forEach(m=>{const scored=m.h===n?m.s[0]:m.s[1];run=scored===0?run+1:0;max=Math.max(max,run)});return{n,count:max}}).sort((a,b)=>b.count-a.count);
 const teamScorers=Object.fromEntries(teams.map(n=>[n,{}]));
-scorers.forEach(([raw,team,goals])=>{const key=normalizeName(raw),name=aliases[key]||raw,canon=normalizeName(name);teamScorers[team][canon]=(teamScorers[team][canon]||0)+goals});
-const scorerPairs=teams.map(n=>{const list=Object.entries(teamScorers[n]).sort((a,b)=>b[1]-a[1]);return{n,first:list[0],second:list[1],total:list.reduce((v,x)=>v+x[1],0)}}).filter(x=>x.second).map(x=>({...x,pairGoals:x.first[1]+x.second[1]})).sort((a,b)=>b.pairGoals-a.pairGoals);
-const balancedTeams=teams.map(n=>{const list=Object.entries(teamScorers[n]),total=list.reduce((v,x)=>v+x[1],0),top=list.reduce((v,x)=>Math.max(v,x[1]),0);return{n,total,count:list.length,share:total?top/total:1}}).filter(x=>x.total>0).sort((a,b)=>a.share-b.share||b.count-a.count);
+scorers.forEach(([raw,team,goals])=>{const name=seasonAliases[seasonNormalize(raw)]||raw,canon=seasonNormalize(name);teamScorers[team][canon]=teamScorers[team][canon]||{name,goals:0};teamScorers[team][canon].goals+=goals});
+const scorerPairs=teams.map(n=>{const list=Object.values(teamScorers[n]).sort((a,b)=>b.goals-a.goals);return{n,first:list[0],second:list[1],total:list.reduce((v,x)=>v+x.goals,0)}}).filter(x=>x.second).map(x=>({...x,pairGoals:x.first.goals+x.second.goals})).sort((a,b)=>b.pairGoals-a.pairGoals);
+const balancedTeams=teams.map(n=>{const list=Object.values(teamScorers[n]),total=list.reduce((v,x)=>v+x.goals,0),top=list.reduce((v,x)=>Math.max(v,x.goals),0);return{n,total,count:list.length,share:total?top/total:1}}).filter(x=>x.total>0).sort((a,b)=>a.share-b.share||b.count-a.count);
 const topPair=scorerPairs[0],balancedTeam=balancedTeams[0],topNoGoalRun=noGoalRuns[0],topOneGoalWins=oneGoalWins[0];
 const cards=[
 ['⚽','EN GOLCÜ TAKIM',maxGoalsTeam.n,maxGoalsTeam.ag+' gol'],
