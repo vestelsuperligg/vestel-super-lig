@@ -1434,6 +1434,26 @@ header nav a{padding:8px 13px;font-size:13px}
 .penalty-stand-footer{display:flex;justify-content:space-between;gap:6px;padding:9px 12px;background:#0c1d31;color:#a9bed5;font-size:8px;font-weight:900;letter-spacing:.09em}
 .penalty-shot-note{text-align:center;color:#a9bbd0;font-size:11px;margin:10px 0 2px}
 @media(max-width:520px){.penalty-scene{height:410px}.penalty-goal{top:20px;height:38%;left:18%;width:64%}.penalty-player-card{left:8px;bottom:12px}.penalty-player-card b{font-size:12px}.penalty-keeper{width:66px;height:84px}.penalty-shooter-figure{width:68px;height:98px}.penalty-crowd{height:98px}.penalty-stand-footer{font-size:7px;padding:8px 7px}}
+
+/* Penalty mode: broadcast-style pitch, readable aiming and shot feedback */
+.penalty-scene{height:500px;background:radial-gradient(ellipse at 50% 15%,#2b925a 0%,#197346 52%,#105536 100%),repeating-linear-gradient(90deg,#ffffff08 0 8%,transparent 8% 16%);isolation:isolate}
+.penalty-scene:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#071b2b18 0%,transparent 35%,#061c1530 100%);z-index:1}
+.penalty-scene:before{inset:0 7%;border:1px solid #ffffff35;border-bottom:0;border-radius:48% 48% 0 0;background:linear-gradient(90deg,transparent 49.8%,#ffffff24 50%,transparent 50.2%);z-index:0}
+.penalty-goal{left:18%;width:64%;top:22px;height:39%;border:7px solid #f8fbff;border-bottom:0;background:repeating-linear-gradient(90deg,#ffffff38 0 2px,transparent 2px 18px),repeating-linear-gradient(0deg,#ffffff30 0 2px,transparent 2px 16px),linear-gradient(180deg,#ffffff12,#ffffff04);box-shadow:0 0 0 3px #10283b,0 0 24px #d9f5ff30,0 14px 25px #0005}
+.penalty-keeper{width:88px;height:112px;transform:translateX(-50%);transform-origin:50% 85%;z-index:4}
+.penalty-keeper.dive-left{left:14%;transform:translate(-50%,-14%) rotate(-72deg) scale(1.22)}
+.penalty-keeper.dive-right{left:86%;transform:translate(-50%,-14%) rotate(72deg) scale(1.22)}
+.penalty-keeper.dive-center{left:50%;transform:translate(-50%,-22%) scale(1.3)}
+.penalty-ball{z-index:8;font-size:39px;transition:left .72s cubic-bezier(.18,.72,.25,1),top .72s cubic-bezier(.18,.72,.25,1),transform .72s cubic-bezier(.18,.72,.25,1),filter .2s}
+.penalty-ball.aiming{filter:drop-shadow(0 0 15px #ffe28a);scale:1.18}
+.penalty-ball.shot{filter:drop-shadow(0 0 14px #fff) drop-shadow(0 0 22px #ffe28a)}
+.penalty-aim-arrow line{stroke:#ffe28a;stroke-width:2;stroke-dasharray:2 1.5;opacity:1}
+.penalty-scene.is-aiming .penalty-aim-arrow{filter:drop-shadow(0 0 5px #ffe28a)}
+.penalty-scene.is-goal:after{background:radial-gradient(ellipse at 50% 30%,#ffe18a35,transparent 60%)}
+.penalty-scene.is-save:after{background:radial-gradient(ellipse at 50% 25%,#79c9ff35,transparent 60%)}
+.penalty-scene.is-miss:after{background:radial-gradient(ellipse at 50% 20%,#ff6a6a24,transparent 60%)}
+.penalty-shot-note{font-size:12px;color:#d0deed;padding:8px 12px;border-radius:10px;background:#0c2036;margin-top:12px}
+@media(max-width:520px){.penalty-scene{height:430px}.penalty-goal{left:14%;width:72%;top:18px;height:39%}.penalty-keeper{width:74px;height:94px}.penalty-ball{font-size:36px}}
 </style></head><body><header><h1>VESTEL SÜPER LİG</h1><p>2026-2027 · TOLGA KALENDER SEZONU</p></header><nav class="sticky-nav"><a href="#fikstur">Fikstür</a><a href="#puan">Puan Durumu</a><a href="#hakem">VAR &amp; Hakem Merkezi</a><a href="#gol">Gol Krallığı</a><a href="#disiplin">Disiplin Cezaları</a><a href="#kupa">Ziraat Türkiye Kupası</a><a href="#taraftar">Editör Köşesi</a><a href="#medya">Medya Köşesi</a><a href="#sezon">Sezon Enleri</a><a href="#oyunlar">Oyun Merkezi</a></nav><main class="wrap">
 <section id="puan"><h2>Puan Durumu</h2><div class="card pad" id="table"></div></section>
 
@@ -1896,29 +1916,39 @@ let tvUtterance=null;
     '</div><div class="penalty-stand-footer"><span>🏟️ DOLU TRİBÜNLER</span><span>VESTEL LİG ARENA</span><span>🔊 MAÇ ATMOSFERİ</span></div>'+
    '</div><div class="penalty-shot-note">Parmağını topun üzerinden kaleye doğru sürükle. Sarı ok şut yönünü gösterir.</div>';
   const pitch=el('penalty-scene'),ball=el('penalty-ball'),keeper=el('penalty-keeper'),arrow=el('penalty-aim-line');
-  let dragging=false;
-  const resetBall=()=>{ball.style.left='50%';ball.style.top='auto';ball.style.bottom='9%';ball.style.transform='translateX(-50%)';arrow.setAttribute('x2','50');arrow.setAttribute('y2','65')};
-  ball.addEventListener('pointerdown',e=>{if(locked)return;dragging=true;ball.setPointerCapture(e.pointerId);ball.classList.add('aiming');e.preventDefault()});
-  ball.addEventListener('pointermove',e=>{if(!dragging||locked)return;const rect=pitch.getBoundingClientRect(),x=Math.max(4,Math.min(96,(e.clientX-rect.left)/rect.width*100)),y=Math.max(5,Math.min(88,(e.clientY-rect.top)/rect.height*100));arrow.setAttribute('x2',x);arrow.setAttribute('y2',y);ball.style.left=x+'%';ball.style.top=y+'%';ball.style.bottom='auto';ball.style.transform='translate(-50%,-50%)'});
-  ball.addEventListener('pointerup',e=>{if(!dragging||locked)return;dragging=false;ball.classList.remove('aiming');const rect=pitch.getBoundingClientRect(),x=Math.max(0,Math.min(1,(e.clientX-rect.left)/rect.width)),y=Math.max(0,Math.min(1,(e.clientY-rect.top)/rect.height));takePenaltyShot(x,y,ball,keeper)});
-  ball.addEventListener('pointercancel',()=>{dragging=false;ball.classList.remove('aiming');resetBall()});
+  let dragging=false,aim={x:.5,y:.25};
+  const targetFromEvent=e=>{const rect=pitch.getBoundingClientRect();return{x:Math.max(.04,Math.min(.96,(e.clientX-rect.left)/rect.width)),y:Math.max(.025,Math.min(.58,(e.clientY-rect.top)/rect.height))}};
+  const showAim=p=>{aim=p;arrow.setAttribute('x2',p.x*100);arrow.setAttribute('y2',p.y*100);pitch.style.setProperty('--aim-x',(p.x*100)+'%');pitch.style.setProperty('--aim-y',(p.y*100)+'%')};
+  const resetBall=()=>{ball.style.left='50%';ball.style.top='auto';ball.style.bottom='9%';ball.style.transform='translateX(-50%)';ball.classList.remove('shot');keeper.className='penalty-keeper';arrow.setAttribute('x2','50');arrow.setAttribute('y2','65');pitch.classList.remove('is-shooting','is-goal','is-save','is-miss')};
+  ball.addEventListener('pointerdown',e=>{if(locked)return;dragging=true;ball.setPointerCapture(e.pointerId);ball.classList.add('aiming');pitch.classList.add('is-aiming');showAim(targetFromEvent(e));e.preventDefault()});
+  ball.addEventListener('pointermove',e=>{if(!dragging||locked)return;showAim(targetFromEvent(e))});
+  ball.addEventListener('pointerup',e=>{if(!dragging||locked)return;dragging=false;ball.classList.remove('aiming');pitch.classList.remove('is-aiming');takePenaltyShot(aim.x,aim.y,ball,keeper,pitch)});
+  ball.addEventListener('pointercancel',()=>{dragging=false;ball.classList.remove('aiming');pitch.classList.remove('is-aiming');resetBall()});
  }
- function takePenaltyShot(x,y,ball,keeper){
+ function takePenaltyShot(x,y,ball,keeper,pitch){
   if(locked)return;locked=true;
-  const lane=x<.34?0:x>.66?2:1;
+  const goalLeft=.18,goalRight=.82,goalTop=.045,goalBottom=.43;
+  const onTarget=x>=goalLeft&&x<=goalRight&&y>=goalTop&&y<=goalBottom;
+  const localX=(x-goalLeft)/(goalRight-goalLeft),localY=(y-goalTop)/(goalBottom-goalTop);
+  const lane=localX<.34?0:localX>.66?2:1;
   const keeperLane=Math.floor(Math.random()*3);
-  const high=y<.34,wide=x<.12||x>.88,tooHigh=y<.10;
-  const goal=!tooHigh&&(lane!==keeperLane||high||wide)&&!(Math.random()<.12);
+  const keeperCenters=[.17,.5,.83],keeperReach=Math.abs(localX-keeperCenters[keeperLane])<.19&&localY>.38;
+  const postHit=onTarget&&(Math.abs(localX)<.035||Math.abs(localX-1)<.035||Math.abs(localY)<.035);
+  const saved=onTarget&&!postHit&&keeperReach;
+  const scored=onTarget&&!postHit&&!saved;
   keeper.classList.add(keeperLane===0?'dive-left':keeperLane===2?'dive-right':'dive-center');
-  ball.style.left=(x*100)+'%';ball.style.top=(Math.max(.08,Math.min(.52,y))*100)+'%';ball.style.bottom='auto';ball.style.transform='translate(-50%,-50%) scale(.65)';
+  pitch.classList.add('is-shooting');
+  ball.style.left=(x*100)+'%';ball.style.top=(y*100)+'%';ball.style.bottom='auto';ball.style.transform='translate(-50%,-50%) scale(.58)';
   ball.classList.add('shot');
+  if(scored)pitch.classList.add('is-goal');else if(saved)pitch.classList.add('is-save');else pitch.classList.add('is-miss');
   setTimeout(()=>{
-   if(goal){penaltyGoals++;points+=20;total+=20;streak++;best=Math.max(best,streak);el('game-feedback').textContent=wide?'🚀 MUHTEŞEM GOL! Köşeye bıraktın. +20 puan':'⚽ GOL! Kaleci çaresiz kaldı. +20 puan';el('game-feedback').className='game-feedback good'}
-   else{penaltySaves++;streak=0;el('game-feedback').textContent=tooHigh?'😬 AUT! Top üstten dışarı gitti.':'🧤 KALECİ KURTARDI!';el('game-feedback').className='game-feedback bad'}
+   if(scored){penaltyGoals++;points+=20;total+=20;streak++;best=Math.max(best,streak);el('game-feedback').textContent='⚽ GOOOL! Köşeye bıraktın, kaleci uzanamadı. +20 puan';el('game-feedback').className='game-feedback good'}
+   else if(saved){penaltySaves++;streak=0;el('game-feedback').textContent='🧤 KALECİ ÇIKARDI! Doğru köşeyi tahmin etti.';el('game-feedback').className='game-feedback bad'}
+   else{streak=0;el('game-feedback').textContent=postHit?'🥅 DİREK! Top direkten oyun alanına döndü.':'↗️ AUT! Şut çerçevenin dışında kaldı.';el('game-feedback').className='game-feedback bad'}
    stats();penaltyAt++;
    if(penaltyAt>=penaltyShooters.length){finishPenalty();return}
    el('game-next').hidden=false;el('game-next').disabled=false;el('game-next').textContent='Sonraki penaltı →';
-  },650);
+  },760);
  }
  function finishPenalty(){
   rounds++;stats();el('game-play').hidden=true;el('game-result').hidden=false;el('game-progress-bar').style.width='100%';
